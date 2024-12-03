@@ -1,0 +1,23 @@
+
+==========================
+ * From theorem premises:
+A B C D : Points
+BD ⟂ AC [00]
+CD ⟂ AB [01]
+
+ * Auxiliary Constructions:
+E : Points
+C,A,E are collinear [02]
+E,D,B are collinear [03]
+
+ * Proof steps:
+001. C,A,E are collinear [02] & B,D,E are collinear [03] & BD ⟂ AC [00] ⇒  ∠CED = ∠BEA [04]
+002. C,A,E are collinear [02] & B,D,E are collinear [03] & BD ⟂ AC [00] ⇒  ∠DEA = ∠CEB [05]
+003. B,D,E are collinear [03] & AC ⟂ BD [00] ⇒  CA ⟂ ED [06]
+004. CA ⟂ ED [06] & CD ⟂ AB [01] ⇒  ∠CAB = ∠EDC [07]
+005. B,D,E are collinear [03] & C,A,E are collinear [02] & ∠CAB = ∠EDC [07] ⇒  ∠CDE = ∠BAE [08]
+006. ∠CED = ∠BEA [04] & ∠CDE = ∠BAE [08] (Similar Triangles)⇒  CE:EB = DE:AE [09]
+007. CE:EB = DE:AE [09] & ∠DEA = ∠CEB [05] (Similar Triangles)⇒  ∠DAE = ∠CBE [10]
+008. CE:EB = DE:AE [09] & ∠DEA = ∠CEB [05] (Similar Triangles)⇒  ∠EDA = ∠ECB [11]
+009. ∠DAE = ∠CBE [10] & C,A,E are collinear [02] & E,D,B are collinear [03] & ∠EDA = ∠ECB [11] ⇒  AD ⟂ BC
+==========================
