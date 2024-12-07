@@ -1,0 +1,52 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I : Points
+∠DAB = ∠BCA [00]
+D,C,B are collinear [01]
+∠(AD-BC) = ∠BAC [02]
+E,C,B are collinear [03]
+∠EAC = ∠CBA [04]
+∠(BC-AE) = ∠BAC [05]
+DA = DF [06]
+A,D,F are collinear [07]
+EA = EG [08]
+E,A,G are collinear [09]
+F,B,H are collinear [10]
+G,C,H are collinear [11]
+IA = IB [12]
+IB = IC [13]
+
+ * Auxiliary Constructions:
+J : Points
+IJ = IA [14]
+I,A,J are collinear [15]
+
+ * Proof steps:
+001. E,C,B are collinear [03] & ∠BCA = ∠DAB [00] ⇒  ∠ECA = ∠DAB [16]
+002. D,C,B are collinear [01] & ∠EAC = ∠CBA [04] ⇒  ∠EAC = ∠DBA [17]
+003. ∠ECA = ∠DAB [16] & ∠EAC = ∠DBA [17] (Similar Triangles)⇒  EC:EA = DA:DB [18]
+004. E,C,B are collinear [03] & D,C,B are collinear [01] & ∠(AD-BC) = ∠BAC [02] & ∠(BC-AE) = ∠BAC [05] ⇒  ∠DEA = ∠ADE [19]
+005. ∠DEA = ∠ADE [19] ⇒  AD = AE [20]
+006. EC:EA = DA:DB [18] & DA = DF [06] & AD = AE [20] & EA = EG [08] ⇒  EC:EG = DF:DB [21]
+007. E,C,B are collinear [03] & E,G,A are collinear [09] & A,D,F are collinear [07] & D,C,B are collinear [01] & ∠(AD-BC) = ∠BAC [02] & ∠(BC-AE) = ∠BAC [05] ⇒  ∠CEG = ∠FDB [22]
+008. EC:EG = DF:DB [21] & ∠CEG = ∠FDB [22] (Similar Triangles)⇒  ∠ECG = ∠DFB [23]
+009. IA = IB [12] & IJ = IA [14] & IB = IC [13] ⇒  A,J,C,B are concyclic [24]
+010. IA = IB [12] & IJ = IA [14] & IB = IC [13] ⇒  I is the circumcenter of \Delta JCA [25]
+011. A,J,C,B are concyclic [24] ⇒  ∠ACJ = ∠ABJ [26]
+012. E,C,B are collinear [03] & D,C,B are collinear [01] & ∠BCA = ∠DAB [00] ⇒  ∠(ED-AC) = ∠DAB [27]
+013. ∠ACJ = ∠ABJ [26] & ∠(ED-AC) = ∠DAB [27] ⇒  ∠(JC-ED) = ∠(JB-AD) [28]
+014. F,B,H are collinear [10] & G,C,H are collinear [11] & ∠ECG = ∠DFB [23] & E,C,B are collinear [03] & A,D,F are collinear [07] & ∠(JC-ED) = ∠(JB-AD) [28] & D,C,B are collinear [01] ⇒  ∠BJC = ∠BHC [29]
+015. ∠BJC = ∠BHC [29] ⇒  J,C,B,H are concyclic [30]
+016. J,C,B,H are concyclic [30] & A,J,C,B are concyclic [24] ⇒  H,A,J,C are concyclic [31]
+017. J,C,B,H are concyclic [30] & A,J,C,B are concyclic [24] ⇒  H,B,A,J are concyclic [32]
+018. H,A,J,C are concyclic [31] ⇒  ∠JHA = ∠JCA [33]
+019. I is the circumcenter of \Delta JCA [25] & I,A,J are collinear [15] ⇒  CJ ⟂ AC [34]
+020. IA = IB [12] & IJ = IA [14] ⇒  I is the circumcenter of \Delta JBA [35]
+021. I is the circumcenter of \Delta JBA [35] & I,A,J are collinear [15] ⇒  BJ ⟂ AB [36]
+022. CJ ⟂ AC [34] & BJ ⟂ AB [36] ⇒  ∠JCA = ∠ABJ [37]
+023. H,B,A,J are concyclic [32] ⇒  ∠AHJ = ∠ABJ [38]
+024. ∠JHA = ∠JCA [33] & ∠JCA = ∠ABJ [37] & ∠AHJ = ∠ABJ [38] ⇒  AH ⟂ JH [39]
+025. I,A,J are collinear [15] & IJ = IA [14] ⇒  I is midpoint of AJ [40]
+026. AH ⟂ JH [39] & I is midpoint of AJ [40] ⇒  AI = HI
+==========================

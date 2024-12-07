@@ -1,0 +1,67 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I J K : Points
+DA = DB [00]
+DB = DC [01]
+EC = EA [02]
+DE = DA [03]
+∠ECA = ∠CAE [04]
+DF = DA [05]
+FC = FA [06]
+B,E,G are collinear [07]
+C,A,G are collinear [08]
+DH = DA [09]
+F,H,G are collinear [10]
+C,I,B are collinear [11]
+HI ⟂ BC [12]
+AJ:HJ = AJ:HJ [13]
+C,A,J are collinear [14]
+HJ ⟂ AC [15]
+K,A,B are collinear [16]
+HK ⟂ AB [17]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. C,A,J are collinear [14] & K,A,B are collinear [16] & HK ⟂ AB [17] & HJ ⟂ AC [15] ⇒  ∠HJA = ∠HKA [18]
+002. ∠HJA = ∠HKA [18] ⇒  H,K,A,J are concyclic [19]
+003. H,K,A,J are concyclic [19] ⇒  ∠HAK = ∠HJK [20]
+004. DA = DB [00] & DB = DC [01] ⇒  DC = DA [21]
+005. DC = DA [21] & EC = EA [02] ⇒  CA ⟂ DE [22]
+006. DC = DA [21] & EC = EA [02] (SSS)⇒  ∠CED = ∠DEA [23]
+007. DA = DB [00] & DE = DA [03] & DB = DC [01] ⇒  C,A,B,E are concyclic [24]
+008. DA = DB [00] & DH = DA [09] & DF = DA [05] & DE = DA [03] & C,A,B,E are concyclic [24] ⇒  H,C,A,B are concyclic [25]
+009. H,C,A,B are concyclic [25] ⇒  ∠BCH = ∠BAH [26]
+010. H,C,A,B are concyclic [25] ⇒  ∠CHB = ∠CAB [27]
+011. H,C,A,B are concyclic [25] ⇒  ∠AHB = ∠ACB [28]
+012. ∠HAK = ∠HJK [20] & K,A,B are collinear [16] & CA ⟂ DE [22] & HJ ⟂ AC [15] & ∠BCH = ∠BAH [26] ⇒  ∠BCH = ∠KJH [29]
+013. K,A,B are collinear [16] & AB ⟂ HK [17] ⇒  KA ⟂ HK [30]
+014. HJ ⟂ AC [15] & KA ⟂ HK [30] ⇒  ∠CAK = ∠JHK [31]
+015. ∠CHB = ∠CAB [27] & ∠CAK = ∠JHK [31] & K,A,B are collinear [16] ⇒  ∠JHK = ∠CHB [32]
+016. ∠BCH = ∠KJH [29] & ∠JHK = ∠CHB [32] (Similar Triangles)⇒  HC:CB = HJ:KJ [33]
+017. C,A,B,E are concyclic [24] ⇒  ∠EBA = ∠ECA [34]
+018. C,A,B,E are concyclic [24] ⇒  ∠CBE = ∠CAE [35]
+019. E,B,G are collinear [07] & ∠EBA = ∠ECA [34] & ∠ECA = ∠CAE [04] & ∠CBE = ∠CAE [35] ⇒  ∠CBG = ∠GBA [36]
+020. ∠CBG = ∠GBA [36] & C,A,G are collinear [08] ⇒  CG:CB = AG:AB [37]
+021. DA = DB [00] & DH = DA [09] & DF = DA [05] & H,C,A,B are concyclic [25] & C,A,B,E are concyclic [24] ⇒  H,E,A,F are concyclic [38]
+022. DA = DB [00] & DH = DA [09] & DF = DA [05] & H,C,A,B are concyclic [25] & C,A,B,E are concyclic [24] ⇒  H,E,C,F are concyclic [39]
+023. H,E,A,F are concyclic [38] ⇒  ∠HAE = ∠HFE [40]
+024. DC = DA [21] & FC = FA [06] ⇒  CA ⟂ DF [41]
+025. H,E,C,F are concyclic [39] ⇒  ∠HCE = ∠HFE [42]
+026. H,G,F are collinear [10] & ∠HAE = ∠HFE [40] & ∠CED = ∠DEA [23] & CA ⟂ DF [41] & AC ⟂ DE [22] & ∠HCE = ∠HFE [42] ⇒  ∠CHG = ∠GHA [43]
+027. ∠CHG = ∠GHA [43] & C,A,G are collinear [08] ⇒  CG:HC = AG:HA [44]
+028. CG:CB = AG:AB [37] & CG:HC = AG:HA [44] ⇒  HA:AB = HC:CB [45]
+029. C,I,B are collinear [11] & C,A,J are collinear [14] & HJ ⟂ AC [15] & HI ⟂ BC [12] ⇒  ∠CIH = ∠CJH [46]
+030. ∠CIH = ∠CJH [46] ⇒  H,C,I,J are concyclic [47]
+031. H,C,I,J are concyclic [47] ⇒  ∠HCI = ∠HJI [48]
+032. ∠HCI = ∠HJI [48] & C,I,B are collinear [11] & CA ⟂ DE [22] & HJ ⟂ AC [15] & ∠BCH = ∠BAH [26] ⇒  ∠BAH = ∠IJH [49]
+033. C,I,B are collinear [11] & HI ⟂ BC [12] ⇒  HI ⟂ CI [50]
+034. HJ ⟂ AC [15] & HI ⟂ CI [50] ⇒  ∠ACI = ∠JHI [51]
+035. ∠AHB = ∠ACB [28] & ∠ACI = ∠JHI [51] & C,I,B are collinear [11] ⇒  ∠JHI = ∠AHB [52]
+036. ∠BAH = ∠IJH [49] & ∠JHI = ∠AHB [52] (Similar Triangles)⇒  HA:AB = HJ:IJ [53]
+037. HC:CB = HJ:KJ [33] & HA:AB = HC:CB [45] & HA:AB = HJ:IJ [53] ⇒  HJ:IJ = HJ:KJ [54]
+038. AJ:HJ = AJ:HJ [13] & HJ:IJ = HJ:KJ [54] ⇒  IJ = KJ
+==========================

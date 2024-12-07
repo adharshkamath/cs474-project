@@ -1,0 +1,56 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I J K : Points
+DB = DC [00]
+DA = DB [01]
+DE = DA [02]
+∠BAE = ∠EBA [03]
+EA = EB [04]
+A,F,C are collinear [05]
+FC = FA [06]
+B,C,G are collinear [07]
+GC = GB [08]
+D,G,H are collinear [09]
+E,C,H are collinear [10]
+F,I,D are collinear [11]
+E,I,C are collinear [12]
+E,J,C are collinear [13]
+FJ ⟂ CE [14]
+E,K,C are collinear [15]
+CE ⟂ KG [16]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DB = DC [00] & GC = GB [08] ⇒  BC ⟂ DG [17]
+002. DB = DC [00] & DA = DB [01] ⇒  DA = DC [18]
+003. DA = DC [18] & FC = FA [06] ⇒  AC ⟂ DF [19]
+004. F,I,D are collinear [11] & A,F,C are collinear [05] & B,C,G are collinear [07] & D,G,H are collinear [09] & BC ⟂ DG [17] & AC ⟂ DF [19] ⇒  ∠IFC = ∠CGH [20]
+005. DA = DB [01] & DE = DA [02] & DB = DC [00] ⇒  A,E,B,C are concyclic [21]
+006. DA = DB [01] & DE = DA [02] & DB = DC [00] ⇒  D is the circumcenter of \Delta EBC [22]
+007. DA = DB [01] & DE = DA [02] & DB = DC [00] ⇒  D is the circumcenter of \Delta EAC [23]
+008. DA = DB [01] & DE = DA [02] & DB = DC [00] ⇒  DC = DE [24]
+009. A,E,B,C are concyclic [21] ⇒  ∠BAE = ∠BCE [25]
+010. A,E,B,C are concyclic [21] ⇒  ∠EBA = ∠ECA [26]
+011. E,I,C are collinear [12] & A,F,C are collinear [05] & B,C,G are collinear [07] & E,C,H are collinear [10] & ∠BAE = ∠BCE [25] & ∠BAE = ∠EBA [03] & ∠EBA = ∠ECA [26] ⇒  ∠ICF = ∠GCH [27]
+012. ∠IFC = ∠CGH [20] & ∠ICF = ∠GCH [27] (Similar Triangles)⇒  CI:CH = CF:CG [28]
+013. E,K,C are collinear [15] & E,J,C are collinear [13] & FJ ⟂ CE [14] & CE ⟂ KG [16] ⇒  ∠GKC = ∠CJF [29]
+014. B,C,G are collinear [07] & E,K,C are collinear [15] & E,J,C are collinear [13] & A,F,C are collinear [05] & ∠BAE = ∠BCE [25] & ∠BAE = ∠EBA [03] & ∠EBA = ∠ECA [26] ⇒  ∠GCK = ∠JCF [30]
+015. ∠GKC = ∠CJF [29] & ∠GCK = ∠JCF [30] (Similar Triangles)⇒  GK:FJ = GC:FC [31]
+016. B,C,G are collinear [07] & GC = GB [08] ⇒  G is midpoint of CB [32]
+017. D is the circumcenter of \Delta EBC [22] & G is midpoint of CB [32] ⇒  ∠EBD = ∠(CE-DG) [33]
+018. DA = DB [01] & EA = EB [04] (SSS)⇒  ∠DAE = ∠EBD [34]
+019. A,F,C are collinear [05] & FC = FA [06] ⇒  F is midpoint of CA [35]
+020. D is the circumcenter of \Delta EAC [23] & F is midpoint of CA [35] ⇒  ∠DAE = ∠(DF-CE) [36]
+021. F,I,D are collinear [11] & E,I,C are collinear [12] & E,C,H are collinear [10] & D,G,H are collinear [09] & ∠EBD = ∠(CE-DG) [33] & ∠DAE = ∠EBD [34] & ∠DAE = ∠(DF-CE) [36] ⇒  ∠DIE = ∠CHD [37]
+022. DC = DE [24] ⇒  ∠ECD = ∠DEC [38]
+023. E,I,C are collinear [12] & E,C,H are collinear [10] & ∠DEC = ∠ECD [38] ⇒  ∠DEI = ∠HCD [39]
+024. ∠DIE = ∠CHD [37] & ∠DEI = ∠HCD [39] (Similar Triangles)⇒  ED:CD = EI:CH [40]
+025. F,I,D are collinear [11] & E,I,C are collinear [12] & E,C,H are collinear [10] & D,G,H are collinear [09] & ∠EBD = ∠(CE-DG) [33] & ∠DAE = ∠EBD [34] & ∠DAE = ∠(DF-CE) [36] ⇒  ∠DIC = ∠EHD [41]
+026. E,I,C are collinear [12] & E,C,H are collinear [10] & ∠DCE = ∠CED [38] ⇒  ∠DCI = ∠HED [42]
+027. ∠DIC = ∠EHD [41] & ∠DCI = ∠HED [42] (Similar Triangles)⇒  CD:ED = CI:EH [43]
+028. CI:CH = CF:CG [28] & FC = FA [06] & GC = GB [08] & GK:FJ = GC:FC [31] & ED:CD = EI:CH [40] & DC = DE [24] & CD:ED = CI:EH [43] ⇒  GK:FJ = EI:EH
+==========================
