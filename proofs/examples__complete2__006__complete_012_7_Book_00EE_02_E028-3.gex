@@ -4,12 +4,12 @@
 A B C D E F G : Points
 AB = AC [00]
 AB ⟂ AC [01]
-D,B,C are collinear [02]
-DC = DB [03]
-C,A,E are collinear [04]
+DC = DB [02]
+C,B,D are collinear [03]
+A,C,E are collinear [04]
 FD = FC [05]
 FC = FE [06]
-G,B,E are collinear [07]
+G,E,B are collinear [07]
 FG = FC [08]
 
  * Auxiliary Constructions:
@@ -17,14 +17,14 @@ FG = FC [08]
 
 
  * Proof steps:
-001. AB = AC [00] & DC = DB [03] ⇒  BC ⟂ AD [09]
-002. D,B,C are collinear [02] & BC ⟂ AD [09] & AB ⟂ AC [01] ⇒  ∠BAC = ∠ADB [10]
-003. FD = FC [05] & FG = FC [08] & FC = FE [06] ⇒  D,G,C,E are concyclic [11]
-004. D,G,C,E are concyclic [11] ⇒  ∠DGE = ∠DCE [12]
-005. G,B,E are collinear [07] & D,B,C are collinear [02] & ∠DGE = ∠DCE [12] & C,A,E are collinear [04] ⇒  ∠(CA-GB) = ∠BDG [13]
-006. ∠BAC = ∠ADB [10] & ∠(CA-GB) = ∠BDG [13] ⇒  ∠ABG = ∠ADG [14]
-007. G,B,E are collinear [07] & ∠ABG = ∠ADG [14] ⇒  ∠BAD = ∠BGD [15]
-008. ∠BAD = ∠BGD [15] ⇒  D,B,A,G are concyclic [16]
-009. D,B,A,G are concyclic [16] ⇒  ∠DBG = ∠DAG [17]
-010. ∠DBG = ∠DAG [17] & D,B,C are collinear [02] & G,B,E are collinear [07] & BC ⟂ AD [09] ⇒  AG ⟂ BE
+001. AB = AC [00] & DC = DB [02] ⇒  BC ⟂ AD [09]
+002. BC ⟂ AD [09] & AB ⟂ AC [01] ⇒  ∠BAC = ∠(AD-CB) [10]
+003. FD = FC [05] & FG = FC [08] & FC = FE [06] ⇒  C,G,E,D are concyclic [11]
+004. C,G,E,D are concyclic [11] ⇒  ∠CEG = ∠CDG [12]
+005. G,E,B are collinear [07] & ∠CEG = ∠CDG [12] & A,C,E are collinear [04] & C,B,D are collinear [03] ⇒  ∠(AC-GE) = ∠(CB-GD) [13]
+006. ∠BAC = ∠(AD-CB) [10] & ∠(AC-GE) = ∠(CB-GD) [13] ⇒  ∠(AB-GE) = ∠ADG [14]
+007. G,E,B are collinear [07] & ∠(AB-GE) = ∠ADG [14] ⇒  ∠BGD = ∠BAD [15]
+008. ∠BGD = ∠BAD [15] ⇒  A,G,B,D are concyclic [16]
+009. A,G,B,D are concyclic [16] ⇒  ∠AGB = ∠ADB [17]
+010. ∠AGB = ∠ADB [17] & G,E,B are collinear [07] & C,B,D are collinear [03] & BC ⟂ AD [09] ⇒  AG ⟂ BE
 ==========================

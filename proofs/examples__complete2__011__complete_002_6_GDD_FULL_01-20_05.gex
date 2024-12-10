@@ -16,8 +16,8 @@ HB = HD [06]
 
  * Proof steps:
 001. HD = HC [05] & HB = HD [06] ⇒  HB = HC [07]
-002. EB = EC [01] & HB = HC [07] ⇒  BC ⟂ EH [08]
+002. EB = EC [01] & HB = HC [07] ⇒  CB ⟂ EH [08]
 003. FA = FB [02] & FB = FD [03] ⇒  FD = FA [09]
 004. FD = FA [09] & GA = GD [04] ⇒  DA ⟂ FG [10]
-005. AD ⟂ BC [00] & BC ⟂ EH [08] & DA ⟂ FG [10] ⇒  HE ⟂ GF
+005. AD ⟂ BC [00] & CB ⟂ EH [08] & DA ⟂ FG [10] ⇒  HE ⟂ GF
 ==========================

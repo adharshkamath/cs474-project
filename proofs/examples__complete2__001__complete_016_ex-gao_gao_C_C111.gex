@@ -2,27 +2,27 @@
 ==========================
  * From theorem premises:
 A B C D E F G H : Points
-BC:BA = BC:BA [00]
-DA ∥ BC [01]
-B,A,E are collinear [02]
+DA ∥ BC [00]
+CB:DC = CB:DC [01]
+B,E,A are collinear [02]
 FE ∥ AD [03]
-C,F,A are collinear [04]
-F,G,E are collinear [05]
-B,D,G are collinear [06]
-F,H,E are collinear [07]
-D,C,H are collinear [08]
+F,C,A are collinear [04]
+E,F,G are collinear [05]
+D,G,B are collinear [06]
+H,E,F are collinear [07]
+H,D,C are collinear [08]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. F,H,E are collinear [07] & F,G,E are collinear [05] & EF ∥ AD [03] & AD ∥ BC [01] ⇒  BC ∥ GH [09]
-002. BC ∥ GH [09] & B,D,G are collinear [06] & D,C,H are collinear [08] ⇒  DG:BD = HG:BC [10]
-003. F,E,G are collinear [05] & EF ∥ AD [03] ⇒  DA ∥ GE [11]
-004. DA ∥ GE [11] & B,D,G are collinear [06] & B,A,E are collinear [02] ⇒  DG:BD = AE:BA [12]
-005. EF ∥ AD [03] & AD ∥ BC [01] ⇒  BC ∥ EF [13]
-006. BC ∥ EF [13] & B,A,E are collinear [02] & C,F,A are collinear [04] ⇒  AE:BA = FE:BC [14]
-007. DG:BD = HG:BC [10] & DG:BD = AE:BA [12] & AE:BA = FE:BC [14] ⇒  FE:BC = HG:BC [15]
-008. FE:BC = HG:BC [15] & BC:BA = BC:BA [00] ⇒  FE = HG
+001. EF ∥ AD [03] & AD ∥ BC [00] ⇒  CB ∥ FE [09]
+002. CB ∥ FE [09] & F,C,A are collinear [04] & B,E,A are collinear [02] ⇒  FA:CA = EF:CB [10]
+003. H,E,F are collinear [07] & EF ∥ AD [03] ⇒  DA ∥ HF [11]
+004. DA ∥ HF [11] & H,D,C are collinear [08] & F,C,A are collinear [04] ⇒  HD:DC = FA:CA [12]
+005. H,E,F are collinear [07] & E,F,G are collinear [05] & EF ∥ AD [03] & AD ∥ BC [00] ⇒  CB ∥ HG [13]
+006. CB ∥ HG [13] & H,D,C are collinear [08] & D,G,B are collinear [06] ⇒  HD:DC = HG:CB [14]
+007. FA:CA = EF:CB [10] & HD:DC = FA:CA [12] & HD:DC = HG:CB [14] ⇒  HG:CB = EF:CB [15]
+008. HG:CB = EF:CB [15] & CB:DC = CB:DC [01] ⇒  HG = EF
 ==========================

@@ -3,24 +3,24 @@
  * From theorem premises:
 A B C D E F G : Points
 DB ∥ CA [00]
-AC:AD = AC:AD [01]
-B,A,E are collinear [02]
-D,E,C are collinear [03]
+E,A,B are collinear [01]
+D,C,E are collinear [02]
+DB:DE = DB:DE [03]
 FE ∥ CA [04]
-B,F,C are collinear [05]
-G,F,E are collinear [06]
-G,A,D are collinear [07]
+C,F,B are collinear [05]
+F,E,G are collinear [06]
+D,A,G are collinear [07]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. EF ∥ AC [04] & B,A,E are collinear [02] & B,F,C are collinear [05] ⇒  BE:BA = FE:AC [08]
-002. G,F,E are collinear [06] & BD ∥ AC [00] & EF ∥ AC [04] ⇒  GE ∥ DB [09]
-003. GE ∥ DB [09] & G,A,D are collinear [07] & B,A,E are collinear [02] ⇒  GD:AD = BE:BA [10]
-004. G,F,E are collinear [06] & EF ∥ AC [04] ⇒  GE ∥ AC [11]
-005. GE ∥ AC [11] & G,A,D are collinear [07] & D,E,C are collinear [03] ⇒  GD:AD = GE:AC [12]
-006. BE:BA = FE:AC [08] & GD:AD = BE:BA [10] & GD:AD = GE:AC [12] ⇒  GE:AC = FE:AC [13]
-007. GE:AC = FE:AC [13] & AC:AD = AC:AD [01] ⇒  GE = FE
+001. F,E,G are collinear [06] & BD ∥ AC [00] & EF ∥ AC [04] ⇒  EG ∥ BD [08]
+002. EG ∥ BD [08] & E,A,B are collinear [01] & D,A,G are collinear [07] ⇒  AB:EA = DB:EG [09]
+003. EF ∥ AC [04] & C,F,B are collinear [05] & E,A,B are collinear [01] ⇒  CB:CF = AB:EA [10]
+004. BD ∥ AC [00] & EF ∥ AC [04] ⇒  FE ∥ BD [11]
+005. FE ∥ BD [11] & C,F,B are collinear [05] & D,C,E are collinear [02] ⇒  CB:CF = DB:FE [12]
+006. AB:EA = DB:EG [09] & CB:CF = AB:EA [10] & CB:CF = DB:FE [12] ⇒  DB:FE = DB:EG [13]
+007. DB:FE = DB:EG [13] & DB:DE = DB:DE [03] ⇒  FE = EG
 ==========================

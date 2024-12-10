@@ -3,8 +3,8 @@
  * From theorem premises:
 A B C D E F : Points
 AD ⟂ BC [00]
-ED = EB [01]
-EB = EC [02]
+EB = EC [01]
+ED = EB [02]
 EF = EB [03]
 DF ⟂ CD [04]
 
@@ -13,8 +13,8 @@ DF ⟂ CD [04]
 
 
  * Proof steps:
-001. ED = EB [01] & EF = EB [03] & EB = EC [02] ⇒  D,B,C,F are concyclic [05]
-002. D,B,C,F are concyclic [05] ⇒  ∠CDF = ∠CBF [06]
-003. ∠CDF = ∠CBF [06] & DF ⟂ CD [04] ⇒  BF ⟂ BC [07]
-004. BF ⟂ BC [07] & AD ⟂ BC [00] ⇒  BF ∥ AD
+001. EB = EC [01] & EF = EB [03] & ED = EB [02] ⇒  F,B,C,D are concyclic [05]
+002. F,B,C,D are concyclic [05] ⇒  ∠CBF = ∠CDF [06]
+003. ∠CBF = ∠CDF [06] & DF ⟂ CD [04] ⇒  FB ⟂ BC [07]
+004. FB ⟂ BC [07] & AD ⟂ BC [00] ⇒  FB ∥ DA
 ==========================

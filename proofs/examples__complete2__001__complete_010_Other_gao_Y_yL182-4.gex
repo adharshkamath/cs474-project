@@ -2,15 +2,15 @@
 ==========================
  * From theorem premises:
 A B C D E F G H : Points
-A,C,B are collinear [00]
-CA = CB [01]
-EA ∥ BD [02]
-ED ∥ BA [03]
-E,D,F are collinear [04]
-FD = FE [05]
+CA = CB [00]
+A,C,B are collinear [01]
+ED ∥ BA [02]
+EA ∥ BD [03]
+F,D,E are collinear [04]
+FE = FD [05]
 G,C,E are collinear [06]
-G,A,D are collinear [07]
-H,B,F are collinear [08]
+A,D,G are collinear [07]
+H,F,B are collinear [08]
 A,H,D are collinear [09]
 
  * Auxiliary Constructions:
@@ -18,18 +18,15 @@ A,H,D are collinear [09]
 
 
  * Proof steps:
-001. A,C,B are collinear [00] & CA = CB [01] ⇒  C is midpoint of AB [10]
-002. E,D,F are collinear [04] & FD = FE [05] ⇒  F is midpoint of ED [11]
-003. C is midpoint of AB [10] & F is midpoint of ED [11] ⇒  AB:DE = CA:FD [12]
-004. BD ∥ AE [02] & DE ∥ AB [03] ⇒  ∠BDE = ∠EAB [13]
-005. DE ∥ AB [03] ⇒  ∠BED = ∠EBA [14]
-006. ∠BDE = ∠EAB [13] & ∠BED = ∠EBA [14] (Similar Triangles)⇒  ED = BA [15]
-007. ∠BDE = ∠EAB [13] & ∠BED = ∠EBA [14] (Similar Triangles)⇒  BD = EA [16]
-008. AB:DE = CA:FD [12] & ED = BA [15] ⇒  CA = FD [17]
-009. A,C,B are collinear [00] & E,D,F are collinear [04] & AB ∥ DE [03] & AE ∥ BD [02] ⇒  ∠CAE = ∠FDB [18]
-010. CA = FD [17] & BD = EA [16] & ∠CAE = ∠FDB [18] (SAS)⇒  ∠ACE = ∠DFB [19]
-011. G,C,E are collinear [06] & H,B,F are collinear [08] & ∠ACE = ∠DFB [19] & A,C,B are collinear [00] & E,D,F are collinear [04] & DE ∥ AB [03] ⇒  GE ∥ HF [20]
-012. A,H,D are collinear [09] & G,A,D are collinear [07] ⇒  D,G,H are collinear [21]
-013. GE ∥ HF [20] & D,G,H are collinear [21] & E,D,F are collinear [04] ⇒  FD:FE = HD:HG [22]
-014. FD:FE = HD:HG [22] & FD = FE [05] ⇒  HD = HG
+001. A,C,B are collinear [01] & F,D,E are collinear [04] & AB ∥ DE [02] ⇒  ∠ACE = ∠FEC [10]
+002. CA = CB [00] & FE = FD [05] ⇒  CA:CB = FE:FD [11]
+003. AE ∥ BD [03] & A,C,B are collinear [01] & F,D,E are collinear [04] & CA:CB = FE:FD [11] ⇒  CF ∥ AE [12]
+004. AE ∥ CF [12] ⇒  ∠AEC = ∠FCE [13]
+005. ∠ACE = ∠FEC [10] & ∠AEC = ∠FCE [13] (Similar Triangles)⇒  EA = CF [14]
+006. A,C,B are collinear [01] & AE ∥ CF [12] ⇒  ∠CAE = ∠BCF [15]
+007. CA = CB [00] & EA = CF [14] & ∠CAE = ∠BCF [15] (SAS)⇒  ∠ACE = ∠CBF [16]
+008. G,C,E are collinear [06] & H,B,F are collinear [08] & ∠ACE = ∠CBF [16] & A,C,B are collinear [01] ⇒  GE ∥ HF [17]
+009. A,D,G are collinear [07] & A,H,D are collinear [09] ⇒  D,G,H are collinear [18]
+010. GE ∥ HF [17] & D,G,H are collinear [18] & F,D,E are collinear [04] ⇒  FD:FE = HD:HG [19]
+011. FD:FE = HD:HG [19] & FD = FE [05] ⇒  HD = HG
 ==========================

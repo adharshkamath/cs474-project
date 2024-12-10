@@ -2,27 +2,27 @@
 ==========================
  * From theorem premises:
 A B C D E F : Points
-CA = CB [00]
-A,C,D are collinear [01]
-CE = CD [02]
-C,B,E are collinear [03]
-A,E,F are collinear [04]
-F,B,D are collinear [05]
+CB = CA [00]
+A,D,C are collinear [01]
+CD = CE [02]
+C,E,B are collinear [03]
+A,F,E are collinear [04]
+D,F,B are collinear [05]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. CA = CB [00] & CE = CD [02] ⇒  CA:CB = CE:CD [06]
-002. CA = CB [00] & CE = CD [02] ⇒  CA:CB = CD:CE [07]
-003. C,D,A are collinear [01] & C,B,E are collinear [03] ⇒  ∠ACB = ∠DCE [08]
-004. CA:CB = CE:CD [06] & ∠ACB = ∠DCE [08] (Similar Triangles)⇒  AC:EC = AB:ED [09]
-005. CA:CB = CD:CE [07] & ∠ACB = ∠DCE [08] (Similar Triangles)⇒  ∠CAB = ∠CDE [10]
-006. ∠CAB = ∠CDE [10] & A,C,D are collinear [01] ⇒  AB ∥ DE [11]
-007. AB ∥ DE [11] & A,E,F are collinear [04] & F,B,D are collinear [05] ⇒  AF:FE = AB:ED [12]
-008. AB ∥ DE [11] & A,E,F are collinear [04] & F,B,D are collinear [05] ⇒  AF:FE = FB:FD [13]
-009. AC:EC = AB:ED [09] & CA = CB [00] & CE = CD [02] & AF:FE = AB:ED [12] & AF:FE = FB:FD [13] ⇒  FB:FD = CB:CD [14]
-010. FB:FD = CB:CD [14] & F,B,D are collinear [05] ⇒  ∠BCF = ∠FCD [15]
-011. ∠BCF = ∠FCD [15] & A,C,D are collinear [01] ⇒  ∠BCF = ∠FCA
+001. CB = CA [00] & CD = CE [02] ⇒  CB:CA = CD:CE [06]
+002. CB = CA [00] & CD = CE [02] ⇒  CB:CA = CE:CD [07]
+003. C,E,B are collinear [03] & C,D,A are collinear [01] ⇒  ∠BCA = ∠ECD [08]
+004. CB:CA = CD:CE [06] & ∠BCA = ∠ECD [08] (Similar Triangles)⇒  CD:CB = DE:AB [09]
+005. CB:CA = CE:CD [07] & ∠BCA = ∠ECD [08] (Similar Triangles)⇒  ∠CBA = ∠CED [10]
+006. ∠CBA = ∠CED [10] & C,E,B are collinear [03] ⇒  AB ∥ DE [11]
+007. AB ∥ DE [11] & A,F,E are collinear [04] & D,F,B are collinear [05] ⇒  FE:AF = DE:AB [12]
+008. AB ∥ DE [11] & A,F,E are collinear [04] & D,F,B are collinear [05] ⇒  FE:AF = DF:FB [13]
+009. CD:CB = DE:AB [09] & FE:AF = DE:AB [12] & FE:AF = DF:FB [13] ⇒  FD:FB = CD:CB [14]
+010. FD:FB = CD:CB [14] & D,F,B are collinear [05] ⇒  ∠DCF = ∠FCB [15]
+011. ∠DCF = ∠FCB [15] & A,D,C are collinear [01] ⇒  ∠ACF = ∠FCB
 ==========================

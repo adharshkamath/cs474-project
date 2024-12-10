@@ -4,24 +4,24 @@
 A B C D E G : Points
 DC = DA [00]
 DA = DB [01]
-EC = ED [02]
-ED = EB [03]
-G,A,C are collinear [04]
+ED = EB [02]
+EC = ED [03]
+A,G,C are collinear [04]
 EG = EB [05]
 
  * Auxiliary Constructions:
-F : Points
-EF = EB [06]
+: Points
+
 
  * Proof steps:
-001. EC = ED [02] & ED = EB [03] & EG = EB [05] & EF = EB [06] ⇒  G,B,D,C are concyclic [07]
-002. G,B,D,C are concyclic [07] ⇒  ∠DGB = ∠DCB [08]
-003. G,B,D,C are concyclic [07] ⇒  ∠GCB = ∠GDB [09]
-004. G,B,D,C are concyclic [07] ⇒  ∠GCD = ∠GBD [10]
-005. DC = DA [00] & DA = DB [01] ⇒  DB = DC [11]
-006. DB = DC [11] ⇒  ∠CBD = ∠DCB [12]
-007. G,A,C are collinear [04] & ∠DGB = ∠DCB [08] & ∠CBD = ∠DCB [12] & ∠GCB = ∠GDB [09] ⇒  ∠AGD = ∠DGB [13]
-008. DC = DA [00] ⇒  ∠CAD = ∠DCA [14]
-009. G,A,C are collinear [04] & ∠CAD = ∠DCA [14] & ∠GCD = ∠GBD [10] ⇒  ∠DBG = ∠GAD [15]
-010. ∠AGD = ∠DGB [13] & ∠DBG = ∠GAD [15] (Similar Triangles)⇒  GB = GA
+001. ED = EB [02] & EG = EB [05] & EC = ED [03] ⇒  D,B,G,C are concyclic [06]
+002. D,B,G,C are concyclic [06] ⇒  ∠BCD = ∠BGD [07]
+003. D,B,G,C are concyclic [06] ⇒  ∠DBC = ∠DGC [08]
+004. D,B,G,C are concyclic [06] ⇒  ∠DCG = ∠DBG [09]
+005. DC = DA [00] & DA = DB [01] ⇒  DB = DC [10]
+006. DB = DC [10] ⇒  ∠DBC = ∠BCD [11]
+007. A,G,C are collinear [04] & ∠BCD = ∠BGD [07] & ∠DBC = ∠BCD [11] & ∠DBC = ∠DGC [08] ⇒  ∠DGA = ∠BGD [12]
+008. DC = DA [00] ⇒  ∠ACD = ∠DAC [13]
+009. A,G,C are collinear [04] & ∠DCG = ∠DBG [09] & ∠ACD = ∠DAC [13] ⇒  ∠DAG = ∠GBD [14]
+010. ∠DGA = ∠BGD [12] & ∠DAG = ∠GBD [14] (Similar Triangles)⇒  GA = GB
 ==========================

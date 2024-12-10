@@ -3,21 +3,21 @@
  * From theorem premises:
 A B C D E G : Points
 AB ⟂ AC [00]
-B,C,D are collinear [01]
-AD ⟂ BC [02]
-C,E,A are collinear [03]
-∠EBA = ∠CBE [04]
-B,E,G are collinear [05]
-G,A,D are collinear [06]
+AD ⟂ BC [01]
+A,E,C are collinear [02]
+∠EBA = ∠CBE [03]
+G,B,E are collinear [04]
+D,G,A are collinear [05]
 
  * Auxiliary Constructions:
-: Points
-
+F : Points
+F,B,C are collinear [06]
+BC ⟂ FE [07]
 
  * Proof steps:
-001. C,E,A are collinear [03] & B,D,C are collinear [01] & G,D,A are collinear [06] & AD ⟂ BC [02] & AB ⟂ AC [00] ⇒  ∠EAB = ∠BDG [07]
-002. B,D,C are collinear [01] & B,E,G are collinear [05] & ∠EBA = ∠CBE [04] ⇒  ∠EBA = ∠DBG [08]
-003. ∠EAB = ∠BDG [07] & ∠EBA = ∠DBG [08] (Similar Triangles)⇒  ∠AEB = ∠BGD [09]
-004. C,E,A are collinear [03] & B,E,G are collinear [05] & G,A,D are collinear [06] & ∠AEB = ∠BGD [09] ⇒  ∠AEG = ∠EGA [10]
-005. ∠AEG = ∠EGA [10] ⇒  AE = AG
+001. A,E,C are collinear [02] & F,B,C are collinear [06] & AD ⟂ BC [01] & AB ⟂ AC [00] & BC ⟂ FE [07] ⇒  ∠EAB = ∠BFE [08]
+002. F,B,C are collinear [06] & ∠EBA = ∠CBE [03] ⇒  ∠EBA = ∠FBE [09]
+003. ∠EAB = ∠BFE [08] & ∠EBA = ∠FBE [09] (Similar Triangles)⇒  ∠AEB = ∠BEF [10]
+004. A,E,C are collinear [02] & G,B,E are collinear [04] & D,G,A are collinear [05] & ∠AEB = ∠BEF [10] & BC ⟂ FE [07] & AD ⟂ BC [01] ⇒  ∠AEG = ∠EGA [11]
+005. ∠AEG = ∠EGA [11] ⇒  AE = AG
 ==========================

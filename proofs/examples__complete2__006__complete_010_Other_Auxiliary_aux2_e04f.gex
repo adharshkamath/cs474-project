@@ -3,21 +3,21 @@
  * From theorem premises:
 A B C D E F G : Points
 AB ∥ CD [00]
-A,E,C are collinear [01]
-EC = EA [02]
+E,C,A are collinear [01]
+EA = EC [02]
 F,B,D are collinear [03]
-FD = FB [04]
+FB = FD [04]
 G,A,D are collinear [05]
-G,F,E are collinear [06]
+E,F,G are collinear [06]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. EC = EA [02] & FD = FB [04] ⇒  EC:EA = FD:FB [07]
-002. AB ∥ CD [00] & A,E,C are collinear [01] & F,B,D are collinear [03] & EC:EA = FD:FB [07] ⇒  EF ∥ AB [08]
-003. G,F,E are collinear [06] & EF ∥ AB [08] ⇒  AB ∥ GF [09]
-004. AB ∥ GF [09] & G,A,D are collinear [05] & F,B,D are collinear [03] ⇒  FD:FB = GD:GA [10]
-005. G,A,D are collinear [05] & FD:FB = GD:GA [10] & FD = FB [04] ⇒  G is midpoint of AD
+001. EA = EC [02] & FB = FD [04] ⇒  EA:EC = FB:FD [07]
+002. AB ∥ CD [00] & E,C,A are collinear [01] & F,B,D are collinear [03] & EA:EC = FB:FD [07] ⇒  EF ∥ CD [08]
+003. E,F,G are collinear [06] & EF ∥ CD [08] ⇒  CD ∥ EG [09]
+004. CD ∥ EG [09] & E,C,A are collinear [01] & G,A,D are collinear [05] ⇒  EA:EC = GA:GD [10]
+005. G,A,D are collinear [05] & EA:EC = GA:GD [10] & EC = EA [02] ⇒  G is midpoint of AD
 ==========================

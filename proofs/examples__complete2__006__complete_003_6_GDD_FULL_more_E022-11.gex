@@ -4,32 +4,32 @@
 A B C D E F G : Points
 DA = DB [00]
 DB = DC [01]
-E,B,A are collinear [02]
+E,A,B are collinear [02]
 DE ⟂ AB [03]
 BF ⟂ BD [04]
 CF ⟂ CD [05]
-D,G,E are collinear [06]
-G,C,A are collinear [07]
+G,E,D are collinear [06]
+G,A,C are collinear [07]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. B,A,E are collinear [02] & D,G,E are collinear [06] & AB ⟂ DE [03] ⇒  EB ⟂ DG [08]
-002. EB ⟂ DG [08] & BF ⟂ BD [04] ⇒  ∠EBF = ∠GDB [09]
-003. DA = DB [00] & DB = DC [01] ⇒  D is the circumcenter of \Delta CAB [10]
-004. D is the circumcenter of \Delta CAB [10] & BF ⟂ BD [04] ⇒  ∠ABF = ∠ACB [11]
-005. G,C,A are collinear [07] & D,G,E are collinear [06] & ∠EBF = ∠GDB [09] & E,B,A are collinear [02] & ∠ABF = ∠ACB [11] ⇒  ∠GCB = ∠GDB [12]
-006. ∠GCB = ∠GDB [12] ⇒  D,G,B,C are concyclic [13]
-007. BF ⟂ BD [04] & CF ⟂ CD [05] ⇒  ∠FCD = ∠FBD [14]
-008. BF ⟂ BD [04] & CF ⟂ CD [05] ⇒  ∠FBD = ∠DCF [15]
-009. ∠FCD = ∠FBD [14] ⇒  D,B,C,F are concyclic [16]
-010. D,G,B,C are concyclic [13] & D,B,C,F are concyclic [16] ⇒  D,G,B,F are concyclic [17]
-011. D,G,B,C are concyclic [13] & D,G,B,F are concyclic [17] ⇒  F,C,D,G are concyclic [18]
-012. F,C,D,G are concyclic [18] ⇒  ∠FCD = ∠FGD [19]
-013. B,F,D,G are concyclic [17] ⇒  ∠BFG = ∠BDG [20]
-014. D,G,E are collinear [06] & ∠FCD = ∠FGD [19] & ∠FBD = ∠DCF [15] & ∠BFG = ∠BDG [20] ⇒  GF ⟂ DG [21]
-015. GF ⟂ DG [21] & EB ⟂ DG [08] ⇒  GF ∥ EB [22]
-016. GF ∥ EB [22] & E,B,A are collinear [02] ⇒  FG ∥ AB
+001. DA = DB [00] & DB = DC [01] ⇒  D is the circumcenter of \Delta BAC [08]
+002. D is the circumcenter of \Delta BAC [08] & BF ⟂ BD [04] ⇒  ∠FBA = ∠BCA [09]
+003. G,E,D are collinear [06] & B,A,E are collinear [02] & DE ⟂ AB [03] ⇒  GE ⟂ EA [10]
+004. BF ⟂ BD [04] & GE ⟂ EA [10] ⇒  ∠(FB-EA) = ∠(BD-GE) [11]
+005. G,E,D are collinear [06] & G,A,C are collinear [07] & ∠FBA = ∠BCA [09] & ∠(FB-EA) = ∠(BD-GE) [11] & E,A,B are collinear [02] ⇒  ∠BDG = ∠BCG [12]
+006. ∠BDG = ∠BCG [12] ⇒  G,C,B,D are concyclic [13]
+007. CF ⟂ CD [05] & BF ⟂ BD [04] ⇒  ∠DBF = ∠DCF [14]
+008. CF ⟂ CD [05] & BF ⟂ BD [04] ⇒  ∠FCD = ∠DBF [15]
+009. ∠DBF = ∠DCF [14] ⇒  F,B,D,C are concyclic [16]
+010. G,C,B,D are concyclic [13] & F,B,D,C are concyclic [16] ⇒  G,F,B,D are concyclic [17]
+011. G,C,B,D are concyclic [13] & F,B,D,C are concyclic [16] ⇒  G,C,F,D are concyclic [18]
+012. G,F,B,D are concyclic [17] ⇒  ∠GFB = ∠GDB [19]
+013. G,C,F,D are concyclic [18] ⇒  ∠GFC = ∠GDC [20]
+014. G,E,D are collinear [06] & ∠GFB = ∠GDB [19] & ∠FCD = ∠DBF [15] & ∠GFC = ∠GDC [20] ⇒  GF ⟂ GE [21]
+015. GF ⟂ GE [21] & GE ⟂ EA [10] ⇒  GF ∥ EA [22]
+016. GF ∥ EA [22] & E,A,B are collinear [02] ⇒  FG ∥ AB
 ==========================

@@ -4,34 +4,34 @@
 A B C D E F G H : Points
 DC ∥ BA [00]
 DA ∥ BC [01]
-E,B,A are collinear [02]
-C,F,D are collinear [03]
+E,A,B are collinear [02]
+F,C,D are collinear [03]
 FA ∥ CE [04]
-G,F,A are collinear [05]
-E,G,D are collinear [06]
-C,E,H are collinear [07]
-B,F,H are collinear [08]
+F,A,G are collinear [05]
+E,D,G are collinear [06]
+C,H,E are collinear [07]
+F,H,B are collinear [08]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. C,F,D are collinear [03] & C,E,H are collinear [07] & CD ∥ AB [00] & CE ∥ AF [04] ⇒  ∠FCH = ∠BAF [09]
-002. B,F,H are collinear [08] & C,E,H are collinear [07] & CE ∥ AF [04] ⇒  ∠FHC = ∠BFA [10]
-003. ∠FCH = ∠BAF [09] & ∠FHC = ∠BFA [10] (Similar Triangles)⇒  CF:CH = AB:AF [11]
-004. AD ∥ BC [01] & AB ∥ CD [00] ⇒  ∠DAB = ∠BCD [12]
-005. AB ∥ CD [00] ⇒  ∠DBA = ∠BDC [13]
-006. ∠DAB = ∠BCD [12] & ∠DBA = ∠BDC [13] (Similar Triangles)⇒  BA = DC [14]
-007. C,F,D are collinear [03] & E,B,A are collinear [02] & CD ∥ AB [00] & CE ∥ AF [04] ⇒  ∠FCE = ∠EAF [15]
-008. CE ∥ AF [04] ⇒  ∠FEC = ∠EFA [16]
-009. ∠FCE = ∠EAF [15] & ∠FEC = ∠EFA [16] (Similar Triangles)⇒  EC = FA [17]
-010. ∠FCE = ∠EAF [15] & ∠FEC = ∠EFA [16] (Similar Triangles)⇒  FC = EA [18]
-011. E,B,A are collinear [02] & G,F,A are collinear [05] & CD ∥ AB [00] & CE ∥ AF [04] ⇒  ∠DCE = ∠EAG [19]
-012. E,G,D are collinear [06] & G,F,A are collinear [05] & CE ∥ AF [04] ⇒  ∠DEC = ∠EGA [20]
-013. ∠DCE = ∠EAG [19] & ∠DEC = ∠EGA [20] (Similar Triangles)⇒  CD:CE = AE:AG [21]
-014. CF:CH = AB:AF [11] & BA = DC [14] & EC = FA [17] & CE:CD = GA:EA [21] ⇒  AG:AE = CH:CF [22]
-015. G,F,A are collinear [05] & E,B,A are collinear [02] & C,E,H are collinear [07] & C,F,D are collinear [03] & AF ∥ CE [04] & AB ∥ CD [00] ⇒  ∠GAE = ∠HCF [23]
+001. F,C,D are collinear [03] & C,H,E are collinear [07] & AB ∥ CD [00] & AF ∥ CE [04] ⇒  ∠BAF = ∠FCH [09]
+002. F,H,B are collinear [08] & H,E,C are collinear [07] & AF ∥ CE [04] ⇒  ∠BFA = ∠FHC [10]
+003. ∠BAF = ∠FCH [09] & ∠BFA = ∠FHC [10] (Similar Triangles)⇒  FA:AB = CH:FC [11]
+004. E,A,B are collinear [02] & F,A,G are collinear [05] & AB ∥ CD [00] & AF ∥ CE [04] ⇒  ∠EAG = ∠DCE [12]
+005. E,D,G are collinear [06] & F,A,G are collinear [05] & AF ∥ CE [04] ⇒  ∠EGA = ∠DEC [13]
+006. ∠EAG = ∠DCE [12] & ∠EGA = ∠DEC [13] (Similar Triangles)⇒  AE:AG = CD:CE [14]
+007. F,C,D are collinear [03] & E,A,B are collinear [02] & CD ∥ AB [00] & AF ∥ CE [04] ⇒  ∠CFA = ∠AEC [15]
+008. AF ∥ CE [04] ⇒  ∠CAF = ∠ACE [16]
+009. ∠CFA = ∠AEC [15] & ∠CAF = ∠ACE [16] (Similar Triangles)⇒  CF = AE [17]
+010. ∠CFA = ∠AEC [15] & ∠CAF = ∠ACE [16] (Similar Triangles)⇒  AF = CE [18]
+011. AD ∥ BC [01] & AB ∥ CD [00] ⇒  ∠DAB = ∠BCD [19]
+012. AB ∥ CD [00] ⇒  ∠DBA = ∠BDC [20]
+013. ∠DAB = ∠BCD [19] & ∠DBA = ∠BDC [20] (Similar Triangles)⇒  BA = DC [21]
+014. FA:AB = CH:FC [11] & AE:AG = CD:CE [14] & CF = AE [17] & BA = DC [21] & AF = CE [18] ⇒  AG:AE = CH:CF [22]
+015. F,A,G are collinear [05] & E,A,B are collinear [02] & C,H,E are collinear [07] & F,C,D are collinear [03] & AF ∥ CE [04] & AB ∥ CD [00] ⇒  ∠GAE = ∠HCF [23]
 016. AG:AE = CH:CF [22] & ∠GAE = ∠HCF [23] (Similar Triangles)⇒  EA:FC = EG:FH [24]
-017. EA:FC = EG:FH [24] & FC = EA [18] ⇒  EG = FH
+017. EA:FC = EG:FH [24] & CF = AE [17] ⇒  EG = FH
 ==========================

@@ -6,23 +6,23 @@ DA = DB [00]
 DB = DC [01]
 DE = DA [02]
 BE ⟂ AC [03]
-B,A,F are collinear [04]
+A,F,B are collinear [04]
 FB = FA [05]
-C,G,A are collinear [06]
-G,E,B are collinear [07]
+A,G,C are collinear [06]
+E,B,G are collinear [07]
 
  * Auxiliary Constructions:
 : Points
 
 
  * Proof steps:
-001. DA = DB [00] & DE = DA [02] & DB = DC [01] ⇒  C,E,B,A are concyclic [08]
-002. C,E,B,A are concyclic [08] ⇒  ∠BEC = ∠BAC [09]
-003. G,E,B are collinear [07] & G,C,A are collinear [06] & BE ⟂ AC [03] ⇒  BG ⟂ GA [10]
-004. B,A,F are collinear [04] & FB = FA [05] ⇒  F is midpoint of BA [11]
-005. BG ⟂ GA [10] & F is midpoint of BA [11] ⇒  AF = GF [12]
-006. AF = GF [12] ⇒  ∠FAG = ∠AGF [13]
-007. C,G,A are collinear [06] & G,E,B are collinear [07] & ∠BEC = ∠BAC [09] & ∠FAG = ∠AGF [13] & B,A,F are collinear [04] ⇒  ∠CGF = ∠GEC [14]
-008. C,G,A are collinear [06] & G,E,B are collinear [07] & AC ⟂ BE [03] ⇒  CG ⟂ GE [15]
-009. ∠CGF = ∠GEC [14] & CG ⟂ GE [15] ⇒  CE ⟂ FG
+001. DA = DB [00] & DE = DA [02] & DB = DC [01] ⇒  E,A,B,C are concyclic [08]
+002. E,A,B,C are concyclic [08] ⇒  ∠ABE = ∠ACE [09]
+003. A,G,C are collinear [06] & E,B,G are collinear [07] & AC ⟂ BE [03] ⇒  AG ⟂ GB [10]
+004. A,F,B are collinear [04] & FB = FA [05] ⇒  F is midpoint of BA [11]
+005. AG ⟂ GB [10] & F is midpoint of BA [11] ⇒  BF = GF [12]
+006. BF = GF [12] ⇒  ∠FBG = ∠BGF [13]
+007. A,G,C are collinear [06] & ∠ABE = ∠ACE [09] & ∠FBG = ∠BGF [13] & A,F,B are collinear [04] & E,B,G are collinear [07] ⇒  ∠(EB-FG) = ∠(AG-EC) [14]
+008. A,G,C are collinear [06] & AC ⟂ BE [03] ⇒  AG ⟂ EB [15]
+009. ∠(EB-FG) = ∠(AG-EC) [14] & AG ⟂ EB [15] ⇒  CE ⟂ FG
 ==========================

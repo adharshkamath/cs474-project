@@ -127,16 +127,16 @@ class LanguageE(object):
           3. if a is the center of alpha then a is inside alpha          
         """
         self.axioms.append(ForAll([a, b, alpha], \
-            Implies((And (self.Center(a, alpha), self.Center(b, alpha))), a == b)))
+            Implies((And (self.Center(a, alpha), self.Center(b, alpha))), a == b))) # LG
         self.axioms.append(ForAll([a, alpha], \
-            Implies(self.Center(a, alpha), self.Inside(a, alpha))))
+            Implies(self.Center(a, alpha), self.Inside(a, alpha)))) # LG
         
         """
           No degenerate circles
           4. if a is inside alpha, then a is not on alpha
         """
         self.axioms.append(ForAll([a, alpha] , \
-            Implies(self.Inside(a, alpha), Not(self.OnCircle(a, alpha)))))
+            Implies(self.Inside(a, alpha), Not(self.OnCircle(a, alpha))))) # LG
         
         """
           Strict betweeness
@@ -154,27 +154,27 @@ class LanguageE(object):
         
         self.axioms.append(ForAll([a, b, c], \
             Implies(self.Between(a, b, c), \
-                And(self.Between(c, b, a), Not(a == c), Not(a == b), Not(self.Between(b, a, c))))))
+                And(self.Between(c, b, a), Not(a == c), Not(a == b), Not(self.Between(b, a, c)))))) # LG
         
         self.axioms.append(ForAll([a, b, c], \
             Implies(And(\
                 self.Between(a, b, c), self.OnLine(a, L), self.OnLine(b, L)), \
-                    self.OnLine(c, L))))
+                    self.OnLine(c, L)))) # LG
         
         self.axioms.append(ForAll([a, b, c], \
             Implies(And(\
                 self.Between(a, b, c), self.OnLine(a, L), self.OnLine(c, L)), \
-                    self.OnLine(b, L))))
+                    self.OnLine(b, L)))) # LG
         
         self.axioms.append(ForAll([a, b, c], \
             Implies(And(\
                 self.Between(a, b, c), self.Between(a, d, b)), \
-                    self.Between(a, d, c))))
+                    self.Between(a, d, c)))) # LG
         
         self.axioms.append(ForAll([a, b, c, d], \
             Implies(And(\
                 self.Between(a, b, c), self.Between(b, c, d)), \
-                    self.Between(a, b, d))))
+                    self.Between(a, b, d)))) # LG
         
         self.axioms.append(ForAll([a, b, c, L], \
             Implies(And(\
@@ -372,15 +372,13 @@ class LanguageE(object):
         
         self.axioms.append(ForAll ([a, b, c], \
             Implies(And(\
-                Not(a == b), Not(b == c)), \
+                Not(a == b), Not(a == c)), \
                     self.Angle(a, b, c) == self.Angle(c, b, a))))
         
         self.axioms.append(ForAll ([a, b, c], \
-            Implies(And(\
-                Not((a == b)), Not((b == c))), \
-                    And(\
-                        self.Angle(a, b, c) >= RealVal(0.0), \
-                        self.Angle(a, b, c) <= (self.RightAngle + self.RightAngle)))))
+             And(\
+                    self.Angle(a, b, c) >= RealVal(0.0), \
+                    self.Angle(a, b, c) <= (self.RightAngle + self.RightAngle))))
         
         """
             Areas
@@ -410,16 +408,15 @@ class LanguageE(object):
             Implies(And(\
                 self.Center(a, alpha), self.Center(a, beta), self.OnCircle(b, alpha), self.OnCircle(c, beta), \
                 self.Segment(a, b) == self.Segment(a, c)), \
-                    (alpha == beta))))
+                    (alpha == beta)))) # LG
         
         self.axioms.append(ForAll([a, b, c, alpha], \
-            Implies(And(self.Center(a, alpha), self.OnCircle(b, beta), self.Segment(a, c) == self.Segment(a, b)), \
-                self.OnCircle(c, alpha))))
+            (And(self.Center(a, alpha), self.OnCircle(b, beta), self.Segment(a, c) == self.Segment(a, b)) == self.OnCircle(c, alpha)))) # LG
         
         self.axioms.append(ForAll([a, b, c, alpha], \
             Implies(And(\
                 self.Center(a, alpha), self.OnCircle(b, alpha)), \
-                    ((self.Segment(a, c) == self.Segment(a, b)) == self.Inside(c, alpha)))))
+                    ((self.Segment(a, c) < self.Segment(a, b)) == self.Inside(c, alpha))))) # LG
         
         
         """
