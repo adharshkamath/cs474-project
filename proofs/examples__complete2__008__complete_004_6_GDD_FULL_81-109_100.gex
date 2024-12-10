@@ -1,0 +1,30 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+BA = AC [00]
+CB = BA [01]
+CB = CD [02]
+B,C,D are collinear [03]
+D,C,E are collinear [04]
+DC = DE [05]
+C,A,F are collinear [06]
+EF ⟂ AC [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. BA = AC [00] & CB = BA [01] & CB = CD [02] ⇒  C is the circumcenter of \Delta BAD [08]
+002. C is the circumcenter of \Delta BAD [08] & B,C,D are collinear [03] ⇒  AB ⟂ AD [09]
+003. C,A,F are collinear [06] & EF ⟂ AC [07] ⇒  EF ⟂ FC [10]
+004. D,E,C are collinear [04] & DC = DE [05] ⇒  D is midpoint of EC [11]
+005. EF ⟂ FC [10] & D is midpoint of EC [11] ⇒  CD = FD [12]
+006. CD = FD [12] & CB = CD [02] & CB = BA [01] ⇒  BA = DF [13]
+007. CD = FD [12] ⇒  ∠DFC = ∠FCD [14]
+008. CB = BA [01] ⇒  ∠BAC = ∠ACB [15]
+009. C,A,F are collinear [06] & ∠DFC = ∠FCD [14] & B,C,D are collinear [03] & ∠BAC = ∠ACB [15] ⇒  ∠BAF = ∠DFA [16]
+010. BA = DF [13] & ∠BAF = ∠DFA [16] (SAS)⇒  ∠BFA = ∠DAF [17]
+011. AB ⟂ AD [09] & ∠BFA = ∠DAF [17] & C,A,F are collinear [06] ⇒  AB ⟂ BF
+==========================

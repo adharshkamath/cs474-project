@@ -1,0 +1,27 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AC = AB [00]
+AD = AB [01]
+AE = AB [02]
+BE = BC [03]
+D,C,F are collinear [04]
+BF = BC [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AD = AB [01] & AE = AB [02] & AC = AB [00] ⇒  D,C,B,E are concyclic [06]
+002. D,C,B,E are concyclic [06] ⇒  ∠DCB = ∠DEB [07]
+003. D,C,B,E are concyclic [06] ⇒  ∠EDB = ∠ECB [08]
+004. D,C,B,E are concyclic [06] ⇒  ∠BDC = ∠BEC [09]
+005. BF = BC [05] ⇒  ∠BCF = ∠CFB [10]
+006. D,C,F are collinear [04] & ∠DCB = ∠DEB [07] & ∠BCF = ∠CFB [10] ⇒  ∠BFD = ∠DEB [11]
+007. BE = BC [03] ⇒  ∠BEC = ∠ECB [12]
+008. D,C,F are collinear [04] & ∠EDB = ∠ECB [08] & ∠BEC = ∠ECB [12] & ∠BDC = ∠BEC [09] ⇒  ∠BDF = ∠EDB [13]
+009. ∠BFD = ∠DEB [11] & ∠BDF = ∠EDB [13] (Similar Triangles)⇒  FB:EB = FD:ED [14]
+010. FB:EB = FD:ED [14] & BF = BC [05] & BE = BC [03] ⇒  FD = ED
+==========================

@@ -1,0 +1,31 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+C,A,B are collinear [00]
+AD = AC [01]
+CD = CA [02]
+∠EBA = ∠DCA [03]
+∠ECA = ∠DAB [04]
+C,F,D are collinear [05]
+F,E,A are collinear [06]
+C,E,G are collinear [07]
+D,G,B are collinear [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DA = CA [01] ⇒  FA:DA = FA:DA [09]
+002. C,F,D are collinear [05] & C,A,B are collinear [00] & ∠EBA = ∠DCA [03] ⇒  ∠EBA = ∠FCA [10]
+003. F,A,E are collinear [06] & C,A,B are collinear [00] ⇒  ∠EAB = ∠FAC [11]
+004. ∠EBA = ∠FCA [10] & ∠EAB = ∠FAC [11] (Similar Triangles)⇒  BE:BA = CF:CA [12]
+005. ∠EBA = ∠DCA [03] & C,A,B are collinear [00] & ∠ECA = ∠DAB [04] ⇒  ∠BEC = ∠CDA [13]
+006. C,A,B are collinear [00] & ∠ECA = ∠DAB [04] ⇒  ∠BCE = ∠CAD [14]
+007. ∠BEC = ∠CDA [13] & ∠BCE = ∠CAD [14] (Similar Triangles)⇒  CD:CA = BE:BC [15]
+008. C,E,G are collinear [07] & ∠ECA = ∠DAB [04] & C,A,B are collinear [00] ⇒  CG ∥ AD [16]
+009. CG ∥ AD [16] & C,A,B are collinear [00] & D,G,B are collinear [08] ⇒  BC:BA = CG:AD [17]
+010. BE:BA = CF:CA [12] & CD:CA = BE:BC [15] & CD = CA [02] & BC:BA = CG:AD [17] & AD = AC [01] ⇒  DA:CG = DA:CF [18]
+011. FA:DA = FA:DA [09] & DA:CG = DA:CF [18] ⇒  CG = CF
+==========================

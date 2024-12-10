@@ -1,0 +1,19 @@
+
+==========================
+ * From theorem premises:
+A B C D E : Points
+CA = CB [00]
+DA = DB [01]
+E,C,D are collinear [02]
+E,A,B are collinear [03]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CA = CB [00] & DA = DB [01] (SSS)⇒  ∠ACD = ∠DCB [04]
+002. E,C,D are collinear [02] & ∠ACD = ∠DCB [04] ⇒  ∠ACE = ∠ECB [05]
+003. ∠ACE = ∠ECB [05] & E,A,B are collinear [03] ⇒  CA:CB = EA:EB [06]
+004. CA:CB = EA:EB [06] & CA = CB [00] ⇒  EA = EB
+==========================

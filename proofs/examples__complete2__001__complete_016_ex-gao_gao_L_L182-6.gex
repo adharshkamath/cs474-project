@@ -1,0 +1,36 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I : Points
+B,D,C are collinear [00]
+DB = DC [01]
+B,A,E are collinear [02]
+C,F,E are collinear [03]
+FE = FC [04]
+B,A,G are collinear [05]
+GB = GA [06]
+H,F,G are collinear [07]
+HG = HF [08]
+D,I,H are collinear [09]
+B,I,A are collinear [10]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. H,F,G are collinear [07] & HG = HF [08] ⇒  H is midpoint of FG [11]
+002. B,D,C are collinear [00] & DB = DC [01] ⇒  D is midpoint of BC [12]
+003. C,F,E are collinear [03] & FE = FC [04] ⇒  F is midpoint of CE [13]
+004. D is midpoint of BC [12] & F is midpoint of CE [13] ⇒  DF ∥ BE [14]
+005. B,I,A are collinear [10] & B,A,G are collinear [05] & DF ∥ BE [14] & B,A,E are collinear [02] ⇒  DF ∥ IG [15]
+006. DF ∥ IG [15] & D,I,H are collinear [09] & H,F,G are collinear [07] ⇒  HF:HG = HD:HI [16]
+007. D,I,H are collinear [09] & HF:HG = HD:HI [16] & HG = HF [08] ⇒  H is midpoint of DI [17]
+008. H is midpoint of FG [11] & H is midpoint of DI [17] ⇒  FI ∥ GD [18]
+009. B,A,G are collinear [05] & GB = GA [06] ⇒  G is midpoint of BA [19]
+010. D is midpoint of BC [12] & G is midpoint of BA [19] ⇒  DG ∥ CA [20]
+011. FI ∥ DG [18] & DG ∥ AC [20] ⇒  CA ∥ FI [21]
+012. B,I,A are collinear [10] & B,A,E are collinear [02] ⇒  E,A,I are collinear [22]
+013. CA ∥ FI [21] & C,F,E are collinear [03] & E,A,I are collinear [22] ⇒  FE:FC = IE:IA [23]
+014. FE:FC = IE:IA [23] & FE = FC [04] ⇒  IE = IA
+==========================

@@ -1,0 +1,27 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+BC ⟂ AB [00]
+CD = CB [01]
+CE = CB [02]
+AE = AB [03]
+AF = AB [04]
+F,B,D are collinear [05]
+CG = CD [06]
+D,G,C are collinear [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CD = CB [01] & CG = CD [06] & CE = CB [02] ⇒  G,B,D,E are concyclic [08]
+002. G,B,D,E are concyclic [08] ⇒  ∠GDB = ∠GEB [09]
+003. CD = CB [01] ⇒  ∠DBC = ∠CDB [10]
+004. AE = AB [03] & AF = AB [04] ⇒  A is the circumcenter of \Delta BEF [11]
+005. A is the circumcenter of \Delta BEF [11] & BC ⟂ AB [00] ⇒  ∠CBE = ∠BFE [12]
+006. ∠GDB = ∠GEB [09] & D,G,C are collinear [07] & ∠DBC = ∠CDB [10] & ∠CBE = ∠BFE [12] & F,B,D are collinear [05] ⇒  ∠FEB = ∠GEB [13]
+007. ∠FEB = ∠GEB [13] ⇒  FE ∥ GE [14]
+008. EF ∥ EG [14] ⇒  G,F,E are collinear
+==========================

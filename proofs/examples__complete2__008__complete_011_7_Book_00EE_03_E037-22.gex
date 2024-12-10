@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AB ⟂ AC [00]
+AB = AC [01]
+D,B,C are collinear [02]
+DC = DB [03]
+CE = CA [04]
+B,E,C are collinear [05]
+AF = AD [06]
+B,F,A are collinear [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AB = AC [01] & DC = DB [03] ⇒  BC ⟂ AD [08]
+002. D,B,C are collinear [02] & BC ⟂ AD [08] & AB ⟂ AC [00] ⇒  ∠CAB = ∠ADC [09]
+003. AB = AC [01] ⇒  ∠CBA = ∠ACB [10]
+004. D,B,C are collinear [02] & ∠CBA = ∠ACB [10] ⇒  ∠CBA = ∠ACD [11]
+005. ∠CAB = ∠ADC [09] & ∠CBA = ∠ACD [11] (Similar Triangles)⇒  CA:CB = AD:AC [12]
+006. D,B,C are collinear [02] & DC = DB [03] ⇒  D is midpoint of BC [13]
+007. AB ⟂ AC [00] & D is midpoint of BC [13] ⇒  BD = AD [14]
+008. CA:CB = AD:AC [12] & BD = AD [14] & EC = AC [04] & BA = AC [01] & AF = AD [06] ⇒  BC:CE = BA:AF [15]
+009. BC:CE = BA:AF [15] & B,E,C are collinear [05] & B,F,A are collinear [07] ⇒  CA ∥ EF [16]
+010. AB ⟂ AC [00] & AC ∥ EF [16] ⇒  BA ⟂ FE
+==========================

@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D E : Points
+CA = CB [00]
+∠CAB = ∠ABC [01]
+BD ⟂ AB [02]
+AB ⟂ EA [03]
+E,C,D are collinear [04]
+
+ * Auxiliary Constructions:
+G : Points
+GA ∥ BD [05]
+GD ∥ AB [06]
+
+ * Proof steps:
+001. BD ∥ AG [05] & AB ∥ DG [06] ⇒  ∠BAG = ∠GDB [07]
+002. AG ∥ BD [05] ⇒  ∠BGA = ∠GBD [08]
+003. ∠BAG = ∠GDB [07] & ∠BGA = ∠GBD [08] (Similar Triangles)⇒  GA = BD [09]
+004. AG ∥ BD [05] & AB ⟂ EA [03] & BD ⟂ AB [02] ⇒  AE ∥ AG [10]
+005. AE ∥ AG [10] ⇒  A,E,G are collinear [11]
+006. ∠CAB = ∠ABC [01] & BD ⟂ AB [02] & AG ∥ BD [05] (Angle chase)⇒  ∠(BC-AG) = ∠(BD-AC) [12]
+007. A,E,G are collinear [11] & ∠(BC-AG) = ∠(BD-AC) [12] & AB ⟂ EA [03] & BD ⟂ AB [02] ⇒  ∠CAG = ∠DBC [13]
+008. CA = CB [00] & GA = BD [09] & ∠CAG = ∠DBC [13] (SAS)⇒  GC = DC [14]
+009. CA = CB [00] & GA = BD [09] & ∠CAG = ∠DBC [13] (SAS)⇒  ∠CGA = ∠BDC [15]
+010. E,C,D are collinear [04] & A,E,G are collinear [11] & ∠CGA = ∠BDC [15] & AB ⟂ EA [03] & BD ⟂ AB [02] ⇒  ∠CEG = ∠EGC [16]
+011. ∠CEG = ∠EGC [16] ⇒  CE = CG [17]
+012. GC = DC [14] & CE = CG [17] ⇒  EC = CD
+==========================

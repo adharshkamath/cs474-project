@@ -1,0 +1,33 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I : Points
+B,A,C are collinear [00]
+CA = CB [01]
+EA ∥ BD [02]
+EB ∥ AD [03]
+B,F,D are collinear [04]
+E,G,A are collinear [05]
+F,G,C are collinear [06]
+B,E,H are collinear [07]
+F,H,C are collinear [08]
+IH:FI = IH:FI [09]
+F,I,C are collinear [10]
+D,I,A are collinear [11]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. E,G,A are collinear [05] & B,F,D are collinear [04] & AE ∥ BD [02] ⇒  GA ∥ FD [12]
+002. F,G,C are collinear [06] & F,I,C are collinear [10] ⇒  F,I,G are collinear [13]
+003. GA ∥ FD [12] & I,G,F are collinear [13] & D,I,A are collinear [11] ⇒  IF:IG = FD:GA [14]
+004. E,G,A are collinear [05] & B,F,D are collinear [04] & AE ∥ BD [02] ⇒  GA ∥ FB [15]
+005. GA ∥ FB [15] & B,A,C are collinear [00] & F,G,C are collinear [06] ⇒  CA:CB = AG:BF [16]
+006. D,I,A are collinear [11] & B,E,H are collinear [07] & BE ∥ AD [03] ⇒  DI ∥ BH [17]
+007. F,H,C are collinear [08] & F,I,C are collinear [10] ⇒  F,I,H are collinear [18]
+008. DI ∥ BH [17] & B,F,D are collinear [04] & F,I,H are collinear [18] ⇒  FD:BF = FI:FH [19]
+009. IF:IG = FD:GA [14] & CA:CB = AG:BF [16] & CA = CB [01] & FD:BF = FI:FH [19] ⇒  FI:FH = FI:IG [20]
+010. IH:FI = IH:FI [09] & FI:FH = FI:IG [20] ⇒  FH = IG
+==========================

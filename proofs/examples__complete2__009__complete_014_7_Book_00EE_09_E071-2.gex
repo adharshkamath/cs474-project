@@ -1,0 +1,28 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+C,D,B are collinear [00]
+DC = DB [01]
+C,A,E are collinear [02]
+BE ⟂ AC [03]
+A,F,B are collinear [04]
+CF ⟂ AB [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. A,C,E are collinear [02] & A,F,B are collinear [04] & CF ⟂ AB [05] & BE ⟂ AC [03] ⇒  ∠BEC = ∠BFC [06]
+002. ∠BEC = ∠BFC [06] ⇒  F,C,E,B are concyclic [07]
+003. F,C,E,B are concyclic [07] ⇒  ∠FEC = ∠FBC [08]
+004. A,F,B are collinear [04] & C,B,D are collinear [00] & ∠FEC = ∠FBC [08] & C,A,E are collinear [02] ⇒  ∠(FE-CA) = ∠(AF-CD) [09]
+005. A,C,E are collinear [02] & BE ⟂ AC [03] ⇒  BE ⟂ EC [10]
+006. C,D,B are collinear [00] & DC = DB [01] ⇒  D is midpoint of BC [11]
+007. BE ⟂ EC [10] & D is midpoint of BC [11] ⇒  CD = ED [12]
+008. CD = ED [12] ⇒  ∠DCE = ∠CED [13]
+009. C,B,D are collinear [00] & ∠DCE = ∠CED [13] & C,A,E are collinear [02] ⇒  ∠(CA-ED) = ∠DCA [14]
+010. ∠(FE-CA) = ∠(AF-CD) [09] & ∠(CA-ED) = ∠DCA [14] ⇒  ∠FED = ∠FAC [15]
+011. ∠FED = ∠FAC [15] & A,F,B are collinear [04] ⇒  ∠FED = ∠BAC
+==========================

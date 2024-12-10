@@ -1,0 +1,19 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AB ∥ CD [00]
+D,A,E are collinear [01]
+ED = EA [02]
+B,F,C are collinear [03]
+FE ∥ AB [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EF ∥ AB [04] & AB ∥ CD [00] ⇒  CD ∥ EF [05]
+002. AB ∥ CD [00] & B,F,C are collinear [03] & D,A,E are collinear [01] & CD ∥ EF [05] ⇒  ED:EA = FC:FB [06]
+003. B,F,C are collinear [03] & ED:EA = FC:FB [06] & ED = EA [02] ⇒  F is midpoint of BC
+==========================

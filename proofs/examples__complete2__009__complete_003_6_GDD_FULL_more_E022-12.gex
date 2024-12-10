@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+DB = DC [00]
+DA = DB [01]
+∠ACE = ∠ECB [02]
+A,E,B are collinear [03]
+FE ∥ AC [04]
+CF ⟂ CD [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. ∠ECB = ∠ACE [02] & AC ∥ EF [04] ⇒  ∠ECB = ∠FEC [06]
+002. DB = DC [00] & DA = DB [01] ⇒  D is the circumcenter of \Delta CBA [07]
+003. D is the circumcenter of \Delta CBA [07] & CF ⟂ CD [05] ⇒  ∠FCA = ∠CBA [08]
+004. A,E,B are collinear [03] & ∠FCA = ∠CBA [08] & AC ∥ EF [04] ⇒  ∠CFE = ∠CBE [09]
+005. ∠ECB = ∠FEC [06] & ∠CFE = ∠CBE [09] (Similar Triangles)⇒  EB = CF
+==========================

@@ -1,0 +1,30 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+AB ⟂ BC [00]
+AB ∥ CD [01]
+AD ∥ BC [02]
+D,B,E are collinear [03]
+C,A,E are collinear [04]
+D,F,E are collinear [05]
+FE = FD [06]
+G,E,A are collinear [07]
+GE = GA [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AB ⟂ BC [00] & AB ∥ CD [01] & BC ∥ AD [02] ⇒  ∠DCB = ∠DAB [09]
+002. ∠DCB = ∠DAB [09] ⇒  B,D,C,A are concyclic [10]
+003. B,D,C,A are concyclic [10] ⇒  ∠BDA = ∠BCA [11]
+004. F,E,D are collinear [05] & FE = FD [06] ⇒  F is midpoint of ED [12]
+005. G,E,A are collinear [07] & GE = GA [08] ⇒  G is midpoint of EA [13]
+006. F is midpoint of ED [12] & G is midpoint of EA [13] ⇒  FG ∥ DA [14]
+007. D,F,E are collinear [05] & D,B,E are collinear [03] & G,E,A are collinear [07] & C,A,E are collinear [04] & ∠BDA = ∠BCA [11] & FG ∥ AD [14] & AD ∥ BC [02] ⇒  ∠FBC = ∠FGC [15]
+008. ∠FBC = ∠FGC [15] ⇒  G,C,B,F are concyclic [16]
+009. G,E,A are collinear [07] & C,A,E are collinear [04] & FG ∥ AD [14] & AD ∥ BC [02] ⇒  ∠GCB = ∠CGF [17]
+010. G,C,B,F are concyclic [16] & ∠GCB = ∠CGF [17] ⇒  GB = CF
+==========================

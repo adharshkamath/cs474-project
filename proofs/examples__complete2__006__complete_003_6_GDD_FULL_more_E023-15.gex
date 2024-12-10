@@ -1,0 +1,20 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+A,C,E are collinear [00]
+FE ∥ AB [01]
+F,B,C are collinear [02]
+GE ∥ AD [03]
+D,C,G are collinear [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EF ∥ AB [01] & F,B,C are collinear [02] & A,C,E are collinear [00] ⇒  FC:FB = CE:AE [05]
+002. EG ∥ AD [03] & A,C,E are collinear [00] & D,C,G are collinear [04] ⇒  CE:AE = CG:DG [06]
+003. FC:FB = CE:AE [05] & CE:AE = CG:DG [06] ⇒  CG:DG = FC:FB [07]
+004. CG:DG = FC:FB [07] & F,B,C are collinear [02] & D,C,G are collinear [04] ⇒  FG ∥ BD
+==========================

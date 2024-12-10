@@ -1,0 +1,26 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AB ⟂ AC [00]
+A,B,D are collinear [01]
+DA = DB [02]
+A,E,C are collinear [03]
+EA = EC [04]
+DF = DA [05]
+F,B,C are collinear [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DF = DA [05] & DA = DB [02] ⇒  DB = DF [07]
+002. DB = DF [07] ⇒  ∠DBF = ∠BFD [08]
+003. A,B,D are collinear [01] & DA = DB [02] ⇒  D is midpoint of AB [09]
+004. A,E,C are collinear [03] & EA = EC [04] ⇒  E is midpoint of AC [10]
+005. D is midpoint of AB [09] & E is midpoint of AC [10] ⇒  DE ∥ BC [11]
+006. A,B,D are collinear [01] & ∠DBF = ∠BFD [08] & F,B,C are collinear [06] & BC ∥ DE [11] ⇒  ∠ADE = ∠EDF [12]
+007. DF = DA [05] & ∠ADE = ∠EDF [12] (SAS)⇒  ∠DAE = ∠EFD [13]
+008. ∠DAE = ∠EFD [13] & A,B,D are collinear [01] & A,E,C are collinear [03] & AB ⟂ AC [00] ⇒  DF ⟂ FE
+==========================

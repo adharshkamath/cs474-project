@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+B C D E F G H : Points
+D,B,E are collinear [00]
+CE ⟂ CD [01]
+D,F,C are collinear [02]
+BF ⟂ BD [03]
+E,F,G are collinear [04]
+GE = GF [05]
+HB = HD [06]
+HD = HC [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. HB = HD [06] & HD = HC [07] ⇒  H is the circumcenter of \Delta BDC [08]
+002. D,F,C are collinear [02] & D,B,E are collinear [00] & BF ⟂ BD [03] & CE ⟂ CD [01] ⇒  ∠ECF = ∠EBF [09]
+003. ∠ECF = ∠EBF [09] ⇒  F,B,E,C are concyclic [10]
+004. F,B,E,C are concyclic [10] ⇒  ∠FEB = ∠FCB [11]
+005. D,B,E are collinear [00] & BF ⟂ BD [03] ⇒  FB ⟂ BE [12]
+006. E,F,G are collinear [04] & GE = GF [05] ⇒  G is midpoint of FE [13]
+007. FB ⟂ BE [12] & G is midpoint of FE [13] ⇒  EG = BG [14]
+008. EG = BG [14] ⇒  ∠GBE = ∠BEG [15]
+009. ∠FEB = ∠FCB [11] & D,B,E are collinear [00] & D,F,C are collinear [02] & ∠GBE = ∠BEG [15] & E,F,G are collinear [04] ⇒  ∠GBD = ∠BCD [16]
+010. H is the circumcenter of \Delta BDC [08] & ∠GBD = ∠BCD [16] ⇒  BH ⟂ BG
+==========================

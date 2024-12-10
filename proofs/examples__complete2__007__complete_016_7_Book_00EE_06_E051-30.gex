@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+CB = CA [00]
+CD = CA [01]
+A,E,B are collinear [02]
+DE ⟂ CD [03]
+∠DEF = ∠FEA [04]
+A,F,D are collinear [05]
+E,G,F are collinear [06]
+B,G,D are collinear [07]
+BG:BE = BG:BE [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. A,E,B are collinear [02] & E,G,F are collinear [06] & ∠DEF = ∠FEA [04] ⇒  ∠BEG = ∠GED [09]
+002. A,E,B are collinear [02] & E,G,F are collinear [06] & ∠DEF = ∠FEA [04] ⇒  ∠GEB = ∠DEF [10]
+003. ∠BEG = ∠GED [09] & B,G,D are collinear [07] ⇒  GD:BG = ED:BE [11]
+004. CD = CA [01] & CB = CA [00] ⇒  C is the circumcenter of \Delta DAB [12]
+005. C is the circumcenter of \Delta DAB [12] & DE ⟂ CD [03] ⇒  ∠EDA = ∠DBA [13]
+006. B,G,D are collinear [07] & A,B,E are collinear [02] & A,F,D are collinear [05] & ∠DBA = ∠EDA [13] ⇒  ∠GBE = ∠EDF [14]
+007. ∠GEB = ∠DEF [10] & ∠GBE = ∠EDF [14] (Similar Triangles)⇒  FD:BG = ED:BE [15]
+008. GD:BG = ED:BE [11] & FD:BG = ED:BE [15] ⇒  FD:BG = GD:BG [16]
+009. FD:BG = GD:BG [16] & BG:BE = BG:BE [08] ⇒  GD = FD
+==========================

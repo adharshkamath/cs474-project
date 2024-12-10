@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AC = AB [00]
+CD ⟂ AC [01]
+AE = AB [02]
+A,B,E are collinear [03]
+FA ∥ CE [04]
+C,D,F are collinear [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AE = AB [02] & AC = AB [00] ⇒  AC = AE [06]
+002. AC = AE [06] ⇒  ∠ACE = ∠CEA [07]
+003. ∠ACE = ∠CEA [07] & A,B,E are collinear [03] & CE ∥ AF [04] ⇒  ∠CAF = ∠FAB [08]
+004. AC = AB [00] & ∠CAF = ∠FAB [08] (SAS)⇒  ∠ACF = ∠FBA [09]
+005. ∠ACF = ∠FBA [09] & C,D,F are collinear [05] & CD ⟂ AC [01] ⇒  FB ⟂ AB
+==========================

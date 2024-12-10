@@ -1,0 +1,23 @@
+
+==========================
+ * From theorem premises:
+A B C D E : Points
+BC = BA [00]
+BC = BD [01]
+AC = AD [02]
+CE ⟂ BC [03]
+AE = AC [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. BC = BA [00] & BC = BD [01] ⇒  B is the circumcenter of \Delta CAD [05]
+002. B is the circumcenter of \Delta CAD [05] & CE ⟂ BC [03] ⇒  ∠ECA = ∠CDA [06]
+003. AC = AD [02] ⇒  ∠ADC = ∠DCA [07]
+004. AE = AC [04] ⇒  ∠ACE = ∠CEA [08]
+005. ∠ADC = ∠DCA [07] & ∠ACE = ∠ADC [06] & ∠ACE = ∠CEA [08] ⇒  ∠CEA = ∠DCA [09]
+006. ∠ECA = ∠CDA [06] & ∠CEA = ∠DCA [09] (Similar Triangles)⇒  DA:CA = DC:CE [10]
+007. DA:CA = DC:CE [10] & AC = AD [02] ⇒  DC = CE
+==========================

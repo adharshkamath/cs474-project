@@ -1,0 +1,19 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+DA = DC [00]
+DC = DB [01]
+C,E,B are collinear [02]
+DF = DA [03]
+∠ACF = ∠FCE [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DA = DC [00] & DF = DA [03] & DC = DB [01] ⇒  F,A,B,C are concyclic [05]
+002. ∠ACF = ∠FCE [04] & C,E,B are collinear [02] ⇒  ∠ACF = ∠FCB [06]
+003. F,A,B,C are concyclic [05] & ∠ACF = ∠FCB [06] ⇒  FA = BF
+==========================

@@ -1,0 +1,33 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H : Points
+DC ∥ AB [00]
+DB ∥ CA [01]
+A,B,E are collinear [02]
+D,F,C are collinear [03]
+FE ∥ CA [04]
+G,E,C are collinear [05]
+A,G,F are collinear [06]
+H,E,D are collinear [07]
+B,H,F are collinear [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. D,C,F are collinear [03] & A,B,E are collinear [02] & CD ∥ AB [00] ⇒  FC ∥ AE [09]
+002. FC ∥ AE [09] & G,E,C are collinear [05] & A,G,F are collinear [06] ⇒  CF:EA = GC:GE [10]
+003. A,B,E are collinear [02] & D,F,C are collinear [03] & AB ∥ CD [00] & EF ∥ AC [04] ⇒  ∠AEF = ∠FCA [11]
+004. EF ∥ AC [04] ⇒  ∠AFE = ∠FAC [12]
+005. ∠AEF = ∠FCA [11] & ∠AFE = ∠FAC [12] (Similar Triangles)⇒  AE = FC [13]
+006. G,E,C are collinear [05] & CF:EA = GC:GE [10] & AE = FC [13] ⇒  G is midpoint of EC [14]
+007. C,F,D are collinear [03] & A,B,E are collinear [02] & CD ∥ AB [00] ⇒  DF ∥ EB [15]
+008. DF ∥ EB [15] & H,E,D are collinear [07] & B,H,F are collinear [08] ⇒  DF:EB = HD:HE [16]
+009. A,B,E are collinear [02] & D,C,F are collinear [03] & AB ∥ CD [00] & EF ∥ AC [04] & BD ∥ AC [01] ⇒  ∠EBD = ∠DFE [17]
+010. EF ∥ AC [04] & BD ∥ AC [01] ⇒  ∠EDB = ∠DEF [18]
+011. ∠EBD = ∠DFE [17] & ∠EDB = ∠DEF [18] (Similar Triangles)⇒  EB = DF [19]
+012. H,E,D are collinear [07] & DF:EB = HD:HE [16] & EB = DF [19] ⇒  H is midpoint of ED [20]
+013. G is midpoint of EC [14] & H is midpoint of ED [20] ⇒  GH ∥ CD
+==========================

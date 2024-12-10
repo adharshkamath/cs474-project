@@ -1,0 +1,23 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+C,A,B are collinear [00]
+CB = CA [01]
+CD = CB [02]
+DE ⟂ AB [03]
+DF ⟂ CD [04]
+
+ * Auxiliary Constructions:
+G : Points
+F,G,D are collinear [05]
+
+ * Proof steps:
+001. CB = CA [01] & CD = CB [02] ⇒  C is the circumcenter of \Delta DAB [06]
+002. C is the circumcenter of \Delta DAB [06] & C,A,B are collinear [00] ⇒  AD ⟂ BD [07]
+003. C,A,B are collinear [00] & DE ⟂ AB [03] & AD ⟂ BD [07] ⇒  ∠ADB = ∠(ED-CA) [08]
+004. C is the circumcenter of \Delta DAB [06] & DF ⟂ CD [04] ⇒  ∠FDB = ∠DAB [09]
+005. C,A,B are collinear [00] & F,G,D are collinear [05] & ∠DAB = ∠FDB [09] ⇒  ∠DAC = ∠(FG-BD) [10]
+006. ∠ADB = ∠(ED-CA) [08] & ∠DAC = ∠(FG-BD) [10] ⇒  ∠(AD-FG) = ∠EDA [11]
+007. ∠(AD-FG) = ∠EDA [11] & F,G,D are collinear [05] ⇒  ∠ADF = ∠EDA
+==========================

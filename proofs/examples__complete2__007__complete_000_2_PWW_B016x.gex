@@ -1,0 +1,36 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+C,B,D are collinear [00]
+DB = DC [01]
+C,A,E are collinear [02]
+EC = EA [03]
+B,A,F are collinear [04]
+FB = FA [05]
+DA ∥ EG [06]
+DG ∥ AE [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. C,A,E are collinear [02] & EG ∥ AD [06] & DG ∥ AE [07] ⇒  ∠GEA = ∠ADG [08]
+002. C,A,E are collinear [02] & DG ∥ AE [07] ⇒  ∠GAE = ∠AGD [09]
+003. ∠GEA = ∠ADG [08] & ∠GAE = ∠AGD [09] (Similar Triangles)⇒  AE = GD [10]
+004. AE = GD [10] & EC = EA [03] ⇒  CE = DG [11]
+005. C,B,D are collinear [00] & DB = DC [01] ⇒  D is midpoint of CB [12]
+006. C,A,E are collinear [02] & EC = EA [03] ⇒  E is midpoint of CA [13]
+007. D is midpoint of CB [12] & E is midpoint of CA [13] ⇒  DE ∥ BA [14]
+008. B,A,F are collinear [04] & DE ∥ AB [14] ⇒  ∠FDE = ∠DFB [15]
+009. B,A,F are collinear [04] & FB = FA [05] ⇒  F is midpoint of BA [16]
+010. E is midpoint of CA [13] & F is midpoint of BA [16] ⇒  EF ∥ CB [17]
+011. C,B,D are collinear [00] & B,A,F are collinear [04] & EF ∥ BC [17] & DE ∥ AB [14] ⇒  ∠FED = ∠DBF [18]
+012. ∠FDE = ∠DFB [15] & ∠FED = ∠DBF [18] (Similar Triangles)⇒  FE = DB [19]
+013. D is midpoint of CB [12] & F is midpoint of BA [16] ⇒  DF ∥ CA [20]
+014. DF ∥ AC [20] & DG ∥ AE [07] & C,A,E are collinear [02] ⇒  DG ∥ DF [21]
+015. DG ∥ DF [21] ⇒  G,D,F are collinear [22]
+016. C,A,E are collinear [02] & G,D,F are collinear [22] & C,B,D are collinear [00] & AC ∥ DF [20] & EF ∥ BC [17] ⇒  ∠CEF = ∠GDB [23]
+017. CE = DG [11] & FE = DB [19] & ∠CEF = ∠GDB [23] (SAS)⇒  FC = BG
+==========================

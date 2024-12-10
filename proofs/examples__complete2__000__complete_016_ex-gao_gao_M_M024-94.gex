@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+CD = CB [00]
+AD = AB [01]
+AE = AD [02]
+D,A,E are collinear [03]
+CF = CD [04]
+D,C,F are collinear [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CD = CB [00] & CF = CD [04] ⇒  C is the circumcenter of \Delta DBF [06]
+002. C is the circumcenter of \Delta DBF [06] & D,C,F are collinear [05] ⇒  DB ⟂ BF [07]
+003. AD = AB [01] & AE = AD [02] ⇒  A is the circumcenter of \Delta EBD [08]
+004. A is the circumcenter of \Delta EBD [08] & D,A,E are collinear [03] ⇒  BE ⟂ BD [09]
+005. DB ⟂ BF [07] & BE ⟂ BD [09] ⇒  F,B,E are collinear
+==========================

@@ -1,0 +1,25 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+DB = DA [00]
+DA = DC [01]
+C,E,A are collinear [02]
+∠EBC = ∠ABE [03]
+DB = DF [04]
+F,E,B are collinear [05]
+FG ⟂ DF [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DB = DA [00] & DA = DC [01] & DB = DF [04] ⇒  C,F,A,B are concyclic [07]
+002. DB = DA [00] & DA = DC [01] & DB = DF [04] ⇒  D is the circumcenter of \Delta FCB [08]
+003. C,F,A,B are concyclic [07] ⇒  ∠CFB = ∠CAB [09]
+004. D is the circumcenter of \Delta FCB [08] & FG ⟂ DF [06] ⇒  ∠GFC = ∠FBC [10]
+005. C,E,A are collinear [02] & ∠CFB = ∠CAB [09] & F,E,B are collinear [05] & ∠EBC = ∠ABE [03] & ∠GFC = ∠FBC [10] ⇒  ∠GFC = ∠ECF [11]
+006. ∠GFC = ∠ECF [11] ⇒  FG ∥ CE [12]
+007. FG ∥ CE [12] & C,E,A are collinear [02] ⇒  FG ∥ AC
+==========================

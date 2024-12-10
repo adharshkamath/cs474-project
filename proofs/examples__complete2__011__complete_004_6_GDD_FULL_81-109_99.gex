@@ -1,0 +1,21 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+∠BAE = ∠DAC [00]
+B,A,F are collinear [01]
+DF ⟂ AB [02]
+A,C,G are collinear [03]
+DG ⟂ AC [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. B,A,F are collinear [01] & A,C,G are collinear [03] & DG ⟂ AC [04] & DF ⟂ AB [02] ⇒  ∠DFA = ∠DGA [05]
+002. ∠DFA = ∠DGA [05] ⇒  D,A,F,G are concyclic [06]
+003. D,A,F,G are concyclic [06] ⇒  ∠DAG = ∠DFG [07]
+004. ∠BAE = ∠DAC [00] & ∠DAG = ∠DFG [07] & A,C,G are collinear [03] ⇒  ∠DFG = ∠BAE [08]
+005. ∠DFG = ∠BAE [08] & DF ⟂ AB [02] ⇒  AE ⟂ FG
+==========================

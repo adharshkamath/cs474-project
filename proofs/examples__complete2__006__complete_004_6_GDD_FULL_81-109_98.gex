@@ -1,0 +1,25 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+B,D,A are collinear [00]
+EB = EC [01]
+EA = EB [02]
+EF = EA [03]
+∠BCF = ∠DCA [04]
+EG = EC [05]
+C,D,G are collinear [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EB = EC [01] & EA = EB [02] & EF = EA [03] ⇒  B,C,F,A are concyclic [07]
+002. B,C,F,A are concyclic [07] ⇒  ∠BCF = ∠BAF [08]
+003. EF = EA [03] & EA = EB [02] & EB = EC [01] & EG = EC [05] ⇒  C,F,A,G are concyclic [09]
+004. C,G,F,A are concyclic [09] ⇒  ∠CGF = ∠CAF [10]
+005. B,A,D are collinear [00] & ∠BCF = ∠BAF [08] & ∠BCF = ∠DCA [04] & ∠CGF = ∠CAF [10] & C,D,G are collinear [06] ⇒  ∠GFA = ∠(BD-FA) [11]
+006. ∠GFA = ∠(BD-FA) [11] ⇒  FG ∥ BD [12]
+007. FG ∥ BD [12] & B,D,A are collinear [00] ⇒  FG ∥ AB
+==========================

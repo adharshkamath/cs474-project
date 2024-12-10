@@ -1,0 +1,18 @@
+
+==========================
+ * From theorem premises:
+A B C D E : Points
+AC = AB [00]
+AD = AB [01]
+AE = AB [02]
+ED ∥ BC [03]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AC = AB [00] & AE = AB [02] & AD = AB [01] ⇒  B,D,C,E are concyclic [04]
+002. DE ∥ BC [03] ⇒  ∠BDE = ∠DBC [05]
+003. B,D,C,E are concyclic [04] & ∠BDE = ∠DBC [05] ⇒  BE = DC
+==========================

@@ -1,0 +1,27 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+CA = CB [00]
+B,C,A are collinear [01]
+CD = CA [02]
+∠DBA = ∠EBD [03]
+F,A,E are collinear [04]
+FA = FE [05]
+
+ * Auxiliary Constructions:
+G : Points
+G,D,A are collinear [06]
+B,G,E are collinear [07]
+
+ * Proof steps:
+001. F,A,E are collinear [04] & FA = FE [05] ⇒  F is midpoint of AE [08]
+002. CD = CA [02] & CA = CB [00] ⇒  C is the circumcenter of \Delta BDA [09]
+003. C is the circumcenter of \Delta BDA [09] & B,C,A are collinear [01] ⇒  BD ⟂ AD [10]
+004. G,D,A are collinear [06] & BD ⟂ AD [10] ⇒  ∠GDB = ∠BDA [11]
+005. B,G,E are collinear [07] & ∠EBD = ∠DBA [03] ⇒  ∠GBD = ∠DBA [12]
+006. ∠GDB = ∠BDA [11] & ∠GBD = ∠DBA [12] (Similar Triangles)⇒  DG = DA [13]
+007. G,D,A are collinear [06] & DG = DA [13] ⇒  D is midpoint of AG [14]
+008. F is midpoint of AE [08] & D is midpoint of AG [14] ⇒  FD ∥ EG [15]
+009. FD ∥ EG [15] & B,G,E are collinear [07] ⇒  DF ∥ BE
+==========================

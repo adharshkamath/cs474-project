@@ -1,0 +1,33 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+CB = CA [00]
+A,B,C are collinear [01]
+BC = BD [02]
+B,C,D are collinear [03]
+CE = CA [04]
+BE = BC [05]
+E,A,F are collinear [06]
+BF ⟂ AB [07]
+E,G,D are collinear [08]
+B,F,G are collinear [09]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CB = CA [00] & CE = CA [04] ⇒  C is the circumcenter of \Delta BAE [10]
+002. C is the circumcenter of \Delta BAE [10] & A,B,C are collinear [01] ⇒  BE ⟂ AE [11]
+003. BE = BC [05] & BC = BD [02] ⇒  B is the circumcenter of \Delta CED [12]
+004. B is the circumcenter of \Delta CED [12] & B,C,D are collinear [03] ⇒  CE ⟂ DE [13]
+005. E,D,G are collinear [08] & BE ⟂ AE [11] & CE ⟂ DE [13] ⇒  ∠GEC = ∠AEB [14]
+006. A,B,C are collinear [01] & AB ⟂ BF [07] ⇒  CB ⟂ BF [15]
+007. C is the circumcenter of \Delta BAE [10] & CB ⟂ BF [15] ⇒  ∠FBE = ∠BAE [16]
+008. CE = CA [04] ⇒  ∠CAE = ∠AEC [17]
+009. ∠FBE = ∠BAE [16] & ∠CAE = ∠AEC [17] & A,B,C are collinear [01] ⇒  ∠AEC = ∠FBE [18]
+010. ∠GEC = ∠AEB [14] & ∠AEC = ∠FBE [18] ⇒  ∠GEA = ∠(EA-BF) [19]
+011. E,D,G are collinear [08] & E,A,F are collinear [06] & B,F,G are collinear [09] & ∠GEA = ∠(EA-BF) [19] ⇒  ∠GEF = ∠EFG [20]
+012. ∠GEF = ∠EFG [20] ⇒  GE = GF
+==========================

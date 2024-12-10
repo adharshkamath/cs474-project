@@ -1,0 +1,20 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AD ⟂ BC [00]
+ED = EB [01]
+EB = EC [02]
+EF = EB [03]
+DF ⟂ CD [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. ED = EB [01] & EF = EB [03] & EB = EC [02] ⇒  D,B,C,F are concyclic [05]
+002. D,B,C,F are concyclic [05] ⇒  ∠CDF = ∠CBF [06]
+003. ∠CDF = ∠CBF [06] & DF ⟂ CD [04] ⇒  BF ⟂ BC [07]
+004. BF ⟂ BC [07] & AD ⟂ BC [00] ⇒  BF ∥ AD
+==========================

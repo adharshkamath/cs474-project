@@ -1,0 +1,16 @@
+
+==========================
+ * From theorem premises:
+A B C D : Points
+AC ⟂ AB [00]
+B,D,C are collinear [01]
+AD ⟂ BC [02]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. B,D,C are collinear [01] & AD ⟂ BC [02] ⇒  AD ⟂ BD [03]
+002. AC ⟂ AB [00] & AD ⟂ BD [03] ⇒  ∠CAD = ∠ABD
+==========================

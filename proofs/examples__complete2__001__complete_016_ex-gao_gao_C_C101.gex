@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H : Points
+C,D,B are collinear [00]
+AD ⟂ BC [01]
+A,E,B are collinear [02]
+CE ⟂ AB [03]
+FA = FC [04]
+FA = FB [05]
+C,E,G are collinear [06]
+A,D,G are collinear [07]
+C,E,H are collinear [08]
+FH = FC [09]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. C,H,E are collinear [08] & A,E,B are collinear [02] & C,E,G are collinear [06] & CE ⟂ AB [03] ⇒  ∠HEA = ∠AEG [10]
+002. A,E,B are collinear [02] & AB ⟂ CE [03] ⇒  AE ⟂ CE [11]
+003. C,D,B are collinear [00] & AD ⟂ BC [01] ⇒  AD ⟂ CD [12]
+004. AE ⟂ CE [11] & AD ⟂ CD [12] ⇒  ∠EAD = ∠ECD [13]
+005. FA = FC [04] & FH = FC [09] & FA = FB [05] ⇒  C,A,H,B are concyclic [14]
+006. C,A,H,B are concyclic [14] ⇒  ∠CHA = ∠CBA [15]
+007. A,E,B are collinear [02] & D,A,G are collinear [07] & ∠EAD = ∠ECD [13] & C,D,B are collinear [00] & ∠CHA = ∠CBA [15] & C,E,H are collinear [08] ⇒  ∠HAE = ∠EAG [16]
+008. ∠HEA = ∠AEG [10] & ∠HAE = ∠EAG [16] (Similar Triangles)⇒  EH = EG
+==========================

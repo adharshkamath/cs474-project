@@ -1,0 +1,28 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AB ∥ CD [00]
+AD ∥ BC [01]
+EA = AB [02]
+AB = BE [03]
+BC = CF [04]
+BF = BC [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AB ∥ CD [00] & BC ∥ AD [01] ⇒  ∠ABC = ∠CDA [06]
+002. BC ∥ AD [01] ⇒  ∠ACB = ∠CAD [07]
+003. ∠ABC = ∠CDA [06] & ∠ACB = ∠CAD [07] (Similar Triangles)⇒  AB = CD [08]
+004. ∠ABC = ∠CDA [06] & ∠ACB = ∠CAD [07] (Similar Triangles)⇒  CB = AD [09]
+005. AB = CD [08] & EA = AB [02] ⇒  EA = DC [10]
+006. BC = CF [04] & CB = AD [09] ⇒  AD = CF [11]
+007. EA = AB [02] & AB = BE [03] & BF = BC [05] ⇒  EB:EA = BF:BC [12]
+008. AB = AE [02] & CF = CB [04] ⇒  AB:AE = CF:CB [13]
+009. EB:EA = BF:BC [12] & AB:AE = CF:CB [13] (Similar Triangles)⇒  ∠(AB-CF) = ∠(AE-BC) [14]
+010. ∠(AB-CF) = ∠(AE-BC) [14] & AB ∥ CD [00] & BC ∥ AD [01] ⇒  ∠EAD = ∠DCF [15]
+011. EA = DC [10] & AD = CF [11] & ∠EAD = ∠DCF [15] (SAS)⇒  DE = FD
+==========================

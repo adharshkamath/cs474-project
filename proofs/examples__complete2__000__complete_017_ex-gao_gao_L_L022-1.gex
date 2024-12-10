@@ -1,0 +1,17 @@
+
+==========================
+ * From theorem premises:
+A B C D E : Points
+CA = CB [00]
+C,D,A are collinear [01]
+CE = CD [02]
+B,E,C are collinear [03]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. D,A,C are collinear [01] & B,E,C are collinear [03] ⇒  ∠BCD = ∠ECA [04]
+002. CA = CB [00] & CE = CD [02] & ∠BCD = ∠ECA [04] (SAS)⇒  DB = EA
+==========================

@@ -1,0 +1,35 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+CB = CA [00]
+A,C,B are collinear [01]
+BD ⟂ AB [02]
+CE = CA [03]
+E,A,D are collinear [04]
+CF = CE [05]
+FE ∥ AB [06]
+F,G,A are collinear [07]
+DG ⟂ AF [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. F,G,A are collinear [07] & DG ⟂ AF [08] ⇒  GD ⟂ FG [09]
+002. CE = CA [03] & CB = CA [00] ⇒  C is the circumcenter of \Delta BEA [10]
+003. C is the circumcenter of \Delta BEA [10] & A,C,B are collinear [01] ⇒  AE ⟂ EB [11]
+004. GD ⟂ FG [09] & EB ⟂ EA [11] ⇒  ∠(FG-EB) = ∠(GD-EA) [12]
+005. CE = CA [03] & CF = CE [05] & CB = CA [00] ⇒  F,A,E,B are concyclic [13]
+006. CE = CA [03] & CF = CE [05] & CB = CA [00] ⇒  C is the circumcenter of \Delta BFA [14]
+007. F,A,E,B are concyclic [13] ⇒  ∠FAE = ∠FBE [15]
+008. F,A,E,B are concyclic [13] ⇒  ∠FEA = ∠FBA [16]
+009. C is the circumcenter of \Delta BFA [14] & A,C,B are collinear [01] ⇒  AF ⟂ FB [17]
+010. F,G,A are collinear [07] & ∠(FG-EB) = ∠(GD-EA) [12] & E,A,D are collinear [04] & ∠FAE = ∠FBE [15] & AF ⟂ FB [17] & DG ⟂ AF [08] ⇒  ∠GFB = ∠BFA [18]
+011. F,G,A are collinear [07] & BD ⟂ AB [02] & DG ⟂ AF [08] ⇒  ∠AGD = ∠ABD [19]
+012. ∠AGD = ∠ABD [19] ⇒  G,A,D,B are concyclic [20]
+013. G,A,D,B are concyclic [20] ⇒  ∠DGB = ∠DAB [21]
+014. ∠FEA = ∠FBA [16] & E,A,D are collinear [04] & EF ∥ AB [06] & ∠DGB = ∠DAB [21] & AF ⟂ FB [17] & DG ⟂ AF [08] ⇒  ∠GBF = ∠FBA [22]
+015. ∠GFB = ∠BFA [18] & ∠GBF = ∠FBA [22] (Similar Triangles)⇒  FG = FA
+==========================

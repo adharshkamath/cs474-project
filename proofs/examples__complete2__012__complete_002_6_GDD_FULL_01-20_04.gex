@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+B C D F G H I : Points
+DB = DC [00]
+FC = FB [01]
+H,G,F are collinear [02]
+HG = HF [03]
+H,D,I are collinear [04]
+HD = HI [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DB = DC [00] & FC = FB [01] ⇒  BC ⟂ DF [06]
+002. H,G,F are collinear [02] & HG = HF [03] ⇒  H is midpoint of GF [07]
+003. H,D,I are collinear [04] & HD = HI [05] ⇒  H is midpoint of DI [08]
+004. H is midpoint of GF [07] & H is midpoint of DI [08] ⇒  GI ∥ FD [09]
+005. BC ⟂ DF [06] & DF ∥ GI [09] ⇒  GI ⟂ BC
+==========================

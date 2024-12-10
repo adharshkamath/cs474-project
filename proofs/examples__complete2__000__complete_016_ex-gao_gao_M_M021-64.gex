@@ -1,0 +1,33 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+CB = CA [00]
+B,A,C are collinear [01]
+AD = AB [02]
+BD = BA [03]
+E,A,D are collinear [04]
+CE = CA [05]
+B,F,D are collinear [06]
+CF = CA [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CB = CA [00] & CF = CA [07] & CE = CA [05] ⇒  F,B,A,E are concyclic [08]
+002. F,B,A,E are concyclic [08] ⇒  ∠FBA = ∠FEA [09]
+003. AD = AB [02] ⇒  ∠BDA = ∠ABD [10]
+004. B,F,D are collinear [06] & E,D,A are collinear [04] & ∠FBA = ∠FEA [09] & ∠BDA = ∠ABD [10] ⇒  ∠FDE = ∠DEF [11]
+005. ∠FDE = ∠DEF [11] ⇒  FD = FE [12]
+006. CF = CA [07] & CB = CA [00] ⇒  C is the circumcenter of \Delta BFA [13]
+007. C is the circumcenter of \Delta BFA [13] & B,A,C are collinear [01] ⇒  BF ⟂ FA [14]
+008. CE = CA [05] & CB = CA [00] ⇒  C is the circumcenter of \Delta BEA [15]
+009. C is the circumcenter of \Delta BEA [15] & B,A,C are collinear [01] ⇒  BE ⟂ EA [16]
+010. E,D,A are collinear [04] & B,F,D are collinear [06] & BF ⟂ FA [14] & BE ⟂ EA [16] ⇒  ∠BEA = ∠AFD [17]
+011. BD = BA [03] ⇒  ∠BAD = ∠ADB [18]
+012. E,A,D are collinear [04] & B,F,D are collinear [06] & ∠BAD = ∠ADB [18] ⇒  ∠BAE = ∠ADF [19]
+013. ∠BEA = ∠AFD [17] & ∠BAE = ∠ADF [19] (Similar Triangles)⇒  AB:DA = AE:DF [20]
+014. FD = FE [12] & AB:DA = AE:DF [20] & AD = AB [02] ⇒  AE = EF
+==========================

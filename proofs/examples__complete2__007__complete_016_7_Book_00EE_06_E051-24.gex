@@ -1,0 +1,26 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+A,B,C are collinear [00]
+CB = CA [01]
+CD = CA [02]
+B,E,D are collinear [03]
+FC = FE [04]
+FD = FC [05]
+GE ∥ AB [06]
+FG = FC [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. A,B,C are collinear [00] & AB ∥ EG [06] ⇒  ∠ECB = ∠CEG [08]
+002. FC = FE [04] & FG = FC [07] & FD = FC [05] ⇒  G,C,E,D are concyclic [09]
+003. G,C,E,D are concyclic [09] ⇒  ∠GCD = ∠GED [10]
+004. CB = CA [01] & CD = CA [02] ⇒  CD = CB [11]
+005. CD = CB [11] ⇒  ∠CDB = ∠DBC [12]
+006. B,E,D are collinear [03] & A,B,C are collinear [00] & ∠GCD = ∠GED [10] & EG ∥ AB [06] & ∠CDB = ∠DBC [12] ⇒  ∠EBC = ∠CGE [13]
+007. ∠ECB = ∠CEG [08] & ∠EBC = ∠CGE [13] (Similar Triangles)⇒  CB = EG
+==========================

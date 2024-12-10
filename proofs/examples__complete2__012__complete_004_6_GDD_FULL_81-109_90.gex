@@ -1,0 +1,30 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H I : Points
+DB = DC [00]
+DA = DB [01]
+DE = DA [02]
+A,F,B are collinear [03]
+EF ⟂ AB [04]
+EG ⟂ AC [05]
+DH = DE [06]
+F,H,E are collinear [07]
+DI = DE [08]
+G,I,E are collinear [09]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DB = DC [00] & DA = DB [01] & DE = DA [02] & DH = DE [06] ⇒  A,C,H,B are concyclic [10]
+002. DB = DC [00] & DA = DB [01] & DE = DA [02] & DI = DE [08] & DH = DE [06] & A,C,H,B are concyclic [10] ⇒  H,E,B,I are concyclic [11]
+003. H,E,B,I are concyclic [11] ⇒  ∠HEI = ∠HBI [12]
+004. G,I,E are collinear [09] & EG ⟂ AC [05] ⇒  GI ⟂ AC [13]
+005. A,F,B are collinear [03] & F,H,E are collinear [07] & AB ⟂ EF [04] ⇒  AF ⟂ FH [14]
+006. GI ⟂ AC [13] & AF ⟂ FH [14] ⇒  ∠(GI-FH) = ∠CAF [15]
+007. A,C,H,B are concyclic [10] ⇒  ∠CAB = ∠CHB [16]
+008. ∠HEI = ∠HBI [12] & F,H,E are collinear [07] & G,I,E are collinear [09] & ∠(GI-FH) = ∠CAF [15] & A,F,B are collinear [03] & ∠CAB = ∠CHB [16] ⇒  ∠CHB = ∠IBH [17]
+009. ∠CHB = ∠IBH [17] ⇒  CH ∥ IB
+==========================

@@ -1,0 +1,32 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+A,D,B are collinear [00]
+CD ⟂ AB [01]
+C,E,D are collinear [02]
+AE ⟂ BC [03]
+F,E,A are collinear [04]
+FA = FE [05]
+C,G,B are collinear [06]
+GC = GB [07]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. A,D,B are collinear [00] & C,E,D are collinear [02] & AB ⟂ CD [01] ⇒  AD ⟂ DE [08]
+002. F,E,A are collinear [04] & FA = FE [05] ⇒  F is midpoint of AE [09]
+003. AD ⟂ DE [08] & F is midpoint of AE [09] ⇒  AF = DF [10]
+004. AF = DF [10] & FA = FE [05] ⇒  F is the circumcenter of \Delta ADE [11]
+005. A,D,B are collinear [00] & C,E,D are collinear [02] & AB ⟂ CD [01] ⇒  AD ⟂ CE [12]
+006. F,A,E are collinear [04] & C,G,B are collinear [06] & AE ⟂ BC [03] ⇒  FE ⟂ CG [13]
+007. AD ⟂ CE [12] & FE ⟂ CG [13] ⇒  ∠(AD-CG) = ∠CEF [14]
+008. A,D,B are collinear [00] & AB ⟂ CD [01] ⇒  BD ⟂ DC [15]
+009. C,G,B are collinear [06] & GC = GB [07] ⇒  G is midpoint of BC [16]
+010. BD ⟂ DC [15] & G is midpoint of BC [16] ⇒  BG = DG [17]
+011. BG = DG [17] ⇒  ∠GBD = ∠BDG [18]
+012. A,D,B are collinear [00] & C,E,D are collinear [02] & ∠(AD-CG) = ∠CEF [14] & C,G,B are collinear [06] & F,E,A are collinear [04] & ∠GBD = ∠BDG [18] ⇒  ∠GDA = ∠DEA [19]
+013. F is the circumcenter of \Delta ADE [11] & ∠GDA = ∠DEA [19] ⇒  DF ⟂ DG
+==========================

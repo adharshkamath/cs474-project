@@ -1,0 +1,32 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AB = BD [00]
+DA = AB [01]
+CE = CA [02]
+AE = AC [03]
+CE ∥ DF [04]
+CF ∥ ED [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DF ∥ CE [04] & CF ∥ DE [05] ⇒  ∠DFC = ∠CED [06]
+002. CF ∥ DE [05] ⇒  ∠DCF = ∠CDE [07]
+003. ∠DFC = ∠CED [06] & ∠DCF = ∠CDE [07] (Similar Triangles)⇒  CF = DE [08]
+004. ∠DFC = ∠CED [06] & ∠DCF = ∠CDE [07] (Similar Triangles)⇒  DF = CE [09]
+005. AB = BD [00] & DA = AB [01] ⇒  DA = DB [10]
+006. AB = AD [01] & CE = CA [02] ⇒  AB:AD = CE:CA [11]
+007. AB = AD [01] & CE = CA [02] ⇒  AB:AD = CA:CE [12]
+008. DB = DA [10] & AE = AC [03] ⇒  DB:DA = AE:AC [13]
+009. AB:AD = CE:CA [11] & DB:DA = AE:AC [13] (Similar Triangles)⇒  BA:BD = EC:EA [14]
+010. DF = CE [09] & BA:BD = EC:EA [14] & AB = BD [00] ⇒  AE = DF [15]
+011. DB = DA [10] & BA:BD = EC:EA [14] & AB = BD [00] ⇒  DB:DA = EA:EC [16]
+012. AB:AD = CA:CE [12] & DB:DA = EA:EC [16] (Similar Triangles)⇒  ∠(BD-CE) = ∠DAE [17]
+013. ∠(BD-CE) = ∠DAE [17] & CE ∥ DF [04] ⇒  ∠BDF = ∠DAE [18]
+014. DA = DB [10] & AE = DF [15] & ∠BDF = ∠DAE [18] (SAS)⇒  ED = FB [19]
+015. CF = DE [08] & ED = FB [19] ⇒  BF = FC
+==========================

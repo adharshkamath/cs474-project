@@ -1,0 +1,28 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+CA = CB [00]
+A,C,D are collinear [01]
+CE = CD [02]
+C,B,E are collinear [03]
+A,E,F are collinear [04]
+F,B,D are collinear [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CA = CB [00] & CE = CD [02] ⇒  CA:CB = CE:CD [06]
+002. CA = CB [00] & CE = CD [02] ⇒  CA:CB = CD:CE [07]
+003. C,D,A are collinear [01] & C,B,E are collinear [03] ⇒  ∠ACB = ∠DCE [08]
+004. CA:CB = CE:CD [06] & ∠ACB = ∠DCE [08] (Similar Triangles)⇒  AC:EC = AB:ED [09]
+005. CA:CB = CD:CE [07] & ∠ACB = ∠DCE [08] (Similar Triangles)⇒  ∠CAB = ∠CDE [10]
+006. ∠CAB = ∠CDE [10] & A,C,D are collinear [01] ⇒  AB ∥ DE [11]
+007. AB ∥ DE [11] & A,E,F are collinear [04] & F,B,D are collinear [05] ⇒  AF:FE = AB:ED [12]
+008. AB ∥ DE [11] & A,E,F are collinear [04] & F,B,D are collinear [05] ⇒  AF:FE = FB:FD [13]
+009. AC:EC = AB:ED [09] & CA = CB [00] & CE = CD [02] & AF:FE = AB:ED [12] & AF:FE = FB:FD [13] ⇒  FB:FD = CB:CD [14]
+010. FB:FD = CB:CD [14] & F,B,D are collinear [05] ⇒  ∠BCF = ∠FCD [15]
+011. ∠BCF = ∠FCD [15] & A,C,D are collinear [01] ⇒  ∠BCF = ∠FCA
+==========================

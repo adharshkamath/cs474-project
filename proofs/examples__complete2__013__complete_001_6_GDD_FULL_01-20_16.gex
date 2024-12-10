@@ -1,0 +1,30 @@
+
+==========================
+ * From theorem premises:
+A B C D E F I J K : Points
+DE ⟂ AC [00]
+E,C,A are collinear [01]
+DF ⟂ BC [02]
+F,C,B are collinear [03]
+C,A,I are collinear [04]
+AC ⟂ IF [05]
+J,C,B are collinear [06]
+BC ⟂ JE [07]
+J,E,K are collinear [08]
+I,F,K are collinear [09]
+
+ * Auxiliary Constructions:
+H : Points
+C,H,B are collinear [10]
+
+ * Proof steps:
+001. J,C,B are collinear [06] & J,E,K are collinear [08] & C,I,A are collinear [04] & I,F,K are collinear [09] & DE ⟂ AC [00] & DF ⟂ BC [02] & BC ⟂ JE [07] & AC ⟂ IF [05] ⇒  ∠CJK = ∠CIK [11]
+002. ∠CJK = ∠CIK [11] ⇒  J,C,K,I are concyclic [12]
+003. J,C,K,I are concyclic [12] ⇒  ∠JCK = ∠JIK [13]
+004. J,C,B are collinear [06] & F,C,B are collinear [03] & C,I,A are collinear [04] & E,C,A are collinear [01] & DE ⟂ AC [00] & DF ⟂ BC [02] & BC ⟂ JE [07] & AC ⟂ IF [05] ⇒  ∠FJE = ∠FIE [14]
+005. ∠FJE = ∠FIE [14] ⇒  J,E,I,F are concyclic [15]
+006. J,E,I,F are concyclic [15] ⇒  ∠JEF = ∠JIF [16]
+007. J,C,B are collinear [06] & C,H,B are collinear [10] & ∠JCK = ∠JIK [13] & I,F,K are collinear [09] & AC ⟂ IF [05] & DE ⟂ AC [00] & ∠JEF = ∠JIF [16] & BC ⟂ JE [07] & DF ⟂ BC [02] ⇒  ∠DFE = ∠(HJ-CK) [17]
+008. J,C,B are collinear [06] & C,H,B are collinear [10] & BC ⟂ DF [02] ⇒  HJ ⟂ FD [18]
+009. ∠DFE = ∠(HJ-CK) [17] & HJ ⟂ FD [18] ⇒  CK ⟂ EF
+==========================

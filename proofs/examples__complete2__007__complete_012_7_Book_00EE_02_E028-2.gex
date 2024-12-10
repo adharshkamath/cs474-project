@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D F G : Points
+AC = CD [00]
+AC ⟂ CD [01]
+CB = BF [02]
+BC ⟂ BF [03]
+CG ∥ BF [04]
+CB ∥ FG [05]
+
+ * Auxiliary Constructions:
+E : Points
+AC ∥ DE [06]
+AE ∥ CD [07]
+
+ * Proof steps:
+001. BF ∥ CG [04] & BC ∥ FG [05] ⇒  ∠FBC = ∠CGF [08]
+002. BC ∥ FG [05] ⇒  ∠FCB = ∠CFG [09]
+003. ∠FBC = ∠CGF [08] & ∠FCB = ∠CFG [09] (Similar Triangles)⇒  FB = CG [10]
+004. CB = BF [02] & FB = CG [10] ⇒  CG = CB [11]
+005. AC ⟂ CD [01] & AC ∥ DE [06] & CD ∥ AE [07] ⇒  ED ⟂ AE [12]
+006. BC ⟂ BF [03] & ED ⟂ AE [12] ⇒  ∠(BF-DE) = ∠(BC-AE) [13]
+007. BC ⟂ BF [03] & ED ⟂ AE [12] ⇒  ∠FBC = ∠AED [14]
+008. ∠(BF-DE) = ∠(BC-AE) [13] & AC ∥ DE [06] & AE ∥ CD [07] & BF ∥ CG [04] ⇒  ∠GCA = ∠BCD [15]
+009. CG = CB [11] & AC = CD [00] & ∠GCA = ∠BCD [15] (SAS)⇒  ∠(AG-BD) = ∠ACD [16]
+010. CG = CB [11] & AC = CD [00] & ∠GCA = ∠BCD [15] (SAS)⇒  ∠GCB = ∠(AG-BD) [17]
+011. ∠(AG-BD) = ∠ACD [16] & ∠FBC = ∠AED [14] & AE ∥ CD [07] & AC ∥ DE [06] & ∠GCB = ∠(AG-BD) [17] & CG ∥ BF [04] ⇒  DB ⟂ GA
+==========================

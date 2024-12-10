@@ -1,0 +1,26 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+DA = AB [00]
+AB = BD [01]
+EA = AC [02]
+AC = CE [03]
+CB = CF [04]
+CB = BF [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AB = AD [00] & AC = AE [02] ⇒  AB:AD = AC:AE [06]
+002. AB = BD [01] & DA = AB [00] & EA = AC [02] & AC = CE [03] ⇒  DB:DA = EC:EA [07]
+003. AB:AD = AC:AE [06] & DB:DA = EC:EA [07] (Similar Triangles)⇒  ∠BAC = ∠DAE [08]
+004. DA = AB [00] & EA = AC [02] & ∠BAC = ∠DAE [08] (SAS)⇒  ∠DAB = ∠(DE-BC) [09]
+005. AB = AD [00] & CB = CF [04] ⇒  AB:AD = CB:CF [10]
+006. AB = BD [01] & DA = AB [00] & FC = CB [04] & CB = BF [05] ⇒  DB:DA = FB:FC [11]
+007. AB:AD = CB:CF [10] & DB:DA = FB:FC [11] (Similar Triangles)⇒  ∠DAB = ∠FCB [12]
+008. ∠DAB = ∠(DE-BC) [09] & ∠DAB = ∠FCB [12] ⇒  ∠FCB = ∠(DE-BC) [13]
+009. ∠FCB = ∠(DE-BC) [13] ⇒  FC ∥ DE
+==========================

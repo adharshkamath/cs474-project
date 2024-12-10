@@ -1,0 +1,20 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AD = AC [00]
+B,A,D are collinear [01]
+∠EAB = ∠CAE [02]
+E,B,C are collinear [03]
+FD ∥ BC [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. B,A,D are collinear [01] & ∠CAE = ∠EAB [02] ⇒  ∠CAE = ∠EAD [05]
+002. AD = AC [00] & ∠CAE = ∠EAD [05] (SAS)⇒  EC = ED [06]
+003. EC = ED [06] ⇒  ∠EDC = ∠DCE [07]
+004. ∠EDC = ∠DCE [07] & E,B,C are collinear [03] & BC ∥ DF [04] ⇒  ∠EDC = ∠CDF
+==========================

@@ -1,0 +1,23 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+CA = CB [00]
+A,D,C are collinear [01]
+E,C,B are collinear [02]
+EB = AD [03]
+A,F,B are collinear [04]
+E,F,D are collinear [05]
+
+ * Auxiliary Constructions:
+G : Points
+GD ∥ AB [06]
+G,C,B are collinear [07]
+
+ * Proof steps:
+001. F,A,B are collinear [04] & DG ∥ AB [06] ⇒  FB ∥ DG [08]
+002. G,C,B are collinear [07] & E,C,B are collinear [02] ⇒  E,B,G are collinear [09]
+003. FB ∥ DG [08] & E,F,D are collinear [05] & E,B,G are collinear [09] ⇒  BE:BG = FE:FD [10]
+004. DG ∥ AB [06] & A,D,C are collinear [01] & G,C,B are collinear [07] ⇒  AC:BC = AD:BG [11]
+005. BE:BG = FE:FD [10] & AC:BC = AD:BG [11] & CA = CB [00] & EB = AD [03] ⇒  FE = FD
+==========================

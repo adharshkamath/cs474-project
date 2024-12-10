@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AD ⟂ BC [00]
+EA = EC [01]
+EB = EA [02]
+EF = EA [03]
+∠BAF = ∠FAC [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EF = EA [03] ⇒  ∠AFE = ∠EAF [05]
+002. EA = EC [01] & EB = EA [02] ⇒  EB = EC [06]
+003. EB = EA [02] & EF = EA [03] & EA = EC [01] ⇒  A,C,F,B are concyclic [07]
+004. A,C,F,B are concyclic [07] & ∠BAF = ∠FAC [04] ⇒  CF = FB [08]
+005. EB = EC [06] & CF = FB [08] ⇒  BC ⟂ EF [09]
+006. ∠EAF = ∠AFE [05] & BC ⟂ EF [09] & AD ⟂ BC [00] ⇒  ∠EAF = ∠FAD
+==========================

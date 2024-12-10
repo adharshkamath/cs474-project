@@ -1,0 +1,31 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+DA = DB [00]
+DB = DC [01]
+DE = DA [02]
+F,A,C are collinear [03]
+EF ⟂ AC [04]
+EG ⟂ AB [05]
+B,A,G are collinear [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. F,A,C are collinear [03] & EF ⟂ AC [04] ⇒  FE ⟂ FA [07]
+002. FE ⟂ FA [07] & EG ⟂ AB [05] ⇒  ∠FEG = ∠FAB [08]
+003. F,A,C are collinear [03] & ∠FEG = ∠FAB [08] ⇒  ∠EFA = ∠(EG-BA) [09]
+004. DA = DB [00] & DE = DA [02] & DB = DC [01] ⇒  B,E,A,C are concyclic [10]
+005. B,E,A,C are concyclic [10] ⇒  ∠ABE = ∠ACE [11]
+006. B,E,A,C are concyclic [10] ⇒  ∠EAB = ∠ECB [12]
+007. F,A,C are collinear [03] & ∠ACE = ∠ABE [11] ⇒  ∠(FA-EC) = ∠ABE [13]
+008. ∠EFA = ∠(EG-BA) [09] & ∠(FA-EC) = ∠ABE [13] ⇒  ∠FEG = ∠CEB [14]
+009. F,A,C are collinear [03] & B,A,G are collinear [06] & ∠FEG = ∠FAB [08] ⇒  ∠EFA = ∠EGA [15]
+010. ∠EFA = ∠EGA [15] ⇒  F,E,A,G are concyclic [16]
+011. F,E,A,G are concyclic [16] ⇒  ∠FEA = ∠FGA [17]
+012. ∠EAB = ∠ECB [12] & ∠FEA = ∠FGA [17] & B,A,G are collinear [06] ⇒  ∠EFG = ∠ECB [18]
+013. ∠FEG = ∠CEB [14] & ∠EFG = ∠ECB [18] (Similar Triangles)⇒  ΔEFG is similar to ΔECB
+==========================

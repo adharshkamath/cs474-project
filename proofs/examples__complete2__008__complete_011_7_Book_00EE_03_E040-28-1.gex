@@ -1,0 +1,21 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+∠CBA = ∠ACB [00]
+D,A,C are collinear [01]
+EB = EC [02]
+EC = ED [03]
+EF = EB [04]
+A,B,F are collinear [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EB = EC [02] & EF = EB [04] & EC = ED [03] ⇒  D,F,B,C are concyclic [06]
+002. D,F,B,C are concyclic [06] ⇒  ∠DFB = ∠DCB [07]
+003. ∠DFB = ∠DCB [07] & A,B,F are collinear [05] & D,A,C are collinear [01] & ∠CBA = ∠ACB [00] ⇒  ∠CBA = ∠(DF-AB) [08]
+004. ∠CBA = ∠(DF-AB) [08] ⇒  BC ∥ DF
+==========================

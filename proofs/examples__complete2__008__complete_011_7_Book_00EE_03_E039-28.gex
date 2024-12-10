@@ -1,0 +1,29 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+AC = AB [00]
+CD = CB [01]
+AD = AB [02]
+CD = CE [03]
+E,D,C are collinear [04]
+AF = AB [05]
+B,E,F are collinear [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AF = AB [05] ⇒  ∠AFB = ∠FBA [07]
+002. AD = AB [02] & AC = AB [00] ⇒  AC = AD [08]
+003. AC = AB [00] & CD = CB [01] & AC = AD [08] (SSS)⇒  ∠BAC = ∠BCD [09]
+004. AD = AB [02] & CD = CB [01] ⇒  BD ⟂ AC [10]
+005. CD = CB [01] & CD = CE [03] ⇒  C is the circumcenter of \Delta EBD [11]
+006. C is the circumcenter of \Delta EBD [11] & E,D,C are collinear [04] ⇒  BE ⟂ BD [12]
+007. AC = AB [00] & AF = AB [05] & AD = AB [02] ⇒  B,D,C,F are concyclic [13]
+008. B,D,C,F are concyclic [13] ⇒  ∠BCD = ∠BFD [14]
+009. ∠AFB = ∠FBA [07] & B,E,F are collinear [06] & ∠BAC = ∠BCD [09] & BD ⟂ AC [10] & BE ⟂ BD [12] & ∠BCD = ∠BFD [14] ⇒  ∠(DF-AC) = ∠FAC [15]
+010. ∠(DF-AC) = ∠FAC [15] ⇒  DF ∥ AF [16]
+011. DF ∥ AF [16] ⇒  A,D,F are collinear
+==========================

@@ -1,0 +1,34 @@
+
+==========================
+ * From theorem premises:
+A B C D E G H : Points
+BC ⟂ AB [00]
+BC ⟂ DC [01]
+AB ⟂ DA [02]
+E,C,D are collinear [03]
+ED = EC [04]
+A,G,B are collinear [05]
+GA = GB [06]
+H,A,D are collinear [07]
+HA = HD [08]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. AB ⟂ DA [02] & BC ⟂ AB [00] ⇒  DA ∥ BC [09]
+002. BC ⟂ AB [00] & BC ⟂ DC [01] & BC ∥ AD [09] ⇒  ∠CDA = ∠CBA [10]
+003. ∠CDA = ∠CBA [10] ⇒  D,A,C,B are concyclic [11]
+004. D,A,C,B are concyclic [11] ⇒  ∠DAC = ∠DBC [12]
+005. ED = EC [04] & GA = GB [06] ⇒  ED:EC = GA:GB [13]
+006. AD ∥ BC [09] & E,C,D are collinear [03] & A,G,B are collinear [05] & ED:EC = GA:GB [13] ⇒  EG ∥ DA [14]
+007. AD ∥ BC [09] & E,C,D are collinear [03] & A,G,B are collinear [05] & ED:EC = GA:GB [13] ⇒  EG ∥ CB [15]
+008. E,C,D are collinear [03] & EC = ED [04] ⇒  E is midpoint of CD [16]
+009. H,A,D are collinear [07] & HA = HD [08] ⇒  H is midpoint of AD [17]
+010. E is midpoint of CD [16] & H is midpoint of AD [17] ⇒  EH ∥ CA [18]
+011. A,G,B are collinear [05] & GA = GB [06] ⇒  G is midpoint of BA [19]
+012. G is midpoint of BA [19] & H is midpoint of AD [17] ⇒  GH ∥ BD [20]
+013. ∠DAC = ∠DBC [12] & EG ∥ AD [14] & EG ∥ BC [15] & AC ∥ EH [18] & BD ∥ GH [20] ⇒  ∠HEG = ∠EGH [21]
+014. ∠HEG = ∠EGH [21] ⇒  HE = HG
+==========================

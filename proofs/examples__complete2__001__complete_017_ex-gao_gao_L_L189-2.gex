@@ -1,0 +1,30 @@
+
+==========================
+ * From theorem premises:
+A B C D E F H : Points
+CA = CB [00]
+∠BAC = ∠CBA [01]
+A,C,D are collinear [02]
+DC = DA [03]
+B,C,E are collinear [04]
+EB = EC [05]
+FA ∥ BC [06]
+FB ∥ AC [07]
+A,F,H are collinear [08]
+HA = HF [09]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. ∠CBA = ∠BAC [01] & BC ∥ AF [06] & AC ∥ BF [07] ⇒  ∠FAB = ∠ABF [10]
+002. ∠FAB = ∠ABF [10] ⇒  FA = FB [11]
+003. CA = CB [00] & FA = FB [11] ⇒  AB ⟂ CF [12]
+004. A,C,D are collinear [02] & DC = DA [03] ⇒  D is midpoint of AC [13]
+005. A,F,H are collinear [08] & HA = HF [09] ⇒  H is midpoint of AF [14]
+006. D is midpoint of AC [13] & H is midpoint of AF [14] ⇒  DH ∥ CF [15]
+007. B,C,E are collinear [04] & EB = EC [05] ⇒  E is midpoint of CB [16]
+008. D is midpoint of AC [13] & E is midpoint of CB [16] ⇒  DE ∥ AB [17]
+009. AB ⟂ CF [12] & CF ∥ DH [15] & AB ∥ DE [17] ⇒  HD ⟂ DE
+==========================

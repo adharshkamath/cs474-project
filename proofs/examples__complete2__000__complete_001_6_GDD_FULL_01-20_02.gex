@@ -1,0 +1,22 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G : Points
+DC = DB [00]
+E,A,C are collinear [01]
+EC = EA [02]
+A,B,F are collinear [03]
+FB = FA [04]
+GB = GC [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. DC = DB [00] & GB = GC [05] ⇒  BC ⟂ DG [06]
+002. E,A,C are collinear [01] & EC = EA [02] ⇒  E is midpoint of CA [07]
+003. A,B,F are collinear [03] & FB = FA [04] ⇒  F is midpoint of BA [08]
+004. E is midpoint of CA [07] & F is midpoint of BA [08] ⇒  EF ∥ CB [09]
+005. BC ⟂ DG [06] & BC ∥ EF [09] ⇒  GD ⟂ EF
+==========================

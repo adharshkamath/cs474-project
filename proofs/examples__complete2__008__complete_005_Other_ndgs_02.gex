@@ -1,0 +1,26 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+C,D,B are collinear [00]
+AD ⟂ BC [01]
+A,B,E are collinear [02]
+CE ⟂ AB [03]
+D,F,A are collinear [04]
+C,F,E are collinear [05]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. C,F,E are collinear [05] & A,E,B are collinear [02] & D,F,A are collinear [04] & D,B,C are collinear [00] & AD ⟂ BC [01] & CE ⟂ AB [03] ⇒  ∠FEB = ∠FDB [06]
+002. ∠FEB = ∠FDB [06] ⇒  D,F,E,B are concyclic [07]
+003. D,F,E,B are concyclic [07] ⇒  ∠DFB = ∠DEB [08]
+004. A,E,B are collinear [02] & D,B,C are collinear [00] & AD ⟂ BC [01] & CE ⟂ AB [03] ⇒  ∠CEA = ∠CDA [09]
+005. ∠CEA = ∠CDA [09] ⇒  C,D,A,E are concyclic [10]
+006. C,D,A,E are concyclic [10] ⇒  ∠CDE = ∠CAE [11]
+007. C,D,B are collinear [00] & D,F,A are collinear [04] & ∠DFB = ∠DEB [08] & A,B,E are collinear [02] & ∠CDE = ∠CAE [11] ⇒  ∠DCA = ∠DFB [12]
+008. D,F,A are collinear [04] & C,D,B are collinear [00] & AD ⟂ BC [01] ⇒  DF ⟂ CD [13]
+009. ∠DCA = ∠DFB [12] & DF ⟂ CD [13] ⇒  BF ⟂ AC
+==========================

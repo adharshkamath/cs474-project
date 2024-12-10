@@ -1,0 +1,20 @@
+
+==========================
+ * From theorem premises:
+A B C E F : Points
+A,B,C are collinear [00]
+C,B,E are collinear [01]
+EC = EB [02]
+EF = EC [03]
+AF ⟂ EF [04]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. EF = EC [03] ⇒  ∠EFC = ∠FCE [05]
+002. EF = EC [03] & EC = EB [02] ⇒  E is the circumcenter of \Delta FCB [06]
+003. E is the circumcenter of \Delta FCB [06] & AF ⟂ EF [04] ⇒  ∠AFC = ∠FBC [07]
+004. ∠EFC = ∠FCE [05] & C,B,E are collinear [01] & A,B,C are collinear [00] & ∠AFC = ∠FBC [07] ⇒  ∠BFA = ∠CFE
+==========================

@@ -1,0 +1,17 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+C,B,A are collinear [00]
+CD = CA [01]
+DE ⟂ CD [02]
+DE ⟂ FA [03]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. CD = CA [01] ⇒  ∠CAD = ∠ADC [04]
+002. ∠CAD = ∠ADC [04] & C,B,A are collinear [00] & DE ⟂ FA [03] & DE ⟂ CD [02] ⇒  ∠FAD = ∠DAB
+==========================

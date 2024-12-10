@@ -1,0 +1,28 @@
+
+==========================
+ * From theorem premises:
+A B C D E F : Points
+∠CBA = ∠ACB [00]
+C,A,D are collinear [01]
+BD ⟂ AC [02]
+B,A,E are collinear [03]
+CE ⟂ AB [04]
+B,F,D are collinear [05]
+C,E,F are collinear [06]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. C,A,D are collinear [01] & B,A,E are collinear [03] & CE ⟂ AB [04] & BD ⟂ AC [02] ⇒  ∠CDB = ∠CEB [07]
+002. B,A,E are collinear [03] & C,A,D are collinear [01] & ∠CBA = ∠ACB [00] ⇒  ∠CBE = ∠DCB [08]
+003. ∠CDB = ∠CEB [07] & ∠CBE = ∠DCB [08] (Similar Triangles)⇒  CE = BD [09]
+004. ∠CDB = ∠CEB [07] & ∠CBE = ∠DCB [08] (Similar Triangles)⇒  BE = CD [10]
+005. CE = BD [09] ⇒  CE:CD = CE:CD [11]
+006. C,A,D are collinear [01] & B,F,D are collinear [05] & C,E,F are collinear [06] & B,A,E are collinear [03] & CE ⟂ AB [04] & BD ⟂ AC [02] ⇒  ∠CDF = ∠FEB [12]
+007. C,F,E are collinear [06] & B,F,D are collinear [05] ⇒  ∠CFD = ∠EFB [13]
+008. ∠CDF = ∠FEB [12] & ∠CFD = ∠EFB [13] (Similar Triangles)⇒  CF:CD = BF:BE [14]
+009. BF:BE = CF:CD [14] & CD = BE [10] ⇒  BF:CD = CF:CD [15]
+010. CE:CD = CE:CD [11] & BF:CD = CF:CD [15] ⇒  CF = BF
+==========================

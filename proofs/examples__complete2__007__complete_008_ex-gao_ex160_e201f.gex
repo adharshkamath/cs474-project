@@ -1,0 +1,25 @@
+
+==========================
+ * From theorem premises:
+A B C D F G : Points
+AB = BD [00]
+AB ⟂ BD [01]
+C,F,B are collinear [02]
+AF ⟂ BC [03]
+GA = BC [04]
+G,A,F are collinear [05]
+
+ * Auxiliary Constructions:
+E : Points
+AB ∥ DE [06]
+
+ * Proof steps:
+001. C,F,B are collinear [02] & G,A,F are collinear [05] & BC ⟂ AF [03] ⇒  CF ⟂ GA [07]
+002. AB ⟂ BD [01] & AB ∥ DE [06] ⇒  BD ⟂ ED [08]
+003. CF ⟂ GA [07] & BD ⟂ ED [08] ⇒  ∠(CF-BD) = ∠(GA-ED) [09]
+004. CF ⟂ GA [07] & BD ⟂ ED [08] ⇒  ∠(CF-ED) = ∠(GA-BD) [10]
+005. G,A,F are collinear [05] & ∠(CF-BD) = ∠(GA-ED) [09] & C,F,B are collinear [02] & AB ∥ DE [06] ⇒  ∠BAG = ∠DBC [11]
+006. AB = BD [00] & GA = BC [04] & ∠BAG = ∠DBC [11] (SAS)⇒  ∠BGA = ∠DCB [12]
+007. AB = BD [00] & GA = BC [04] & ∠BAG = ∠DBC [11] (SAS)⇒  ∠ABD = ∠(BG-CD) [13]
+008. ∠BGA = ∠DCB [12] & G,A,F are collinear [05] & ∠(CF-ED) = ∠(GA-BD) [10] & C,F,B are collinear [02] & AB ∥ DE [06] & ∠ABD = ∠(BG-CD) [13] ⇒  GB ⟂ CD
+==========================

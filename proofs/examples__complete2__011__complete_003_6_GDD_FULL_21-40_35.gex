@@ -1,0 +1,38 @@
+
+==========================
+ * From theorem premises:
+A B C D E F G H : Points
+B,A,D are collinear [00]
+CD ⟂ AB [01]
+C,A,E are collinear [02]
+BE ⟂ AC [03]
+FA = FB [04]
+FB = FC [05]
+FG = FC [06]
+C,D,G are collinear [07]
+C,D,H are collinear [08]
+B,E,H are collinear [09]
+
+ * Auxiliary Constructions:
+: Points
+
+
+ * Proof steps:
+001. BE ⟂ AC [03] & CD ⟂ AB [01] ⇒  ∠BAC = ∠(CD-BE) [10]
+002. B,A,D are collinear [00] & C,D,H are collinear [08] & C,A,E are collinear [02] & B,E,H are collinear [09] & BE ⟂ AC [03] & CD ⟂ AB [01] ⇒  ∠ADH = ∠AEH [11]
+003. ∠ADH = ∠AEH [11] ⇒  A,D,E,H are concyclic [12]
+004. A,D,E,H are concyclic [12] ⇒  ∠ADE = ∠AHE [13]
+005. B,A,D are collinear [00] & C,A,E are collinear [02] & BE ⟂ AC [03] & CD ⟂ AB [01] ⇒  ∠BDC = ∠BEC [14]
+006. ∠BDC = ∠BEC [14] ⇒  B,D,E,C are concyclic [15]
+007. B,D,E,C are concyclic [15] ⇒  ∠DEB = ∠DCB [16]
+008. FA = FB [04] & FB = FC [05] & FG = FC [06] ⇒  B,A,G,C are concyclic [17]
+009. B,A,G,C are concyclic [17] ⇒  ∠BAG = ∠BCG [18]
+010. B,A,G,C are concyclic [17] ⇒  ∠BAC = ∠BGC [19]
+011. B,A,D are collinear [00] & ∠ADE = ∠AHE [13] & B,E,H are collinear [09] & ∠DEB = ∠DCB [16] & ∠BAG = ∠BCG [18] & C,D,G are collinear [07] ⇒  ∠GAD = ∠DAH [20]
+012. C,D,H are collinear [08] & C,D,G are collinear [07] ⇒  D,G,H are collinear [21]
+013. ∠GAD = ∠DAH [20] & D,G,H are collinear [21] ⇒  DG:DH = AG:AH [22]
+014. B,A,D are collinear [00] & C,D,G are collinear [07] & C,D,H are collinear [08] & CD ⟂ AB [01] ⇒  ∠BDG = ∠HDB [23]
+015. C,D,G are collinear [07] & C,D,H are collinear [08] & B,E,H are collinear [09] & ∠BAC = ∠(CD-BE) [10] & ∠BAC = ∠BGC [19] ⇒  ∠BGD = ∠DHB [24]
+016. ∠BDG = ∠HDB [23] & ∠BGD = ∠DHB [24] (Similar Triangles)⇒  DG = DH [25]
+017. DG:DH = AG:AH [22] & DG = DH [25] ⇒  AG = AH
+==========================
