@@ -297,25 +297,25 @@ class LanguageE(object):
             Implies(And(\
                 self.Inside(a, alpha), self.OnCircle(b, alpha), self.OnCircle(c, alpha), \
                 self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L), Not(b == c)), \
-                    self.Between(b, a, c))))
+                    self.Between(b, a, c))))  # LG
         
         self.axioms.append(ForAll([a, b, c, alpha], \
             Implies(And(\
                 Or(self.Inside(a, alpha), self.OnCircle(a, alpha)), Or(self.Inside(b, alpha), self.OnCircle(b, alpha)), \
                 self.Between(a, c, b)), \
-                    And(Not(self.Inside(b, alpha)), Not(self.OnCircle(b, alpha))))))
+                    (self.Inside(c, alpha)))))  # LG
         
-        self.axioms.append(ForAll([a, b, c, alpha, L], \
+        self.axioms.append(ForAll([a, b, c, alpha], \
             Implies(And(\
                 Or(self.Inside(a, alpha), self.OnCircle(a, alpha)), Not(self.Inside(c, alpha)), self.Between(a, c, b)), \
-                    And(Not(self.Inside(b, alpha)), Not(self.OnCircle(b, alpha))))))
+                    And(Not(self.Inside(b, alpha)), Not(self.OnCircle(b, alpha))))))  # LG
         
         self.axioms.append(ForAll([a, b, c, d, alpha, beta], \
             Implies(And(\
                 self.OnCircle(c, alpha), self.OnCircle(c, beta), self.OnCircle(d, alpha), self.OnCircle(d, beta), \
                 Not(alpha == beta), Not(c == d), self.OnLine(a, L), self.OnLine(b, L), \
                 self.Center(a, alpha), self.Center(a, beta)), \
-                    Not(self.SameSide(c, d, L)))))
+                    Not(self.SameSide(c, d, L)))))  # LG
         
         """
             Intersection
@@ -323,30 +323,30 @@ class LanguageE(object):
         self.axioms.append(ForAll([L, M, a, b], \
             Implies(And(\
                 self.OnLine(a, M), self.OnLine(b, M), Not(self.SameSide(a, b, L))), \
-                    self.Intersectsll(L, M))))
+                    self.Intersectsll(L, M))))  # LG
         
         self.axioms.append(ForAll([alpha, L, a, b], \
             Implies(And(\
                 Or(self.Inside(a, alpha), self.OnCircle(a, alpha)), \
                 Or(self.Inside(b, alpha), self.OnCircle(b, alpha)), \
                 Not(self.OnLine(a, L)), Not(self.OnLine(b, L)), Not(self.SameSide(a, b, L))), \
-                    self.Intersectslc(L, alpha))))
+                    self.Intersectslc(L, alpha))))  # LG
         
         self.axioms.append(ForAll([L, alpha, a], \
             Implies(And(\
                 self.Inside(a, alpha), self.OnLine(a, L)), \
-                    self.Intersectslc(L, alpha))))
+                    self.Intersectslc(L, alpha))))  # LG
         
         self.axioms.append(ForAll([alpha, beta, a, b], \
             Implies(And(\
                 self.OnCircle(a, alpha), Or(self.Inside(b, alpha), self.OnCircle(b, alpha)), \
                 self.Inside(a, beta), Not(self.Inside(b, beta)), Not(self.OnCircle(b, beta))), \
-                    self.Intersectscc(alpha, beta))))
+                    self.Intersectscc(alpha, beta))))  # LG
         
         self.axioms.append(ForAll([alpha, beta, a, b], \
             Implies(And(\
                 self.OnCircle(a, alpha), self.Inside(b, beta), self.Inside(a, beta), self.OnCircle(b, beta)), \
-                    self.Intersectscc(alpha, beta))))
+                    self.Intersectscc(alpha, beta))))  # LG
         
         """
             ---------- METRIC AXIOMS ----------
