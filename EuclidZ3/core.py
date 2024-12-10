@@ -405,18 +405,27 @@ class LanguageE(object):
         
         # # center and radius determine circle
         self.axioms.append(ForAll([a, b, c, alpha, beta], \
-            Implies(And(\
+            Implies(And( \
                 self.Center(a, alpha), self.Center(a, beta), self.OnCircle(b, alpha), self.OnCircle(c, beta), \
                 self.Segment(a, b) == self.Segment(a, c)), \
                     (alpha == beta)))) # LG
         
         self.axioms.append(ForAll([a, b, c, alpha], \
-            (And(self.Center(a, alpha), self.OnCircle(b, beta), self.Segment(a, c) == self.Segment(a, b)) == self.OnCircle(c, alpha)))) # LG
+            Implies(And( \
+                self.Center(a, alpha), self.OnCircle(b, alpha), self.Segment(a, c) == self.Segment(a, b)), self.OnCircle(c, alpha)))) # LG
+        self.axioms.append(ForAll([a, b, c, alpha], \
+            Implies(And( Not(a == b), Not(a == c), Not(b == c), \
+                self.Center(a, alpha), self.OnCircle(b, alpha), self.OnCircle(c, alpha)), self.Segment(a, c) == self.Segment(a, b)))) # LG
         
         self.axioms.append(ForAll([a, b, c, alpha], \
-            Implies(And(\
-                self.Center(a, alpha), self.OnCircle(b, alpha)), \
-                    ((self.Segment(a, c) < self.Segment(a, b)) == self.Inside(c, alpha))))) # LG
+            Implies(And( \
+                self.Center(a, alpha), self.OnCircle(b, alpha), \
+                    (self.Segment(a, c) < self.Segment(a, b))), self.Inside(c, alpha)))) # LG
+        
+        self.axioms.append(ForAll([a, b, c, alpha], \
+            Implies(And( \
+                self.Center(a, alpha), self.OnCircle(b, alpha), self.Inside(c, alpha)), \
+                    (self.Segment(a, c) < self.Segment(a, b))))) # LG
         
         
         """

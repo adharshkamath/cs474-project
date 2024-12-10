@@ -2,19 +2,14 @@ from z3 import *
 from core import *
 
 
-o = Point("o")
-a = Point("a")
-alpha = Circle("alpha")
-alpha.centerThrough(o,a)
-print(str(alpha))
-
 print("=== Loading Core ===")    
 
 set_param("parallel.enable", True)
 solver = Solver()
 solver.set(unsat_core=True)
 solver.push()
-solver.add(language.axioms)
+for i, a in enumerate(language.axioms):
+    solver.assert_and_track(a, str(a))
 
 
 print("=== Finished Loading Core ===")
@@ -39,44 +34,47 @@ assumptions = []
 AB1, BC1, CA1 = Consts('AB1 BC1 CA1', language.LineSort)
 solver.add(simplify(Distinct(AB1,BC1,CA1), blast_distinct=True))
 
-# assumptions.append(language.OnLine(A1,AB1))
-# assumptions.append(language.OnLine(B1,AB1))
-# assumptions.append(Not(language.OnLine(C1,AB1)))
+assumptions.append(language.OnLine(A1,AB1))
+assumptions.append(language.OnLine(B1,AB1))
+assumptions.append(Not(language.OnLine(C1,AB1)))
 
-# assumptions.append(language.OnLine(B1,BC1))
-# assumptions.append(language.OnLine(C1,BC1))
+assumptions.append(language.OnLine(B1,BC1))
+assumptions.append(language.OnLine(C1,BC1))
 
-# assumptions.append(language.OnLine(C1,CA1))
-# assumptions.append(language.OnLine(A1,CA1))
+assumptions.append(language.OnLine(C1,CA1))
+assumptions.append(language.OnLine(A1,CA1))
 
-# assumptions.append(language.OnLine(D1, BC1))
-# assumptions.append(language.Angle(D1, A1, B1) == language.Angle(B1, C1, A1))
+assumptions.append(language.OnLine(D1, BC1))
+assumptions.append(language.Angle(D1, A1, B1) == language.Angle(B1, C1, A1))
 
-# assumptions.append(language.OnLine(E1, BC1))
-# assumptions.append(language.Angle(E1, A1, C1) == language.Angle(C1, B1, A1))
+assumptions.append(language.OnLine(E1, BC1))
+assumptions.append(language.Angle(E1, A1, C1) == language.Angle(C1, B1, A1))
 
-# FD1, GE1 = Consts('FD1 GE1', language.LineSort)
-# solver.add(simplify(Distinct(FD1,GE1), blast_distinct=True))
+FD1, GE1 = Consts('FD1 GE1', language.LineSort)
+solver.add(simplify(Distinct(FD1,GE1), blast_distinct=True))
 
-# assumptions.append(language.Segment(F1, D1) == language.Segment(D1, A1))
+assumptions.append(language.Segment(F1, D1) == language.Segment(D1, A1))
 
-# assumptions.append(language.OnLine(F1,FD1))
-# assumptions.append(language.OnLine(D1,FD1))
-# assumptions.append(language.OnLine(A1,FD1))
+assumptions.append(language.OnLine(F1,FD1))
+assumptions.append(language.OnLine(D1,FD1))
+assumptions.append(language.OnLine(A1,FD1))
 
-# assumptions.append(language.Segment(G1, E1) == language.Segment(E1, A1))
+assumptions.append(language.Segment(G1, E1) == language.Segment(E1, A1))
 
-# assumptions.append(language.OnLine(G1,GE1))
-# assumptions.append(language.OnLine(E1,GE1))
-# assumptions.append(language.OnLine(A1,GE1))
+assumptions.append(language.OnLine(G1,GE1))
+assumptions.append(language.OnLine(E1,GE1))
+assumptions.append(language.OnLine(A1,GE1))
 
 OABC = Const('OABC', language.CircleSort)
 solver.add(simplify(Distinct(OABC), blast_distinct=True))
+print(Distinct(OABC))
 
-# assumptions.append(language.Center(I1, OABC))
-# assumptions.append(language.OnCircle(A1, OABC))
-# assumptions.append(language.OnCircle(B1, OABC))
+assumptions.append(language.Center(I1, OABC))
+assumptions.append(language.OnCircle(A1, OABC))
+assumptions.append(language.OnCircle(B1, OABC))
+assumptions.append(language.OnCircle(C1, OABC))
 
+print(solver.sexpr())
 
 # assumptions.append(language.Segment(C1, A1) == language.Segment(C1, B1))
 
@@ -100,8 +98,13 @@ solver.add(simplify(Distinct(OABC), blast_distinct=True))
 # assumptions.append(language.OnLine(E1,BE))
 
 print(">> Assume " + str(assumptions))
-solver.add(assumptions)
+for i, a in enumerate(assumptions):
+    solver.assert_and_track(a, str(a))
+with open('test.smt2', 'w') as f:
+    f.write(solver.to_smt2())
 print("<< z3: " + str(solver.check()))
+with open('unsat_core.smt2', 'w') as f:
+    f.write(str(solver.unsat_core()))
 
 # goal = Not(language.Intersectsll(DF, BE))
 
