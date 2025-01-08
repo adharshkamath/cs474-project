@@ -1,4 +1,4 @@
-bash download.sh
+# bash download.sh
 
 
 MELIAD_PATH=meliad_lib/meliad
