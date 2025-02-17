@@ -82,14 +82,17 @@ print(">> Assume " + str(assumptions))
 for a in assumptions:
     solver.assert_and_track(a, str(a))
 
-with open('raw.smt2', 'w') as f:
+solver.push()
+solver.add(Not(language.Segment(I1, H1) == language.Segment(I1, A1)))
+
+with open('raw1.smt2', 'w') as f:
     f.write(solver.to_smt2())
 
 result = solver.check()
 print("<< z3: " + str(result))
 
 if result == sat:
-    with open('model.smt2', 'w') as f:
+    with open('model1.smt2', 'w') as f:
         f.write(str(solver.model()))
 else:
     with open('unsat_core.smt2', 'w') as f:

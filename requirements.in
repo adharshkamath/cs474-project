@@ -1,4 +1,4 @@
-tensorflow==2.13.0
+tensorflow==2.14.0
 numpy==1.23.5
 scipy==1.10.0
 matplotlib==3.7.0
