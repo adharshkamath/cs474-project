@@ -7,7 +7,7 @@ from z3 import *
 
 
 class SystemE:
-    def __init__(self):
+    def __init__(self, solver: Solver):
         """
         There are six sorts in system E: points, lines, circles, segments, angles, and areas.
         There are six basic relations in system E: on-line, same-side, between, on-circle, inside-circle, and center.
@@ -156,7 +156,8 @@ class SystemE:
             ForAll(
                 [a, b, c, L],
                 Implies(
-                    And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L)),
+                    And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L),
+                         Not(a == b), Not(a == c), Not(b == c)),
                     Or(
                         self.Between(a, b, c),
                         self.Between(b, a, c),
@@ -594,6 +595,7 @@ class SystemE:
         )
         self.axioms.append(
             ForAll(
+                [a, b, c, alpha],
                 Implies(
                     And(self.Center(a, alpha), self.OnCircle(b, alpha)),
                     And(
@@ -806,3 +808,14 @@ class SystemE:
                 ),
             ),
         )
+
+        for axiom in self.axioms:
+            solver.assert_and_track(axiom, str(axiom))
+
+        check = solver.check()
+        print("Axioms are consistent: ", check == sat)
+
+
+if __name__ == "__main__":
+    solver = Solver()
+    SystemE(solver)
