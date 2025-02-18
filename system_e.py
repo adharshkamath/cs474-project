@@ -491,15 +491,15 @@ class SystemE:
             ForAll(
                 [a, b],
                 And(
-                    Implies(a == b, self.Segment(a, b) == 0),
-                    Implies(self.Segment(a, b) == 0, a == b),
+                    Implies(a == b, self.Segment(a, b) == RealVal(0.0)),
+                    Implies(self.Segment(a, b) == RealVal(0.0), a == b),
                 ),
             )
         )
         self.axioms.append(
             ForAll(
                 [a, b],
-                self.Segment(a, b) >= 0,
+                self.Segment(a, b) >= RealVal(0.0),
             )
         )
         self.axioms.append(
@@ -520,25 +520,31 @@ class SystemE:
         self.axioms.append(
             ForAll(
                 [a, b, c],
-                And(self.Angle(a, b, c) >= 0, self.Angle(a, b, c) <= self.RightAngle + self.RightAngle),
+                And(
+                    self.Angle(a, b, c) >= RealVal(0.0),
+                    self.Angle(a, b, c) <= self.RightAngle + self.RightAngle,
+                ),
             )
         )
         self.axioms.append(
             ForAll(
                 [a, b],
-                self.Area(a, a, b) == 0,
+                self.Area(a, a, b) == RealVal(0.0),
             )
         )
         self.axioms.append(
             ForAll(
                 [a, b, c],
-                self.Area(a, b, c) >= 0,
+                self.Area(a, b, c) >= RealVal(0.0),
             )
         )
         self.axioms.append(
             ForAll(
                 [a, b, c],
-                And(self.Area(a, b, c) == self.Area(c, a, b), self.Area(a, b, c) == self.Area(a, c, b)),
+                And(
+                    self.Area(a, b, c) == self.Area(c, a, b),
+                    self.Area(a, b, c) == self.Area(a, c, b),
+                ),
             )
         )
         self.axioms.append(
@@ -552,8 +558,9 @@ class SystemE:
                         self.Angle(a, b, c) == self.Angle(d, e, f),
                         self.Angle(b, c, a) == self.Angle(e, f, d),
                         self.Angle(c, a, b) == self.Angle(f, d, e),
-                    ), self.Area(a, b, c) == self.Area(d, e, f),
-                )
+                    ),
+                    self.Area(a, b, c) == self.Area(d, e, f),
+                ),
             )
         )
 
@@ -567,7 +574,7 @@ class SystemE:
                 Implies(
                     self.Between(a, b, c),
                     self.Segment(a, c) == self.Segment(a, b) + self.Segment(b, c),
-                )
+                ),
             )
         )
         self.axioms.append(
@@ -579,16 +586,223 @@ class SystemE:
                         self.Center(a, beta),
                         self.OnCircle(b, alpha),
                         self.OnCircle(c, beta),
-                        self.Segment(a, b) == self.Segment(a, c)
-                    ), alpha == beta
-                )
+                        self.Segment(a, b) == self.Segment(a, c),
+                    ),
+                    alpha == beta,
+                ),
             )
         )
         self.axioms.append(
             ForAll(
                 Implies(
-                    And(self.Center(a, alpha), self.OnCircle(b, alpha), 
+                    And(self.Center(a, alpha), self.OnCircle(b, alpha)),
+                    And(
+                        Implies(
+                            self.OnCircle(c, alpha),
+                            self.Segment(a, b) == self.Segment(a, c),
+                        ),
+                        Implies(
+                            self.Segment(a, b) == self.Segment(a, c),
+                            self.OnCircle(c, alpha),
+                        ),
+                    ),
+                )
             )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha],
+                Implies(
+                    And(self.Center(a, alpha), self.OnCircle(b, alpha)),
+                    And(
+                        Implies(
+                            self.InsideCircle(c, alpha),
+                            self.Segment(a, c) < self.Segment(a, b),
+                        ),
+                        Implies(
+                            self.Segment(a, c) < self.Segment(a, b),
+                            self.InsideCircle(c, alpha),
+                        ),
+                    ),
+                ),
+            )
+        )
 
+        """
+        Diagram angle transfer axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(a == b),
+                        Not(a == c),
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                    ),
+                    And(
+                        Implies(
+                            And(self.OnLine(c, L), Not(self.Between(b, a, c))),
+                            self.Angle(b, a, c) == RealVal(0.0),
+                        ),
+                        Implies(
+                            self.Angle(b, a, c) == RealVal(0.0),
+                            And(self.OnLine(c, L), Not(self.Between(b, a, c))),
+                        ),
+                    ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L, M],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(a, M),
+                        self.Intersectsll(L, M),
+                        self.OnLine(b, L),
+                        self.OnLine(c, M),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(self.OnLine(d, L)),
+                        Not(self.OnLine(d, M)),
+                        Not(L == M),
+                    ),
+                    And(
+                        Implies(
+                            self.Angle(b, a, c)
+                            == self.Angle(b, a, d) + self.Angle(d, a, c),
+                            And(self.SameSide(b, d, M), self.SameSide(c, d, L)),
+                        ),
+                        Implies(
+                            And(self.SameSide(b, d, M), self.SameSide(c, d, L)),
+                            self.Angle(b, a, c)
+                            == self.Angle(b, a, d) + self.Angle(d, a, c),
+                        ),
+                    ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.Between(a, c, b),
+                        Not(self.OnLine(d, L)),
+                    ),
+                    And(
+                        Implies(
+                            self.Angle(a, c, d) == self.Angle(d, c, b),
+                            self.Angle(a, c, d) == self.RightAngle,
+                        ),
+                        Implies(
+                            self.Angle(a, c, d) == self.RightAngle,
+                            self.Angle(a, c, d) == self.Angle(d, c, b),
+                        ),
+                    ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, L, M],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(d, L),
+                        self.OnLine(a, M),
+                        self.OnLine(c, M),
+                        self.OnLine(e, M),
+                        Not(b == a),
+                        Not(d == a),
+                        Not(c == a),
+                        Not(e == a),
+                        Not(self.Between(b, a, d)),
+                        Not(self.Between(c, a, e)),
+                    ),
+                    self.Angle(b, a, c) == self.Angle(d, a, e),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, L, M, N],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(b, M),
+                        self.OnLine(c, M),
+                        self.OnLine(c, N),
+                        self.OnLine(d, N),
+                        Not(b == c),
+                        self.SameSide(a, d, N),
+                        self.Angle(a, b, c) + self.Angle(b, c, d)
+                        < self.RightAngle + self.RightAngle,
+                    ),
+                    And(
+                        self.Intersectsll(L, N),
+                        Implies(
+                            And(self.OnLine(e, L), self.OnLine(e, N)),
+                            self.SameSide(a, e, M),
+                        ),
+                    ),
+                ),
+            )
+        )
 
-
+        """
+        Diagram area transfer axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
+                    And(
+                        Implies(
+                            self.OnLine(c, L),
+                            self.Area(a, b, c) == RealVal(0.0),
+                        ),
+                        Implies(
+                            self.Area(a, b, c) == RealVal(0.0),
+                            self.OnLine(c, L),
+                        ),
+                    ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(c, L),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(b == c),
+                        Not(self.OnLine(d, L)),
+                    ),
+                    And(
+                        Implies(
+                            self.Between(a, c, b),
+                            self.Area(a, c, d) + self.Area(d, c, b)
+                            == self.Area(a, d, b),
+                        ),
+                        Implies(
+                            self.Area(a, c, d) + self.Area(d, c, b)
+                            == self.Area(a, d, b),
+                            self.Between(a, c, b),
+                        ),
+                    ),
+                ),
+            ),
+        )
