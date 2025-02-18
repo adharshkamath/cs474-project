@@ -17,10 +17,15 @@ systemE = SystemE(solver)
 A1, B1, C1, D1, E1, F1, G1, H1, I1 = Consts('A1 B1 C1 D1 E1 F1 G1 H1 I1', systemE.PointSort)
 solver.add(simplify(Distinct(A1,B1,C1,D1,E1,F1), blast_distinct=True))
 
+AB1, BC1, CA1, FD1, GE1, BF1, CG1 = Consts('AB1 BC1 CA1 FD1 GE1 BF1 CG1', systemE.LineSort)
+solver.add(simplify(Distinct(AB1,BC1,CA1,FD1,GE1,BF1,CG1), blast_distinct=True))
+
+OABC = Const('OABC', systemE.CircleSort)
+solver.add(simplify(Distinct(OABC), blast_distinct=True))
+
+
 assumptions = []
 
-AB1, BC1, CA1 = Consts('AB1 BC1 CA1', systemE.LineSort)
-solver.add(simplify(Distinct(AB1,BC1,CA1), blast_distinct=True))
 
 assumptions.append(systemE.Intersectsll(AB1, BC1))
 assumptions.append(systemE.Intersectsll(BC1, CA1))
@@ -44,8 +49,7 @@ assumptions.append(systemE.Angle(D1, A1, B1) == systemE.Angle(B1, C1, A1))
 assumptions.append(systemE.OnLine(E1, BC1))
 assumptions.append(systemE.Angle(E1, A1, C1) == systemE.Angle(C1, B1, A1))
 
-FD1, GE1 = Consts('FD1 GE1', systemE.LineSort)
-solver.add(simplify(Distinct(FD1,GE1), blast_distinct=True))
+
 
 
 assumptions.append(systemE.OnLine(F1,FD1))
@@ -59,8 +63,8 @@ assumptions.append(systemE.OnLine(E1,GE1))
 assumptions.append(systemE.OnLine(A1,GE1))
 assumptions.append(systemE.Segment(G1, E1) == systemE.Segment(E1, A1))
 
-BF1, CG1 = Consts('BF1 CG1', systemE.LineSort)
-solver.add(simplify(Distinct(BF1,CG1), blast_distinct=True))
+
+
 
 assumptions.append(systemE.OnLine(B1,BF1))
 assumptions.append(systemE.OnLine(F1,BF1))
@@ -69,8 +73,7 @@ assumptions.append(systemE.OnLine(G1,CG1))
 
 assumptions.append(systemE.OnLine(H1,BF1))
 
-OABC = Const('OABC', systemE.CircleSort)
-solver.add(simplify(Distinct(OABC), blast_distinct=True))
+
 
 assumptions.append(systemE.Center(I1, OABC))
 assumptions.append(systemE.OnCircle(A1, OABC))
