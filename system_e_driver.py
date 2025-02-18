@@ -22,9 +22,9 @@ assumptions = []
 AB1, BC1, CA1 = Consts('AB1 BC1 CA1', systemE.LineSort)
 solver.add(simplify(Distinct(AB1,BC1,CA1), blast_distinct=True))
 
-# assumptions.append(systemE.Intersectsll(AB1, BC1))
-# assumptions.append(systemE.Intersectsll(BC1, CA1))
-# assumptions.append(systemE.Intersectsll(CA1, AB1))
+assumptions.append(systemE.Intersectsll(AB1, BC1))
+assumptions.append(systemE.Intersectsll(BC1, CA1))
+assumptions.append(systemE.Intersectsll(CA1, AB1))
 
 assumptions.append(systemE.OnLine(A1,AB1))
 assumptions.append(systemE.OnLine(B1,AB1))
@@ -32,11 +32,11 @@ assumptions.append(Not(systemE.OnLine(C1,AB1)))
 
 assumptions.append(systemE.OnLine(B1,BC1))
 assumptions.append(systemE.OnLine(C1,BC1))
-# assumptions.append(Not(systemE.OnLine(A1,BC1)))
+assumptions.append(Not(systemE.OnLine(A1,BC1)))
 
 assumptions.append(systemE.OnLine(C1,CA1))
 assumptions.append(systemE.OnLine(A1,CA1))
-# assumptions.append(Not(systemE.OnLine(B1,CA1)))
+assumptions.append(Not(systemE.OnLine(B1,CA1)))
 
 assumptions.append(systemE.OnLine(D1, BC1))
 assumptions.append(systemE.Angle(D1, A1, B1) == systemE.Angle(B1, C1, A1))
