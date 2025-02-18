@@ -41,7 +41,12 @@
        Implies(And(Between(a, b, c), Between(b, c, d)),
                Between(a, b, d)))| () Bool)
 (declare-fun |ForAll([a, b, c, L],
-       Implies(And(On(a, L), On(b, L), On(c, L)),
+       Implies(And(On(a, L),
+                   On(b, L),
+                   On(c, L),
+                   Not(a == b),
+                   Not(a == c),
+                   Not(b == c)),
                Or(Between(a, b, c),
                   Between(b, a, c),
                   Between(a, c, b))))| () Bool)
@@ -342,8 +347,8 @@
 (declare-fun A1 () Point)
 (declare-fun CG1 () Line)
 (declare-fun BF1 () Line)
-(declare-fun GE1 () Line)
-(declare-fun FD1 () Line)
+(declare-fun AE1 () Line)
+(declare-fun AD1 () Line)
 (declare-fun CA1 () Line)
 (declare-fun BC1 () Line)
 (declare-fun AB1 () Line)
@@ -359,31 +364,37 @@
 (declare-fun |On(C1, CA1)| () Bool)
 (declare-fun |On(A1, CA1)| () Bool)
 (declare-fun |Not(On(B1, CA1))| () Bool)
+(declare-fun |Angle(A1, B1, C1) < RightAngle| () Bool)
+(declare-fun |Angle(B1, A1, C1) < RightAngle| () Bool)
+(declare-fun |Angle(A1, C1, B1) < RightAngle| () Bool)
 (declare-fun |On(D1, BC1)| () Bool)
 (declare-fun |Angle(D1, A1, B1) == Angle(B1, C1, A1)| () Bool)
+(declare-fun |On(A1, AD1)| () Bool)
+(declare-fun |On(D1, AD1)| () Bool)
+(declare-fun |Intersectsll(AD1, BC1)| () Bool)
 (declare-fun |On(E1, BC1)| () Bool)
 (declare-fun |Angle(E1, A1, C1) == Angle(C1, B1, A1)| () Bool)
-(declare-fun |On(F1, FD1)| () Bool)
-(declare-fun |On(D1, FD1)| () Bool)
-(declare-fun |On(A1, FD1)| () Bool)
+(declare-fun |On(A1, AE1)| () Bool)
+(declare-fun |On(E1, AE1)| () Bool)
+(declare-fun |Intersectsll(AE1, BC1)| () Bool)
+(declare-fun |On(F1, AD1)| () Bool)
+(declare-fun |Between(A1, D1, F1)| () Bool)
 (declare-fun |Segment(F1, D1) == Segment(D1, A1)| () Bool)
 (declare-fun G1 () Point)
-(declare-fun |On(G1, GE1)| () Bool)
-(declare-fun |On(E1, GE1)| () Bool)
-(declare-fun |On(A1, GE1)| () Bool)
+(declare-fun |On(G1, AE1)| () Bool)
+(declare-fun |Between(A1, E1, G1)| () Bool)
 (declare-fun |Segment(G1, E1) == Segment(E1, A1)| () Bool)
 (declare-fun |On(B1, BF1)| () Bool)
 (declare-fun |On(F1, BF1)| () Bool)
 (declare-fun |On(C1, CG1)| () Bool)
 (declare-fun |On(G1, CG1)| () Bool)
-(declare-fun H1 () Point)
-(declare-fun |On(H1, BF1)| () Bool)
 (declare-fun OABC () Circle)
 (declare-fun I1 () Point)
 (declare-fun |Center(I1, OABC)| () Bool)
 (declare-fun |Onc(A1, OABC)| () Bool)
 (declare-fun |Onc(B1, OABC)| () Bool)
 (declare-fun |Onc(C1, OABC)| () Bool)
+(declare-fun H1 () Point)
 (assert
  (let (($x39 (forall ((a Point) (b Point) (L Line) (M Line) )(let (($x30 (= L M)))
  (let (($x31 (On b M)))
@@ -469,16 +480,30 @@
        Implies(And(Between(a, b, c), Between(b, c, d)),
                Between(a, b, d)))| $x78)))
 (assert
- (let (($x88 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x83 (Between a c b)))
- (let (($x84 (Between b a c)))
+ (let (($x96 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x89 (Between a c b)))
+ (let (($x90 (Between b a c)))
  (let (($x53 (Between a b c)))
- (=> (and (On a L) (On b L) (On c L)) (or $x53 $x84 $x83))))))
+ (let (($x24 (= b c)))
+ (let (($x61 (not $x24)))
+ (let (($x92 (= a c)))
+ (let (($x93 (not $x92)))
+ (let (($x35 (= a b)))
+ (let (($x36 (not $x35)))
+ (let (($x52 (On c L)))
+ (let (($x31 (On b L)))
+ (let (($x32 (On a L)))
+ (=> (and $x32 $x31 $x52 $x36 $x93 $x61) (or $x53 $x90 $x89)))))))))))))))
  ))
  (=> |ForAll([a, b, c, L],
-       Implies(And(On(a, L), On(b, L), On(c, L)),
+       Implies(And(On(a, L),
+                   On(b, L),
+                   On(c, L),
+                   Not(a == b),
+                   Not(a == c),
+                   Not(b == c)),
                Or(Between(a, b, c),
                   Between(b, a, c),
-                  Between(a, c, b))))| $x88)))
+                  Between(a, c, b))))| $x96)))
 (assert
  (let (($x82 (forall ((a Point) (b Point) (c Point) (d Point) )(let (($x57 (Between c b d)))
  (let (($x58 (not $x57)))
@@ -488,89 +513,89 @@
        Implies(And(Between(a, b, c), Between(a, b, d)),
                Not(Between(c, b, d))))| $x82)))
 (assert
- (let (($x90 (forall ((a Point) (L Line) )(let (($x50 (SameSide a a L)))
+ (let (($x84 (forall ((a Point) (L Line) )(let (($x50 (SameSide a a L)))
  (let (($x52 (On a L)))
  (let (($x79 (not $x52)))
  (=> $x79 $x50)))))
  ))
- (=> |ForAll([a, L], Implies(Not(On(a, L)), SameSide(a, a, L)))| $x90)))
+ (=> |ForAll([a, L], Implies(Not(On(a, L)), SameSide(a, a, L)))| $x84)))
 (assert
- (let (($x93 (forall ((a Point) (b Point) (L Line) )(let (($x45 (SameSide b a L)))
- (let (($x91 (SameSide a b L)))
- (=> $x91 $x45))))
+ (let (($x87 (forall ((a Point) (b Point) (L Line) )(let (($x45 (SameSide b a L)))
+ (let (($x85 (SameSide a b L)))
+ (=> $x85 $x45))))
  ))
  (=> |ForAll([a, b, L],
-       Implies(SameSide(a, b, L), SameSide(b, a, L)))| $x93)))
+       Implies(SameSide(a, b, L), SameSide(b, a, L)))| $x87)))
 (assert
- (let (($x97 (forall ((a Point) (b Point) (L Line) )(let (($x31 (On a L)))
- (let (($x95 (not $x31)))
- (let (($x91 (SameSide a b L)))
- (=> $x91 $x95)))))
+ (let (($x99 (forall ((a Point) (b Point) (L Line) )(let (($x31 (On a L)))
+ (let (($x97 (not $x31)))
+ (let (($x85 (SameSide a b L)))
+ (=> $x85 $x97)))))
  ))
- (=> |ForAll([a, b, L], Implies(SameSide(a, b, L), Not(On(a, L))))| $x97)))
+ (=> |ForAll([a, b, L], Implies(SameSide(a, b, L), Not(On(a, L))))| $x99)))
 (assert
- (let (($x103 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x91 (SameSide b c L)))
- (=> (and (SameSide a b L) (SameSide a c L)) $x91)))
+ (let (($x105 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x85 (SameSide b c L)))
+ (=> (and (SameSide a b L) (SameSide a c L)) $x85)))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(SameSide(a, b, L), SameSide(a, c, L)),
-               SameSide(b, c, L)))| $x103)))
+               SameSide(b, c, L)))| $x105)))
 (assert
- (let (($x117 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x100 (SameSide a b L)))
- (let (($x113 (not $x100)))
+ (let (($x119 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x102 (SameSide a b L)))
+ (let (($x115 (not $x102)))
  (let (($x52 (On c L)))
  (let (($x79 (not $x52)))
  (let (($x31 (On b L)))
- (let (($x95 (not $x31)))
+ (let (($x97 (not $x31)))
  (let (($x32 (On a L)))
- (let (($x114 (not $x32)))
- (=> (and $x114 $x95 $x79 $x113) (or (SameSide a c L) (SameSide b c L))))))))))))
+ (let (($x116 (not $x32)))
+ (=> (and $x116 $x97 $x79 $x115) (or (SameSide a c L) (SameSide b c L))))))))))))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(Not(On(a, L)),
                    Not(On(b, L)),
                    Not(On(c, L)),
                    Not(SameSide(a, b, L))),
-               Or(SameSide(a, c, L), SameSide(b, c, L))))| $x117)))
+               Or(SameSide(a, c, L), SameSide(b, c, L))))| $x119)))
 (assert
- (let (($x106 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x100 (SameSide a b L)))
- (=> (and (Between a b c) (SameSide a c L)) $x100)))
+ (let (($x108 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x102 (SameSide a b L)))
+ (=> (and (Between a b c) (SameSide a c L)) $x102)))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(Between(a, b, c), SameSide(a, c, L)),
-               SameSide(a, b, L)))| $x106)))
+               SameSide(a, b, L)))| $x108)))
 (assert
- (let (($x111 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x91 (SameSide b c L)))
- (=> (and (Between a b c) (On a L) (not (On b L))) $x91)))
+ (let (($x113 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x85 (SameSide b c L)))
+ (=> (and (Between a b c) (On a L) (not (On b L))) $x85)))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(Between(a, b, c),
                    On(a, L),
                    Not(On(b, L))),
-               SameSide(b, c, L)))| $x111)))
+               SameSide(b, c, L)))| $x113)))
 (assert
- (let (($x120 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x99 (SameSide a c L)))
- (let (($x108 (not $x99)))
- (=> (and (Between a b c) (On b L)) $x108))))
+ (let (($x122 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x101 (SameSide a c L)))
+ (let (($x110 (not $x101)))
+ (=> (and (Between a b c) (On b L)) $x110))))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(Between(a, b, c), On(b, L)),
-               Not(SameSide(a, c, L))))| $x120)))
+               Not(SameSide(a, c, L))))| $x122)))
 (assert
- (let (($x146 (forall ((a Point) (b Point) (c Point) (L Line) (M Line) )(let (($x134 (Between a b c)))
+ (let (($x148 (forall ((a Point) (b Point) (c Point) (L Line) (M Line) )(let (($x136 (Between a b c)))
  (let (($x35 (= b c)))
  (let (($x36 (not $x35)))
- (let (($x137 (= a b)))
- (let (($x138 (not $x137)))
+ (let (($x139 (= a b)))
+ (let (($x140 (not $x139)))
  (let (($x31 (On c M)))
- (let (($x141 (On a M)))
+ (let (($x143 (On a M)))
  (let (($x32 (On b M)))
  (let (($x34 (On b L)))
- (let (($x142 (Intersectsll L M)))
+ (let (($x144 (Intersectsll L M)))
  (let (($x30 (= L M)))
- (let (($x143 (not $x30)))
- (let (($x144 (and $x143 $x142 $x34 $x32 $x141 $x31 (not (= c a)) $x138 $x36 (not (SameSide a c L)))))
- (=> $x144 $x134)))))))))))))))
+ (let (($x145 (not $x30)))
+ (let (($x146 (and $x145 $x144 $x34 $x32 $x143 $x31 (not (= c a)) $x140 $x36 (not (SameSide a c L)))))
+ (=> $x146 $x136)))))))))))))))
  ))
  (=> |ForAll([a, b, c, L, M],
        Implies(And(Not(L == M),
@@ -583,29 +608,29 @@
                    Not(a == b),
                    Not(b == c),
                    Not(SameSide(a, c, L))),
-               Between(a, b, c)))| $x146)))
+               Between(a, b, c)))| $x148)))
 (assert
- (let (($x170 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (M Line) (N Line) )(let (($x153 (SameSide b d M)))
- (let (($x154 (not $x153)))
- (let (($x155 (SameSide b c N)))
- (let (($x156 (SameSide c d L)))
+ (let (($x172 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (M Line) (N Line) )(let (($x155 (SameSide b d M)))
+ (let (($x156 (not $x155)))
+ (let (($x157 (SameSide b c N)))
+ (let (($x158 (SameSide c d L)))
  (let (($x32 (On d N)))
- (let (($x157 (On c M)))
- (let (($x158 (On b L)))
- (let (($x159 (On a N)))
- (let (($x160 (On a M)))
- (let (($x161 (On a L)))
- (let (($x162 (Intersectsll L N)))
- (let (($x142 (Intersectsll M N)))
- (let (($x163 (Intersectsll L M)))
+ (let (($x159 (On c M)))
+ (let (($x160 (On b L)))
+ (let (($x161 (On a N)))
+ (let (($x162 (On a M)))
+ (let (($x163 (On a L)))
+ (let (($x164 (Intersectsll L N)))
+ (let (($x144 (Intersectsll M N)))
+ (let (($x165 (Intersectsll L M)))
  (let (($x30 (= M N)))
- (let (($x143 (not $x30)))
- (let (($x164 (= L N)))
- (let (($x165 (not $x164)))
- (let (($x166 (= L M)))
+ (let (($x145 (not $x30)))
+ (let (($x166 (= L N)))
  (let (($x167 (not $x166)))
- (let (($x168 (and $x167 $x165 $x143 $x163 $x142 $x162 $x161 $x160 $x159 $x158 $x157 $x32 $x156 $x155)))
- (=> $x168 $x154))))))))))))))))))))))
+ (let (($x168 (= L M)))
+ (let (($x169 (not $x168)))
+ (let (($x170 (and $x169 $x167 $x145 $x165 $x144 $x164 $x163 $x162 $x161 $x160 $x159 $x32 $x158 $x157)))
+ (=> $x170 $x156))))))))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L, M, N],
        Implies(And(Not(L == M),
@@ -622,33 +647,33 @@
                    On(d, N),
                    SameSide(c, d, L),
                    SameSide(b, c, N)),
-               Not(SameSide(b, d, M))))| $x170)))
+               Not(SameSide(b, d, M))))| $x172)))
 (assert
- (let (($x180 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (M Line) (N Line) )(let (($x155 (SameSide b c N)))
- (let (($x175 (= b a)))
- (let (($x176 (not $x175)))
+ (let (($x182 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (M Line) (N Line) )(let (($x157 (SameSide b c N)))
+ (let (($x177 (= b a)))
+ (let (($x178 (not $x177)))
  (let (($x34 (On d M)))
- (let (($x177 (not $x34)))
- (let (($x153 (SameSide b d M)))
- (let (($x154 (not $x153)))
- (let (($x156 (SameSide c d L)))
+ (let (($x179 (not $x34)))
+ (let (($x155 (SameSide b d M)))
+ (let (($x156 (not $x155)))
+ (let (($x158 (SameSide c d L)))
  (let (($x32 (On d N)))
- (let (($x157 (On c M)))
- (let (($x158 (On b L)))
- (let (($x159 (On a N)))
- (let (($x160 (On a M)))
- (let (($x161 (On a L)))
- (let (($x162 (Intersectsll L N)))
- (let (($x142 (Intersectsll M N)))
- (let (($x163 (Intersectsll L M)))
+ (let (($x159 (On c M)))
+ (let (($x160 (On b L)))
+ (let (($x161 (On a N)))
+ (let (($x162 (On a M)))
+ (let (($x163 (On a L)))
+ (let (($x164 (Intersectsll L N)))
+ (let (($x144 (Intersectsll M N)))
+ (let (($x165 (Intersectsll L M)))
  (let (($x30 (= M N)))
- (let (($x143 (not $x30)))
- (let (($x164 (= L N)))
- (let (($x165 (not $x164)))
- (let (($x166 (= L M)))
+ (let (($x145 (not $x30)))
+ (let (($x166 (= L N)))
  (let (($x167 (not $x166)))
- (let (($x178 (and $x167 $x165 $x143 $x163 $x142 $x162 $x161 $x160 $x159 $x158 $x157 $x32 $x156 $x154 $x177 $x176)))
- (=> $x178 $x155))))))))))))))))))))))))))
+ (let (($x168 (= L M)))
+ (let (($x169 (not $x168)))
+ (let (($x180 (and $x169 $x167 $x145 $x165 $x144 $x164 $x163 $x162 $x161 $x160 $x159 $x32 $x158 $x156 $x179 $x178)))
+ (=> $x180 $x157))))))))))))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L, M, N],
        Implies(And(Not(L == M),
@@ -667,30 +692,30 @@
                    Not(SameSide(b, d, M)),
                    Not(On(d, M)),
                    Not(b == a)),
-               SameSide(b, c, N)))| $x180)))
+               SameSide(b, c, N)))| $x182)))
 (assert
- (let (($x190 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (L Line) (M Line) (N Line) )(let (($x173 (SameSide c e L)))
- (let (($x174 (SameSide c e N)))
- (let (($x181 (SameSide d e M)))
- (let (($x182 (SameSide b c N)))
- (let (($x183 (SameSide c d L)))
- (let (($x141 (On d N)))
- (let (($x184 (On c M)))
- (let (($x161 (On b L)))
- (let (($x185 (On a N)))
- (let (($x186 (On a M)))
- (let (($x187 (On a L)))
- (let (($x162 (Intersectsll L N)))
- (let (($x142 (Intersectsll M N)))
- (let (($x163 (Intersectsll L M)))
+ (let (($x192 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (L Line) (M Line) (N Line) )(let (($x175 (SameSide c e L)))
+ (let (($x176 (SameSide c e N)))
+ (let (($x183 (SameSide d e M)))
+ (let (($x184 (SameSide b c N)))
+ (let (($x185 (SameSide c d L)))
+ (let (($x143 (On d N)))
+ (let (($x186 (On c M)))
+ (let (($x163 (On b L)))
+ (let (($x187 (On a N)))
+ (let (($x188 (On a M)))
+ (let (($x189 (On a L)))
+ (let (($x164 (Intersectsll L N)))
+ (let (($x144 (Intersectsll M N)))
+ (let (($x165 (Intersectsll L M)))
  (let (($x30 (= M N)))
- (let (($x143 (not $x30)))
- (let (($x164 (= L N)))
- (let (($x165 (not $x164)))
- (let (($x166 (= L M)))
+ (let (($x145 (not $x30)))
+ (let (($x166 (= L N)))
  (let (($x167 (not $x166)))
- (let (($x188 (and $x167 $x165 $x143 $x163 $x142 $x162 $x187 $x186 $x185 $x161 $x184 $x141 $x183 $x182 $x181 $x174)))
- (=> $x188 $x173)))))))))))))))))))))))
+ (let (($x168 (= L M)))
+ (let (($x169 (not $x168)))
+ (let (($x190 (and $x169 $x167 $x145 $x165 $x144 $x164 $x189 $x188 $x187 $x163 $x186 $x143 $x185 $x184 $x183 $x176)))
+ (=> $x190 $x175)))))))))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, e, L, M, N],
        Implies(And(Not(L == M),
@@ -709,18 +734,18 @@
                    SameSide(b, c, N),
                    SameSide(d, e, M),
                    SameSide(c, e, N)),
-               SameSide(c, e, L)))| $x190)))
+               SameSide(c, e, L)))| $x192)))
 (assert
- (let (($x132 (forall ((a Point) (b Point) (c Point) (L Line) (alpha Circle) )(let (($x126 (Between b a c)))
+ (let (($x134 (forall ((a Point) (b Point) (c Point) (L Line) (alpha Circle) )(let (($x128 (Between b a c)))
  (let (($x35 (= b c)))
  (let (($x36 (not $x35)))
- (let (($x127 (Onc c alpha)))
- (let (($x128 (Onc b alpha)))
- (let (($x129 (Inside a alpha)))
+ (let (($x129 (Onc c alpha)))
+ (let (($x130 (Onc b alpha)))
+ (let (($x131 (Inside a alpha)))
  (let (($x33 (On c L)))
  (let (($x34 (On b L)))
- (let (($x157 (On a L)))
- (=> (and $x157 $x34 $x33 $x129 $x128 $x127 $x36) $x126)))))))))))
+ (let (($x159 (On a L)))
+ (=> (and $x159 $x34 $x33 $x131 $x130 $x129 $x36) $x128)))))))))))
  ))
  (=> |ForAll([a, b, c, L, alpha],
        Implies(And(On(a, L),
@@ -730,54 +755,54 @@
                    Onc(b, alpha),
                    Onc(c, alpha),
                    Not(b == c)),
-               Between(b, a, c)))| $x132)))
+               Between(b, a, c)))| $x134)))
 (assert
- (let (($x192 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x20 (Inside c alpha)))
- (let (($x83 (Between a c b)))
- (let (($x125 (Inside b alpha)))
- (let (($x127 (Onc b alpha)))
- (let (($x147 (or $x127 $x125)))
- (let (($x148 (Inside a alpha)))
- (let (($x128 (Onc a alpha)))
- (let (($x149 (or $x128 $x148)))
- (=> (and $x149 $x147 $x83) $x20))))))))))
+ (let (($x194 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x20 (Inside c alpha)))
+ (let (($x89 (Between a c b)))
+ (let (($x127 (Inside b alpha)))
+ (let (($x129 (Onc b alpha)))
+ (let (($x149 (or $x129 $x127)))
+ (let (($x150 (Inside a alpha)))
+ (let (($x130 (Onc a alpha)))
+ (let (($x151 (or $x130 $x150)))
+ (=> (and $x151 $x149 $x89) $x20))))))))))
  ))
  (=> |ForAll([a, b, c, alpha],
        Implies(And(Or(Onc(a, alpha), Inside(a, alpha)),
                    Or(Onc(b, alpha), Inside(b, alpha)),
                    Between(a, c, b)),
-               Inside(c, alpha)))| $x192)))
+               Inside(c, alpha)))| $x194)))
 (assert
- (let (($x201 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x196 (not (or (Inside b alpha) (Onc b alpha)))))
- (let (($x83 (Between a c b)))
+ (let (($x203 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x198 (not (or (Inside b alpha) (Onc b alpha)))))
+ (let (($x89 (Between a c b)))
  (let (($x20 (Inside c alpha)))
- (let (($x197 (not $x20)))
- (let (($x128 (Onc a alpha)))
- (let (($x148 (Inside a alpha)))
- (let (($x198 (or $x148 $x128)))
- (=> (and $x198 $x197 $x83) $x196)))))))))
+ (let (($x199 (not $x20)))
+ (let (($x130 (Onc a alpha)))
+ (let (($x150 (Inside a alpha)))
+ (let (($x200 (or $x150 $x130)))
+ (=> (and $x200 $x199 $x89) $x198)))))))))
  ))
  (=> |ForAll([a, b, c, alpha],
        Implies(And(Or(Inside(a, alpha), Onc(a, alpha)),
                    Not(Inside(c, alpha)),
                    Between(a, c, b)),
-               Not(Or(Inside(b, alpha), Onc(b, alpha)))))| $x201)))
+               Not(Or(Inside(b, alpha), Onc(b, alpha)))))| $x203)))
 (assert
- (let (($x219 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (alpha Circle) (beta Circle) )(let (($x156 (SameSide c d L)))
- (let (($x208 (not $x156)))
- (let (($x158 (On b L)))
- (let (($x161 (On a L)))
- (let (($x209 (Center b beta)))
- (let (($x210 (Center a alpha)))
- (let (($x137 (= c d)))
- (let (($x138 (not $x137)))
- (let (($x128 (Onc d beta)))
- (let (($x211 (Onc d alpha)))
- (let (($x212 (Onc c beta)))
- (let (($x213 (Onc c alpha)))
- (let (($x214 (Intersectscc alpha beta)))
- (let (($x217 (and (not (= alpha beta)) $x214 $x213 $x212 $x211 $x128 $x138 $x210 $x209 $x161 $x158)))
- (=> $x217 $x208))))))))))))))))
+ (let (($x221 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (alpha Circle) (beta Circle) )(let (($x158 (SameSide c d L)))
+ (let (($x210 (not $x158)))
+ (let (($x160 (On b L)))
+ (let (($x163 (On a L)))
+ (let (($x211 (Center b beta)))
+ (let (($x212 (Center a alpha)))
+ (let (($x139 (= c d)))
+ (let (($x140 (not $x139)))
+ (let (($x130 (Onc d beta)))
+ (let (($x213 (Onc d alpha)))
+ (let (($x214 (Onc c beta)))
+ (let (($x215 (Onc c alpha)))
+ (let (($x216 (Intersectscc alpha beta)))
+ (let (($x219 (and (not (= alpha beta)) $x216 $x215 $x214 $x213 $x130 $x140 $x212 $x211 $x163 $x160)))
+ (=> $x219 $x210))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L, alpha, beta],
        Implies(And(Not(alpha == beta),
@@ -791,49 +816,49 @@
                    Center(b, beta),
                    On(a, L),
                    On(b, L)),
-               Not(SameSide(c, d, L))))| $x219)))
+               Not(SameSide(c, d, L))))| $x221)))
 (assert
- (let (($x194 (forall ((a Point) (b Point) (L Line) (M Line) )(let (($x142 (Intersectsll L M)))
- (=> (and (not (SameSide a b L)) (On a M) (On b M)) $x142)))
+ (let (($x196 (forall ((a Point) (b Point) (L Line) (M Line) )(let (($x144 (Intersectsll L M)))
+ (=> (and (not (SameSide a b L)) (On a M) (On b M)) $x144)))
  ))
  (=> |ForAll([a, b, L, M],
        Implies(And(Not(SameSide(a, b, L)),
                    On(a, M),
                    On(b, M)),
-               Intersectsll(L, M)))| $x194)))
+               Intersectsll(L, M)))| $x196)))
 (assert
- (let (($x222 (forall ((a Point) (b Point) (L Line) (alpha Circle) )(let (($x206 (Intersectslc L alpha)))
- (let (($x122 (SameSide a b L)))
- (let (($x123 (not $x122)))
- (let (($x125 (Inside b alpha)))
- (let (($x127 (Onc b alpha)))
- (let (($x147 (or $x127 $x125)))
- (let (($x148 (Inside a alpha)))
- (let (($x128 (Onc a alpha)))
- (let (($x149 (or $x128 $x148)))
- (=> (and $x149 $x147 $x123) $x206)))))))))))
+ (let (($x224 (forall ((a Point) (b Point) (L Line) (alpha Circle) )(let (($x208 (Intersectslc L alpha)))
+ (let (($x124 (SameSide a b L)))
+ (let (($x125 (not $x124)))
+ (let (($x127 (Inside b alpha)))
+ (let (($x129 (Onc b alpha)))
+ (let (($x149 (or $x129 $x127)))
+ (let (($x150 (Inside a alpha)))
+ (let (($x130 (Onc a alpha)))
+ (let (($x151 (or $x130 $x150)))
+ (=> (and $x151 $x149 $x125) $x208)))))))))))
  ))
  (=> |ForAll([a, b, L, alpha],
        Implies(And(Or(Onc(a, alpha), Inside(a, alpha)),
                    Or(Onc(b, alpha), Inside(b, alpha)),
                    Not(SameSide(a, b, L))),
-               Intersectslc(L, alpha)))| $x222)))
+               Intersectslc(L, alpha)))| $x224)))
 (assert
- (let (($x202 (forall ((a Point) (L Line) (alpha Circle) )(let (($x206 (Intersectslc L alpha)))
- (=> (and (Inside a alpha) (On a L)) $x206)))
+ (let (($x204 (forall ((a Point) (L Line) (alpha Circle) )(let (($x208 (Intersectslc L alpha)))
+ (=> (and (Inside a alpha) (On a L)) $x208)))
  ))
  (=> |ForAll([a, L, alpha],
        Implies(And(Inside(a, alpha), On(a, L)),
-               Intersectslc(L, alpha)))| $x202)))
+               Intersectslc(L, alpha)))| $x204)))
 (assert
- (let (($x234 (forall ((a Point) (b Point) (alpha Circle) (beta Circle) )(let (($x214 (Intersectscc alpha beta)))
- (let (($x125 (Inside b beta)))
- (let (($x227 (not $x125)))
- (let (($x127 (Onc b beta)))
- (let (($x228 (not $x127)))
- (let (($x148 (Inside a beta)))
- (let (($x211 (Onc a alpha)))
- (=> (and $x211 (or (Onc b alpha) (Inside b alpha)) $x148 $x228 $x227) $x214)))))))))
+ (let (($x236 (forall ((a Point) (b Point) (alpha Circle) (beta Circle) )(let (($x216 (Intersectscc alpha beta)))
+ (let (($x127 (Inside b beta)))
+ (let (($x229 (not $x127)))
+ (let (($x129 (Onc b beta)))
+ (let (($x230 (not $x129)))
+ (let (($x150 (Inside a beta)))
+ (let (($x213 (Onc a alpha)))
+ (=> (and $x213 (or (Onc b alpha) (Inside b alpha)) $x150 $x230 $x229) $x216)))))))))
  ))
  (=> |ForAll([a, b, alpha, beta],
        Implies(And(Onc(a, alpha),
@@ -841,89 +866,89 @@
                    Inside(a, beta),
                    Not(Onc(b, beta)),
                    Not(Inside(b, beta))),
-               Intersectscc(alpha, beta)))| $x234)))
+               Intersectscc(alpha, beta)))| $x236)))
 (assert
- (let (($x224 (forall ((a Point) (b Point) (alpha Circle) (beta Circle) )(let (($x214 (Intersectscc alpha beta)))
- (let (($x127 (Onc b beta)))
- (let (($x148 (Inside a beta)))
- (let (($x229 (Inside b alpha)))
- (let (($x211 (Onc a alpha)))
- (=> (and $x211 $x229 $x148 $x127) $x214)))))))
+ (let (($x226 (forall ((a Point) (b Point) (alpha Circle) (beta Circle) )(let (($x216 (Intersectscc alpha beta)))
+ (let (($x129 (Onc b beta)))
+ (let (($x150 (Inside a beta)))
+ (let (($x231 (Inside b alpha)))
+ (let (($x213 (Onc a alpha)))
+ (=> (and $x213 $x231 $x150 $x129) $x216)))))))
  ))
  (=> |ForAll([a, b, alpha, beta],
        Implies(And(Onc(a, alpha),
                    Inside(b, alpha),
                    Inside(a, beta),
                    Onc(b, beta)),
-               Intersectscc(alpha, beta)))| $x224)))
+               Intersectscc(alpha, beta)))| $x226)))
 (assert
- (let (($x239 (forall ((a Point) (b Point) )(and (=> (= a b) (= 0.0 (Segment a b))) (=> (= 0.0 (Segment a b)) (= a b))))
+ (let (($x241 (forall ((a Point) (b Point) )(and (=> (= a b) (= 0.0 (Segment a b))) (=> (= 0.0 (Segment a b)) (= a b))))
  ))
  (=> |ForAll([a, b],
        And(Implies(a == b, 0 == Segment(a, b)),
-           Implies(0 == Segment(a, b), a == b)))| $x239)))
+           Implies(0 == Segment(a, b), a == b)))| $x241)))
 (assert
- (let (($x98 (forall ((a Point) (b Point) )(let ((?x226 (Segment a b)))
- (<= 0.0 ?x226)))
+ (let (($x100 (forall ((a Point) (b Point) )(let ((?x228 (Segment a b)))
+ (<= 0.0 ?x228)))
  ))
- (=> |ForAll([a, b], 0 <= Segment(a, b))| $x98)))
+ (=> |ForAll([a, b], 0 <= Segment(a, b))| $x100)))
 (assert
- (let (($x241 (forall ((a Point) (b Point) )(let ((?x204 (Segment b a)))
- (let ((?x226 (Segment a b)))
- (= ?x226 ?x204))))
+ (let (($x243 (forall ((a Point) (b Point) )(let ((?x206 (Segment b a)))
+ (let ((?x228 (Segment a b)))
+ (= ?x228 ?x206))))
  ))
- (=> |ForAll([a, b], Segment(a, b) == Segment(b, a))| $x241)))
+ (=> |ForAll([a, b], Segment(a, b) == Segment(b, a))| $x243)))
 (assert
- (let (($x253 (forall ((a Point) (b Point) (c Point) )(let ((?x248 (Angle c b a)))
- (let ((?x249 (Angle a b c)))
- (let (($x250 (= ?x249 ?x248)))
- (=> (and (not (= a b)) (not (= a c))) $x250)))))
+ (let (($x255 (forall ((a Point) (b Point) (c Point) )(let ((?x250 (Angle c b a)))
+ (let ((?x251 (Angle a b c)))
+ (let (($x252 (= ?x251 ?x250)))
+ (=> (and (not (= a b)) (not (= a c))) $x252)))))
  ))
  (=> |ForAll([a, b, c],
        Implies(And(Not(a == b), Not(a == c)),
-               Angle(a, b, c) == Angle(c, b, a)))| $x253)))
+               Angle(a, b, c) == Angle(c, b, a)))| $x255)))
 (assert
- (let (($x247 (forall ((a Point) (b Point) (c Point) )(and (<= 0.0 (Angle a b c)) (<= (Angle a b c) (+ RightAngle RightAngle))))
+ (let (($x249 (forall ((a Point) (b Point) (c Point) )(and (<= 0.0 (Angle a b c)) (<= (Angle a b c) (+ RightAngle RightAngle))))
  ))
  (=> |ForAll([a, b, c],
        And(0 <= Angle(a, b, c),
-           Angle(a, b, c) <= RightAngle + RightAngle))| $x247)))
+           Angle(a, b, c) <= RightAngle + RightAngle))| $x249)))
 (assert
- (let (($x254 (forall ((a Point) (b Point) )(let ((?x242 (Area a a b)))
- (= 0.0 ?x242)))
+ (let (($x256 (forall ((a Point) (b Point) )(let ((?x244 (Area a a b)))
+ (= 0.0 ?x244)))
  ))
- (=> |ForAll([a, b], 0 == Area(a, a, b))| $x254)))
+ (=> |ForAll([a, b], 0 == Area(a, a, b))| $x256)))
 (assert
- (let (($x257 (forall ((a Point) (b Point) (c Point) )(let ((?x255 (Area a b c)))
- (<= 0.0 ?x255)))
+ (let (($x259 (forall ((a Point) (b Point) (c Point) )(let ((?x257 (Area a b c)))
+ (<= 0.0 ?x257)))
  ))
- (=> |ForAll([a, b, c], 0 <= Area(a, b, c))| $x257)))
+ (=> |ForAll([a, b, c], 0 <= Area(a, b, c))| $x259)))
 (assert
- (let (($x267 (forall ((a Point) (b Point) (c Point) )(let ((?x262 (Area a c b)))
- (let ((?x255 (Area a b c)))
- (let (($x263 (= ?x255 ?x262)))
- (let ((?x264 (Area c a b)))
- (let (($x265 (= ?x255 ?x264)))
- (and $x265 $x263)))))))
+ (let (($x269 (forall ((a Point) (b Point) (c Point) )(let ((?x264 (Area a c b)))
+ (let ((?x257 (Area a b c)))
+ (let (($x265 (= ?x257 ?x264)))
+ (let ((?x266 (Area c a b)))
+ (let (($x267 (= ?x257 ?x266)))
+ (and $x267 $x265)))))))
  ))
  (=> |ForAll([a, b, c],
        And(Area(a, b, c) == Area(c, a, b),
-           Area(a, b, c) == Area(a, c, b)))| $x267)))
+           Area(a, b, c) == Area(a, c, b)))| $x269)))
 (assert
- (let (($x305 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (f Point) )(let ((?x255 (Area d e f)))
- (let ((?x285 (Area a b c)))
- (let (($x286 (= ?x285 ?x255)))
- (let (($x289 (= (Angle c a b) (Angle f d e))))
- (let (($x292 (= (Angle b c a) (Angle e f d))))
- (let ((?x249 (Angle d e f)))
- (let (($x294 (= (Angle a b c) ?x249)))
- (let (($x297 (= (Segment c a) (Segment f d))))
- (let ((?x226 (Segment e f)))
- (let ((?x298 (Segment b c)))
- (let (($x299 (= ?x298 ?x226)))
- (let ((?x300 (Segment d e)))
- (let (($x302 (= (Segment a b) ?x300)))
- (=> (and $x302 $x299 $x297 $x294 $x292 $x289) $x286)))))))))))))))
+ (let (($x307 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (f Point) )(let ((?x257 (Area d e f)))
+ (let ((?x287 (Area a b c)))
+ (let (($x288 (= ?x287 ?x257)))
+ (let (($x291 (= (Angle c a b) (Angle f d e))))
+ (let (($x294 (= (Angle b c a) (Angle e f d))))
+ (let ((?x251 (Angle d e f)))
+ (let (($x296 (= (Angle a b c) ?x251)))
+ (let (($x299 (= (Segment c a) (Segment f d))))
+ (let ((?x228 (Segment e f)))
+ (let ((?x300 (Segment b c)))
+ (let (($x301 (= ?x300 ?x228)))
+ (let ((?x302 (Segment d e)))
+ (let (($x304 (= (Segment a b) ?x302)))
+ (=> (and $x304 $x301 $x299 $x296 $x294 $x291) $x288)))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, e, f],
        Implies(And(Segment(a, b) == Segment(d, e),
@@ -932,24 +957,24 @@
                    Angle(a, b, c) == Angle(d, e, f),
                    Angle(b, c, a) == Angle(e, f, d),
                    Angle(c, a, b) == Angle(f, d, e)),
-               Area(a, b, c) == Area(d, e, f)))| $x305)))
+               Area(a, b, c) == Area(d, e, f)))| $x307)))
 (assert
- (let (($x273 (forall ((a Point) (b Point) (c Point) )(let (($x64 (Between a b c)))
+ (let (($x275 (forall ((a Point) (b Point) (c Point) )(let (($x64 (Between a b c)))
  (=> $x64 (= (Segment a c) (+ (Segment a b) (Segment b c))))))
  ))
  (=> |ForAll([a, b, c],
        Implies(Between(a, b, c),
                Segment(a, c) ==
-               Segment(a, b) + Segment(b, c)))| $x273)))
+               Segment(a, b) + Segment(b, c)))| $x275)))
 (assert
- (let (($x283 (forall ((a Point) (b Point) (c Point) (alpha Circle) (beta Circle) )(let (($x215 (= alpha beta)))
- (let ((?x298 (Segment a b)))
- (let (($x278 (= ?x298 (Segment a c))))
- (let (($x127 (Onc c beta)))
- (let (($x211 (Onc b alpha)))
- (let (($x279 (Center a beta)))
- (let (($x280 (Center a alpha)))
- (=> (and $x280 $x279 $x211 $x127 $x278) $x215)))))))))
+ (let (($x285 (forall ((a Point) (b Point) (c Point) (alpha Circle) (beta Circle) )(let (($x217 (= alpha beta)))
+ (let ((?x300 (Segment a b)))
+ (let (($x280 (= ?x300 (Segment a c))))
+ (let (($x129 (Onc c beta)))
+ (let (($x213 (Onc b alpha)))
+ (let (($x281 (Center a beta)))
+ (let (($x282 (Center a alpha)))
+ (=> (and $x282 $x281 $x213 $x129 $x280) $x217)))))))))
  ))
  (=> |ForAll([a, b, c, alpha, beta],
        Implies(And(Center(a, alpha),
@@ -957,43 +982,45 @@
                    Onc(b, alpha),
                    Onc(c, beta),
                    Segment(a, b) == Segment(a, c)),
-               alpha == beta))| $x283)))
+               alpha == beta))| $x285)))
 (assert
- (let (($x315 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x311 (and (=> (Onc c alpha) (= (Segment a b) (Segment a c))) (=> (= (Segment a b) (Segment a c)) (Onc c alpha)))))
- (let (($x127 (Onc b alpha)))
- (let (($x312 (Center a alpha)))
- (let (($x313 (and $x312 $x127)))
- (=> $x313 $x311))))))
+ (let (($x317 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x313 (and (=> (Onc c alpha) (= (Segment a b) (Segment a c))) (=> (= (Segment a b) (Segment a c)) (Onc c alpha)))))
+ (let (($x129 (Onc b alpha)))
+ (let (($x314 (Center a alpha)))
+ (let (($x315 (and $x314 $x129)))
+ (=> $x315 $x313))))))
  ))
  (=> |ForAll([a, b, c, alpha],
        Implies(And(Center(a, alpha), Onc(b, alpha)),
                And(Implies(Onc(c, alpha),
                            Segment(a, b) == Segment(a, c)),
                    Implies(Segment(a, b) == Segment(a, c),
-                           Onc(c, alpha)))))| $x315)))
+                           Onc(c, alpha)))))| $x317)))
 (assert
- (let (($x321 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x319 (and (=> (Inside c alpha) (< (Segment a c) (Segment a b))) (=> (< (Segment a c) (Segment a b)) (Inside c alpha)))))
- (let (($x127 (Onc b alpha)))
- (let (($x312 (Center a alpha)))
- (let (($x313 (and $x312 $x127)))
- (=> $x313 $x319))))))
+ (let (($x323 (forall ((a Point) (b Point) (c Point) (alpha Circle) )(let (($x321 (and (=> (Inside c alpha) (< (Segment a c) (Segment a b))) (=> (< (Segment a c) (Segment a b)) (Inside c alpha)))))
+ (let (($x129 (Onc b alpha)))
+ (let (($x314 (Center a alpha)))
+ (let (($x315 (and $x314 $x129)))
+ (=> $x315 $x321))))))
  ))
  (=> |ForAll([a, b, c, alpha],
        Implies(And(Center(a, alpha), Onc(b, alpha)),
                And(Implies(Inside(c, alpha),
                            Segment(a, c) < Segment(a, b)),
                    Implies(Segment(a, c) < Segment(a, b),
-                           Inside(c, alpha)))))| $x321)))
+                           Inside(c, alpha)))))| $x323)))
 (assert
  (let (($x339 (forall ((a Point) (b Point) (c Point) (L Line) )(let (($x52 (On c L)))
- (let (($x329 (and $x52 (not (Between b a c)))))
- (let ((?x330 (Angle b a c)))
- (let (($x331 (= 0.0 ?x330)))
+ (let (($x331 (and $x52 (not (Between b a c)))))
+ (let ((?x332 (Angle b a c)))
+ (let (($x333 (= 0.0 ?x332)))
  (let (($x31 (On b L)))
  (let (($x32 (On a L)))
+ (let (($x92 (= a c)))
+ (let (($x93 (not $x92)))
  (let (($x35 (= a b)))
  (let (($x36 (not $x35)))
- (=> (and $x36 (not (= a c)) $x32 $x31) (and (=> $x329 $x331) (=> $x331 $x329))))))))))))
+ (=> (and $x36 $x93 $x32 $x31) (and (=> $x331 $x333) (=> $x333 $x331))))))))))))))
  ))
  (=> |ForAll([a, b, c, L],
        Implies(And(Not(a == b),
@@ -1009,21 +1036,21 @@
 (assert
  (let (($x369 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) (M Line) )(let ((?x354 (Angle b a c)))
  (let (($x355 (= ?x354 (+ (Angle b a d) (Angle d a c)))))
- (let (($x122 (SameSide c d L)))
+ (let (($x124 (SameSide c d L)))
  (let (($x356 (SameSide b d M)))
- (let (($x357 (and $x356 $x122)))
+ (let (($x357 (and $x356 $x124)))
  (let (($x30 (= L M)))
- (let (($x143 (not $x30)))
+ (let (($x145 (not $x30)))
  (let (($x31 (On d M)))
- (let (($x95 (not $x31)))
+ (let (($x97 (not $x31)))
  (let (($x33 (On d L)))
  (let (($x361 (not $x33)))
  (let (($x32 (On c M)))
- (let (($x157 (On b L)))
- (let (($x142 (Intersectsll L M)))
+ (let (($x159 (On b L)))
+ (let (($x144 (Intersectsll L M)))
  (let (($x366 (On a M)))
- (let (($x184 (On a L)))
- (let (($x367 (and $x184 $x366 $x142 $x157 $x32 (not (= a b)) (not (= a c)) $x361 $x95 $x143)))
+ (let (($x186 (On a L)))
+ (let (($x367 (and $x186 $x366 $x144 $x159 $x32 (not (= a b)) (not (= a c)) $x361 $x97 $x145)))
  (=> $x367 (and (=> $x355 $x357) (=> $x357 $x355)))))))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L, M],
@@ -1046,15 +1073,15 @@
                            Angle(b, a, c) ==
                            Angle(b, a, d) + Angle(d, a, c)))))| $x369)))
 (assert
- (let (($x347 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) )(let ((?x326 (Angle a c d)))
- (let (($x327 (= ?x326 (Angle d c b))))
- (let (($x340 (= ?x326 RightAngle)))
+ (let (($x347 (forall ((a Point) (b Point) (c Point) (d Point) (L Line) )(let ((?x328 (Angle a c d)))
+ (let (($x329 (= ?x328 (Angle d c b))))
+ (let (($x340 (= ?x328 RightAngle)))
  (let (($x52 (On d L)))
  (let (($x79 (not $x52)))
  (let (($x344 (Between a c b)))
  (let (($x32 (On b L)))
- (let (($x141 (On a L)))
- (=> (and $x141 $x32 $x344 $x79) (and (=> $x327 $x340) (=> $x340 $x327))))))))))))
+ (let (($x143 (On a L)))
+ (=> (and $x143 $x32 $x344 $x79) (and (=> $x329 $x340) (=> $x340 $x329))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L],
        Implies(And(On(a, L),
@@ -1069,15 +1096,15 @@
  (let (($x391 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (L Line) (M Line) )(let ((?x376 (Angle d a e)))
  (let ((?x377 (Angle b a c)))
  (let (($x378 (= ?x377 ?x376)))
- (let (($x175 (= b a)))
- (let (($x176 (not $x175)))
+ (let (($x177 (= b a)))
+ (let (($x178 (not $x177)))
  (let (($x31 (On e M)))
- (let (($x141 (On c M)))
- (let (($x159 (On a M)))
+ (let (($x143 (On c M)))
+ (let (($x161 (On a M)))
  (let (($x34 (On d L)))
- (let (($x184 (On b L)))
- (let (($x160 (On a L)))
- (let (($x389 (and $x160 $x184 $x34 $x159 $x141 $x31 $x176 (not (= d a)) (not (= c a)) (not (= e a)) (not (Between b a d)) (not (Between c a e)))))
+ (let (($x186 (On b L)))
+ (let (($x162 (On a L)))
+ (let (($x389 (and $x162 $x186 $x34 $x161 $x143 $x31 $x178 (not (= d a)) (not (= c a)) (not (= e a)) (not (Between b a d)) (not (Between c a e)))))
  (=> $x389 $x378))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, e, L, M],
@@ -1095,17 +1122,17 @@
                    Not(Between(c, a, e))),
                Angle(b, a, c) == Angle(d, a, e)))| $x391)))
 (assert
- (let (($x405 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (L Line) (M Line) (N Line) )(let (($x162 (Intersectsll L N)))
- (let (($x395 (and $x162 (=> (and (On e L) (On e N)) (SameSide a e M)))))
- (let ((?x203 (+ RightAngle RightAngle)))
+ (let (($x405 (forall ((a Point) (b Point) (c Point) (d Point) (e Point) (L Line) (M Line) (N Line) )(let (($x164 (Intersectsll L N)))
+ (let (($x395 (and $x164 (=> (and (On e L) (On e N)) (SameSide a e M)))))
+ (let ((?x205 (+ RightAngle RightAngle)))
  (let (($x400 (SameSide a d N)))
- (let (($x141 (On d N)))
+ (let (($x143 (On d N)))
  (let (($x366 (On c N)))
- (let (($x184 (On c M)))
- (let (($x160 (On b M)))
- (let (($x161 (On b L)))
- (let (($x187 (On a L)))
- (let (($x403 (and $x187 $x161 $x160 $x184 $x366 $x141 (not (= b c)) $x400 (< (+ (Angle a b c) (Angle b c d)) ?x203))))
+ (let (($x186 (On c M)))
+ (let (($x162 (On b M)))
+ (let (($x163 (On b L)))
+ (let (($x189 (On a L)))
+ (let (($x403 (and $x189 $x163 $x162 $x186 $x366 $x143 (not (= b c)) $x400 (< (+ (Angle a b c) (Angle b c d)) ?x205))))
  (=> $x403 $x395)))))))))))))
  ))
  (=> |ForAll([a, b, c, d, e, L, M, N],
@@ -1138,12 +1165,12 @@
  (let (($x79 (not $x52)))
  (let (($x35 (= b c)))
  (let (($x36 (not $x35)))
- (let (($x137 (= a b)))
- (let (($x138 (not $x137)))
+ (let (($x139 (= a b)))
+ (let (($x140 (not $x139)))
  (let (($x31 (On c L)))
  (let (($x32 (On b L)))
- (let (($x141 (On a L)))
- (=> (and $x141 $x32 $x31 $x138 (not (= a c)) $x36 $x79) (and (=> $x344 $x418) (=> $x418 $x344))))))))))))))))
+ (let (($x143 (On a L)))
+ (=> (and $x143 $x32 $x31 $x140 (not (= a c)) $x36 $x79) (and (=> $x344 $x418) (=> $x418 $x344))))))))))))))))
  ))
  (=> |ForAll([a, b, c, d, L],
        Implies(And(On(a, L),
@@ -1160,146 +1187,167 @@
                            Area(a, d, b),
                            Between(a, c, b)))))| $x426)))
 (assert
- (let (($x413 (not (= E1 F1))))
- (let (($x411 (not (= D1 F1))))
- (let (($x433 (not (= D1 E1))))
- (let (($x431 (not (= C1 F1))))
- (let (($x453 (not (= C1 E1))))
- (let (($x462 (not (= C1 D1))))
- (let (($x459 (not (= B1 F1))))
- (let (($x476 (not (= B1 E1))))
- (let (($x855 (not (= B1 D1))))
- (let (($x469 (not (= B1 C1))))
- (let (($x483 (not (= A1 F1))))
- (let (($x473 (not (= A1 E1))))
- (let (($x854 (not (= A1 D1))))
- (let (($x474 (not (= A1 C1))))
- (let (($x466 (not (= A1 B1))))
- (and $x466 $x474 $x854 $x473 $x483 $x469 $x855 $x476 $x459 $x462 $x453 $x431 $x433 $x411 $x413)))))))))))))))))
+ (let (($x428 (not (= E1 F1))))
+ (let (($x412 (not (= D1 F1))))
+ (let (($x435 (not (= D1 E1))))
+ (let (($x432 (not (= C1 F1))))
+ (let (($x455 (not (= C1 E1))))
+ (let (($x452 (not (= C1 D1))))
+ (let (($x460 (not (= B1 F1))))
+ (let (($x850 (not (= B1 E1))))
+ (let (($x465 (not (= B1 D1))))
+ (let (($x458 (not (= B1 C1))))
+ (let (($x472 (not (= A1 F1))))
+ (let (($x481 (not (= A1 E1))))
+ (let (($x853 (not (= A1 D1))))
+ (let (($x480 (not (= A1 C1))))
+ (let (($x467 (not (= A1 B1))))
+ (and $x467 $x480 $x853 $x481 $x472 $x458 $x465 $x850 $x460 $x452 $x455 $x432 $x435 $x412 $x428)))))))))))))))))
 (assert
- (let (($x1097 (not (= BF1 CG1))))
- (let (($x1095 (not (= GE1 CG1))))
- (let (($x1093 (not (= GE1 BF1))))
- (let (($x1091 (not (= FD1 CG1))))
- (let (($x1089 (not (= FD1 BF1))))
- (let (($x1087 (not (= FD1 GE1))))
- (let (($x1085 (not (= CA1 CG1))))
- (let (($x1083 (not (= CA1 BF1))))
- (let (($x1081 (not (= CA1 GE1))))
- (let (($x1079 (not (= CA1 FD1))))
- (let (($x1077 (not (= BC1 CG1))))
- (let (($x1075 (not (= BC1 BF1))))
- (let (($x1067 (not (= BC1 GE1))))
- (let (($x998 (not (= BC1 FD1))))
- (let (($x1028 (not (= BC1 CA1))))
- (let (($x660 (not (= AB1 CG1))))
- (let (($x952 (not (= AB1 BF1))))
- (let (($x924 (not (= AB1 GE1))))
- (let (($x910 (not (= AB1 FD1))))
- (let (($x896 (not (= AB1 CA1))))
- (let (($x891 (not (= AB1 BC1))))
- (and $x891 $x896 $x910 $x924 $x952 $x660 $x1028 $x998 $x1067 $x1075 $x1077 $x1079 $x1081 $x1083 $x1085 $x1087 $x1089 $x1091 $x1093 $x1095 $x1097)))))))))))))))))))))))
+ (let (($x1099 (not (= BF1 CG1))))
+ (let (($x1097 (not (= AE1 CG1))))
+ (let (($x1095 (not (= AE1 BF1))))
+ (let (($x1093 (not (= AD1 CG1))))
+ (let (($x1091 (not (= AD1 BF1))))
+ (let (($x1089 (not (= AD1 AE1))))
+ (let (($x1087 (not (= CA1 CG1))))
+ (let (($x1085 (not (= CA1 BF1))))
+ (let (($x1083 (not (= CA1 AE1))))
+ (let (($x1081 (not (= CA1 AD1))))
+ (let (($x1079 (not (= BC1 CG1))))
+ (let (($x1077 (not (= BC1 BF1))))
+ (let (($x1075 (not (= BC1 AE1))))
+ (let (($x6 (not (= BC1 AD1))))
+ (let (($x992 (not (= BC1 CA1))))
+ (let (($x719 (not (= AB1 CG1))))
+ (let (($x667 (not (= AB1 BF1))))
+ (let (($x948 (not (= AB1 AE1))))
+ (let (($x926 (not (= AB1 AD1))))
+ (let (($x908 (not (= AB1 CA1))))
+ (let (($x899 (not (= AB1 BC1))))
+ (and $x899 $x908 $x926 $x948 $x667 $x719 $x992 $x6 $x1075 $x1077 $x1079 $x1081 $x1083 $x1085 $x1087 $x1089 $x1091 $x1093 $x1095 $x1097 $x1099)))))))))))))))))))))))
 (assert
  true)
 (assert
- (let (($x1099 (Intersectsll AB1 BC1)))
- (=> |Intersectsll(AB1, BC1)| $x1099)))
+ (let (($x1101 (Intersectsll AB1 BC1)))
+ (=> |Intersectsll(AB1, BC1)| $x1101)))
 (assert
- (let (($x1100 (Intersectsll BC1 CA1)))
- (=> |Intersectsll(BC1, CA1)| $x1100)))
+ (let (($x1102 (Intersectsll BC1 CA1)))
+ (=> |Intersectsll(BC1, CA1)| $x1102)))
 (assert
- (let (($x1101 (Intersectsll CA1 AB1)))
- (=> |Intersectsll(CA1, AB1)| $x1101)))
+ (let (($x1103 (Intersectsll CA1 AB1)))
+ (=> |Intersectsll(CA1, AB1)| $x1103)))
 (assert
- (let (($x1102 (On A1 AB1)))
- (=> |On(A1, AB1)| $x1102)))
+ (let (($x1104 (On A1 AB1)))
+ (=> |On(A1, AB1)| $x1104)))
 (assert
- (let (($x1103 (On B1 AB1)))
- (=> |On(B1, AB1)| $x1103)))
+ (let (($x1105 (On B1 AB1)))
+ (=> |On(B1, AB1)| $x1105)))
 (assert
- (let (($x1105 (not (On C1 AB1))))
- (=> |Not(On(C1, AB1))| $x1105)))
+ (let (($x1107 (not (On C1 AB1))))
+ (=> |Not(On(C1, AB1))| $x1107)))
 (assert
- (let (($x1106 (On B1 BC1)))
- (=> |On(B1, BC1)| $x1106)))
+ (let (($x1108 (On B1 BC1)))
+ (=> |On(B1, BC1)| $x1108)))
 (assert
- (let (($x1107 (On C1 BC1)))
- (=> |On(C1, BC1)| $x1107)))
+ (let (($x1109 (On C1 BC1)))
+ (=> |On(C1, BC1)| $x1109)))
 (assert
- (let (($x1109 (not (On A1 BC1))))
- (=> |Not(On(A1, BC1))| $x1109)))
+ (let (($x1111 (not (On A1 BC1))))
+ (=> |Not(On(A1, BC1))| $x1111)))
 (assert
- (let (($x1110 (On C1 CA1)))
- (=> |On(C1, CA1)| $x1110)))
+ (let (($x1112 (On C1 CA1)))
+ (=> |On(C1, CA1)| $x1112)))
 (assert
- (let (($x1111 (On A1 CA1)))
- (=> |On(A1, CA1)| $x1111)))
+ (let (($x1113 (On A1 CA1)))
+ (=> |On(A1, CA1)| $x1113)))
 (assert
- (let (($x1113 (not (On B1 CA1))))
- (=> |Not(On(B1, CA1))| $x1113)))
+ (let (($x1115 (not (On B1 CA1))))
+ (=> |Not(On(B1, CA1))| $x1115)))
 (assert
- (let (($x1114 (On D1 BC1)))
- (=> |On(D1, BC1)| $x1114)))
+ (let ((?x1116 (Angle A1 B1 C1)))
+ (let (($x1117 (< ?x1116 RightAngle)))
+ (=> |Angle(A1, B1, C1) < RightAngle| $x1117))))
 (assert
- (let (($x1117 (= (Angle D1 A1 B1) (Angle B1 C1 A1))))
- (=> |Angle(D1, A1, B1) == Angle(B1, C1, A1)| $x1117)))
+ (let ((?x1118 (Angle B1 A1 C1)))
+ (let (($x1119 (< ?x1118 RightAngle)))
+ (=> |Angle(B1, A1, C1) < RightAngle| $x1119))))
 (assert
- (let (($x1118 (On E1 BC1)))
- (=> |On(E1, BC1)| $x1118)))
+ (let ((?x1120 (Angle A1 C1 B1)))
+ (let (($x1121 (< ?x1120 RightAngle)))
+ (=> |Angle(A1, C1, B1) < RightAngle| $x1121))))
 (assert
- (let (($x1121 (= (Angle E1 A1 C1) (Angle C1 B1 A1))))
- (=> |Angle(E1, A1, C1) == Angle(C1, B1, A1)| $x1121)))
+ (let (($x1122 (On D1 BC1)))
+ (=> |On(D1, BC1)| $x1122)))
 (assert
- (let (($x1122 (On F1 FD1)))
- (=> |On(F1, FD1)| $x1122)))
+ (let (($x1125 (= (Angle D1 A1 B1) (Angle B1 C1 A1))))
+ (=> |Angle(D1, A1, B1) == Angle(B1, C1, A1)| $x1125)))
 (assert
- (let (($x1123 (On D1 FD1)))
- (=> |On(D1, FD1)| $x1123)))
+ (let (($x1126 (On A1 AD1)))
+ (=> |On(A1, AD1)| $x1126)))
 (assert
- (let (($x1124 (On A1 FD1)))
- (=> |On(A1, FD1)| $x1124)))
+ (let (($x1127 (On D1 AD1)))
+ (=> |On(D1, AD1)| $x1127)))
 (assert
- (let (($x1127 (= (Segment F1 D1) (Segment D1 A1))))
- (=> |Segment(F1, D1) == Segment(D1, A1)| $x1127)))
+ (let (($x1128 (Intersectsll AD1 BC1)))
+ (=> |Intersectsll(AD1, BC1)| $x1128)))
 (assert
- (let (($x1128 (On G1 GE1)))
- (=> |On(G1, GE1)| $x1128)))
+ (let (($x1129 (On E1 BC1)))
+ (=> |On(E1, BC1)| $x1129)))
 (assert
- (let (($x1129 (On E1 GE1)))
- (=> |On(E1, GE1)| $x1129)))
+ (let (($x1132 (= (Angle E1 A1 C1) (Angle C1 B1 A1))))
+ (=> |Angle(E1, A1, C1) == Angle(C1, B1, A1)| $x1132)))
 (assert
- (let (($x1130 (On A1 GE1)))
- (=> |On(A1, GE1)| $x1130)))
+ (let (($x1133 (On A1 AE1)))
+ (=> |On(A1, AE1)| $x1133)))
 (assert
- (let (($x1133 (= (Segment G1 E1) (Segment E1 A1))))
- (=> |Segment(G1, E1) == Segment(E1, A1)| $x1133)))
+ (let (($x1134 (On E1 AE1)))
+ (=> |On(E1, AE1)| $x1134)))
 (assert
- (let (($x1134 (On B1 BF1)))
- (=> |On(B1, BF1)| $x1134)))
+ (let (($x1135 (Intersectsll AE1 BC1)))
+ (=> |Intersectsll(AE1, BC1)| $x1135)))
 (assert
- (let (($x1135 (On F1 BF1)))
- (=> |On(F1, BF1)| $x1135)))
+ (let (($x1136 (On F1 AD1)))
+ (=> |On(F1, AD1)| $x1136)))
 (assert
- (let (($x1136 (On C1 CG1)))
- (=> |On(C1, CG1)| $x1136)))
+ (let (($x1137 (Between A1 D1 F1)))
+ (=> |Between(A1, D1, F1)| $x1137)))
 (assert
- (let (($x1137 (On G1 CG1)))
- (=> |On(G1, CG1)| $x1137)))
+ (let (($x1140 (= (Segment F1 D1) (Segment D1 A1))))
+ (=> |Segment(F1, D1) == Segment(D1, A1)| $x1140)))
 (assert
- (let (($x1138 (On H1 BF1)))
- (=> |On(H1, BF1)| $x1138)))
+ (let (($x1141 (On G1 AE1)))
+ (=> |On(G1, AE1)| $x1141)))
 (assert
- (let (($x1139 (Center I1 OABC)))
- (=> |Center(I1, OABC)| $x1139)))
+ (let (($x1142 (Between A1 E1 G1)))
+ (=> |Between(A1, E1, G1)| $x1142)))
 (assert
- (let (($x1140 (Onc A1 OABC)))
- (=> |Onc(A1, OABC)| $x1140)))
+ (let (($x1145 (= (Segment G1 E1) (Segment E1 A1))))
+ (=> |Segment(G1, E1) == Segment(E1, A1)| $x1145)))
 (assert
- (let (($x1141 (Onc B1 OABC)))
- (=> |Onc(B1, OABC)| $x1141)))
+ (let (($x1146 (On B1 BF1)))
+ (=> |On(B1, BF1)| $x1146)))
 (assert
- (let (($x1142 (Onc C1 OABC)))
- (=> |Onc(C1, OABC)| $x1142)))
+ (let (($x1147 (On F1 BF1)))
+ (=> |On(F1, BF1)| $x1147)))
+(assert
+ (let (($x1148 (On C1 CG1)))
+ (=> |On(C1, CG1)| $x1148)))
+(assert
+ (let (($x1149 (On G1 CG1)))
+ (=> |On(G1, CG1)| $x1149)))
+(assert
+ (let (($x1150 (Center I1 OABC)))
+ (=> |Center(I1, OABC)| $x1150)))
+(assert
+ (let (($x1151 (Onc A1 OABC)))
+ (=> |Onc(A1, OABC)| $x1151)))
+(assert
+ (let (($x1152 (Onc B1 OABC)))
+ (=> |Onc(B1, OABC)| $x1152)))
+(assert
+ (let (($x1153 (Onc C1 OABC)))
+ (=> |Onc(C1, OABC)| $x1153)))
 (assert
  (not (= (Segment I1 H1) (Segment I1 A1))))
 (check-sat)

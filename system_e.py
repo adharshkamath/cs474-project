@@ -813,7 +813,7 @@ class SystemE:
             solver.assert_and_track(axiom, str(axiom))
 
         check = solver.check()
-        print("Axioms are consistent: ", check == sat)
+        print(">> Axioms set: ", check)
 
 
 if __name__ == "__main__":
