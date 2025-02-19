@@ -4,6 +4,11 @@ from datetime import datetime
 
 time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 set_param("parallel.enable", True)
+set_param("model.compact", False)
+set_param("verbose", 1)
+set_param("trace", True)
+set_param("trace_file_name", f"trace_{time}.log")
+
 solver = Solver()
 solver.set(unsat_core=True)
 
@@ -55,6 +60,7 @@ assumptions.append(systemE.Angle(B1, A1, C1) < systemE.RightAngle)
 assumptions.append(systemE.Angle(A1, C1, B1) < systemE.RightAngle)
 
 assumptions.append(systemE.OnLine(D1, BC1))
+assumptions.append(systemE.Between(B1, D1, C1))
 assumptions.append(systemE.Angle(D1, A1, B1) == systemE.Angle(B1, C1, A1))
 
 assumptions.append(systemE.OnLine(A1, AD1))
@@ -63,6 +69,7 @@ assumptions.append(systemE.Intersectsll(AD1, BC1))
 
 
 assumptions.append(systemE.OnLine(E1, BC1))
+assumptions.append(systemE.Between(B1, E1, C1))
 assumptions.append(systemE.Angle(E1, A1, C1) == systemE.Angle(C1, B1, A1))
 
 assumptions.append(systemE.OnLine(A1, AE1))
@@ -126,7 +133,8 @@ with open(f"statistics_{time}.txt", "w") as f:
 
 if result == sat:
     with open(f"model_1_{time}.smt2", "w") as f:
-        f.write(str(solver.model()))
+        model = solver.model()
+        f.write(repr(model))
 else:
     with open(f"unsat_core_{time}.smt2", "w") as f:
         f.write(str(solver.unsat_core()))

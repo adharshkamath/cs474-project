@@ -56,6 +56,7 @@ class SystemE:
         alpha, beta = Consts("alpha beta", self.CircleSort)
 
         self.axioms = []
+        self.axioms.append(self.RightAngle > RealVal(0.0))
 
         """
         Section 3.4
@@ -156,8 +157,14 @@ class SystemE:
             ForAll(
                 [a, b, c, L],
                 Implies(
-                    And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L),
-                         Not(a == b), Not(a == c), Not(b == c)),
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(c, L),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(b == c),
+                    ),
                     Or(
                         self.Between(a, b, c),
                         self.Between(b, a, c),
@@ -608,7 +615,7 @@ class SystemE:
                             self.OnCircle(c, alpha),
                         ),
                     ),
-                )
+                ),
             )
         )
         self.axioms.append(
@@ -809,11 +816,76 @@ class SystemE:
             ),
         )
 
+        """
+        Custom axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, L, M],
+                Implies(
+                    self.Intersectsll(L, M),
+                    Exists([a], And(self.OnLine(a, L), self.OnLine(a, M))),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll([a, b], Implies(Not(a == b), self.Segment(a, b) > RealVal(0.0)))
+        )
+        self.axioms.append(
+            ForAll(
+                [L, a, b],
+                Implies(
+                    And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
+                    self.Segment(a, b) > RealVal(0.0),
+                ),
+            )
+        )
+        self.axioms.append(ForAll([a, alpha], Exists([a], self.OnCircle(a, alpha))))
+        self.axioms.append(
+            ForAll(
+                [a, alpha, c],
+                Implies(
+                    self.Center(c, alpha),
+                    Exists(
+                        [a],
+                        And(
+                            self.OnCircle(a, alpha),
+                            Not(self.Segment(c, a) == RealVal(0.0)),
+                        ),
+                    ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(a == b),
+                        Not(b == c),
+                        Not(a == c),
+                        Not(
+                            And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L))
+                        ),
+                    ),
+                    self.Angle(a, b, c) > RealVal(0.0),
+                ),
+            )
+        )
+
         for axiom in self.axioms:
-            solver.assert_and_track(axiom, str(axiom))
+            solver.add(axiom)
 
         check = solver.check()
         print(">> Axioms set: ", check)
+        if check == sat:
+            print(solver.model())
+            model = solver.model()
+            smt2 = solver.to_smt2()
+            with open("e.smt2", "w") as f:
+                f.write(smt2)
+            with open("e.model", "w") as f:
+                f.write(str(model))
 
 
 if __name__ == "__main__":
