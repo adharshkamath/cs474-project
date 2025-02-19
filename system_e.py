@@ -856,22 +856,22 @@ class SystemE:
                 ),
             )
         )
-        self.axioms.append(
-            ForAll(
-                [a, b, c, L],
-                Implies(
-                    And(
-                        Not(a == b),
-                        Not(b == c),
-                        Not(a == c),
-                        Not(
-                            And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L))
-                        ),
-                    ),
-                    self.Angle(a, b, c) > RealVal(0.0),
-                ),
-            )
-        )
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, L],
+        #         Implies(
+        #             And(
+        #                 Not(a == b),
+        #                 Not(b == c),
+        #                 Not(a == c),
+        #                 Not(
+        #                     And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L))
+        #                 ),
+        #             ),
+        #             self.Angle(a, b, c) > RealVal(0.0),
+        #         ),
+        #     )
+        # )
 
         for axiom in self.axioms:
             solver.add(axiom)
