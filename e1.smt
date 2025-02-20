@@ -446,6 +446,10 @@
 :assumption (= (seg B L) (seg L C))
 :assumption (bet B L C)
 
+:extrafuns ((H Point))
+:assumption (on H BF)
+:assumption (on H CG)
+
 :extrafuns ((J Point)) ; for testing
 :extrafuns ((AJ Line)) ; for testing
 :assumption (on A AJ)
@@ -454,10 +458,13 @@
 :assumption (onc J OABC)
 :assumption (= (seg A O) (seg J O))
 
+:formula (not (= (seg O H) (seg O A)))
 
-:formula (not (intersects BF CG))
-:formula (not (intersectslc BF OABC))
-:formula (not (intersectslc CG OABC))
+
+
+; :formula (not (intersects BF CG))
+; :formula (not (intersectslc BF OABC))
+; :formula (not (intersectslc CG OABC))
 
 ; satisfiable
 

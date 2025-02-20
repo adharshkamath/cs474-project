@@ -14,7 +14,7 @@ class SystemE:
         There are three additional relations: circles-intersect, line-intersect-circle, lines-intersect.
         There are also three magnitude sorts: segment, angle, area.
         """
-        self.solver = solver
+        raise Exception()
 
         self.PointSort = DeclareSort("Point")
         self.LineSort = DeclareSort("Line")

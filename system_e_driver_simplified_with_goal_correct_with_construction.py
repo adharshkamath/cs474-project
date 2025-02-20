@@ -16,6 +16,11 @@ systemE = SystemE(solver)
 # $D$ is the midpoint of $AF$, and $E$ is the midpoint of $AG$. Prove that lines $BF$ and $CG$ intersect
 # on the circumcircle of $\triangle{ABC}$.
 
+
+# a b c = triangle a b c; p = on_line p b c, on_aline p a b b c a; q = on_line q b c, on_aline q a c c b a; m = mirror m a p; 
+# n = mirror n a q; x = on_line x b m, on_line x c n; o = circle o a b c ? cong o x o a
+
+
 # a, b, c, p, q, m, n, x, o
 # A, B, C, D, E, F, G, H, I, J
 
@@ -57,7 +62,9 @@ assumptions.append(systemE.Angle(B1, A1, C1) < systemE.RightAngle)
 assumptions.append(systemE.Angle(A1, C1, B1) < systemE.RightAngle)
 
 assumptions.append(systemE.OnLine(D1, BC1))
-assumptions.append(systemE.Between(B1, D1, C1))
+assumptions.append(Not(D1 == B1))
+assumptions.append(Not(D1 == C1))
+# assumptions.append(systemE.Between(B1, D1, C1))
 assumptions.append(systemE.Angle(D1, A1, B1) == systemE.Angle(B1, C1, A1))
 
 assumptions.append(systemE.OnLine(A1, AD1))
@@ -66,7 +73,9 @@ assumptions.append(systemE.Intersectsll(AD1, BC1))
 
 
 assumptions.append(systemE.OnLine(E1, BC1))
-assumptions.append(systemE.Between(B1, E1, C1))
+assumptions.append(Not(E1 == B1))
+assumptions.append(Not(E1 == C1))
+# assumptions.append(systemE.Between(B1, E1, C1))
 assumptions.append(systemE.Angle(E1, A1, C1) == systemE.Angle(C1, B1, A1))
 
 assumptions.append(systemE.OnLine(A1, AE1))
@@ -75,6 +84,9 @@ assumptions.append(systemE.Intersectsll(AE1, BC1))
 
 assumptions.append(systemE.OnLine(F1, AD1))
 assumptions.append(systemE.Between(A1, D1, F1))
+assumptions.append(Not(A1 == D1))
+assumptions.append(Not(A1 == F1))
+assumptions.append(Not(F1 == D1))
 assumptions.append(systemE.Segment(F1, D1) == systemE.Segment(D1, A1))
 
 
@@ -94,29 +106,34 @@ assumptions.append(systemE.OnCircle(A1, OABC))
 assumptions.append(systemE.OnCircle(B1, OABC))
 assumptions.append(systemE.OnCircle(C1, OABC))
 
-assumptions.append(systemE.OnLine(J1, BC1))
-assumptions.append(systemE.Between(B1, J1, C1))
-assumptions.append(systemE.Segment(J1, B1) == systemE.Segment(J1, C1))
-assumptions.append(systemE.OnLine(J1, AJ1))
-assumptions.append(systemE.OnLine(A1, AJ1))
+assumptions.append(systemE.OnLine(H1, BF1))
+assumptions.append(systemE.OnLine(H1, CG1))
 
-assumptions.append(
-    Not(
-        And(
-            systemE.Intersectsll(BF1, CG1),
-            systemE.Intersectslc(BF1, OABC),
-            systemE.Intersectslc(CG1, OABC),
-            Exists(
-                [H1],
-                And(
-                    systemE.OnLine(H1, BF1),
-                    systemE.OnLine(H1, CG1),
-                    systemE.OnCircle(H1, OABC),
-                ),
-            ),
-        )
-    )
-)
+assumptions.append(systemE.Segment(I1, A1) == systemE.Segment(I1, H1))
+
+# assumptions.append(systemE.OnLine(J1, BC1))
+# assumptions.append(systemE.Between(B1, J1, C1))
+# assumptions.append(systemE.Segment(J1, B1) == systemE.Segment(J1, C1))
+# assumptions.append(systemE.OnLine(J1, AJ1))
+# assumptions.append(systemE.OnLine(A1, AJ1))
+
+# assumptions.append(
+#     Not(
+#         And(
+#             systemE.Intersectsll(BF1, CG1),
+#             systemE.Intersectslc(BF1, OABC),
+#             systemE.Intersectslc(CG1, OABC),
+#             Exists(
+#                 [H1],
+#                 And(
+#                     systemE.OnLine(H1, BF1),
+#                     systemE.OnLine(H1, CG1),
+#                     systemE.OnCircle(H1, OABC),
+#                 ),
+#             ),
+#         )
+#     )
+# )
 
 
 print(">> Assume " + str(assumptions))
