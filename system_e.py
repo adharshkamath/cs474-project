@@ -63,774 +63,767 @@ class SystemE:
         Generalities
         """
 
-            self.axioms.append(
-                ForAll(
-                    [a, b, L, M],
-                    Implies(
-                        And(
-                            Not(a == b),
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(a, M),
-                            self.OnLine(b, M),
-                        ),
-                        L == M,
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, alpha],
-                    Implies(
-                        And(self.Center(a, alpha), self.Center(b, alpha)),
-                        a == b,
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, alpha],
-                    Implies(self.Center(a, alpha), self.InsideCircle(a, alpha)),
-                )
-            )
-            # self.axioms.append(
-            #     ForAll(
-            #         [a, alpha],
-            #         Implies(self.InsideCircle(a, alpha), Not(self.OnCircle(a, alpha))),
-            #     )
-            # )
-
-            """
-            Between axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
-                    Implies(
-                        self.Between(a, b, c),
-                        And(
-                            self.Between(c, b, a),
-                            Not(a == b),
-                            Not(a == c),
-                            Not(self.Between(b, a, c)),
-                        ),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.Between(a, b, c), self.OnLine(a, L), self.OnLine(b, L)),
-                        self.OnLine(c, L),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.Between(a, b, c), self.OnLine(a, L), self.OnLine(c, L)),
+        self.axioms.append(
+            ForAll(
+                [a, b, L, M],
+                Implies(
+                    And(
+                        Not(a == b),
+                        self.OnLine(a, L),
                         self.OnLine(b, L),
+                        self.OnLine(a, M),
+                        self.OnLine(b, M),
                     ),
-                )
+                    L == M,
+                ),
             )
-        
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d],
-                    Implies(
-                        And(self.Between(a, b, c), self.Between(a, d, b)),
-                        self.Between(a, d, c),
-                    ),
-                )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, alpha],
+                Implies(
+                    And(self.Center(a, alpha), self.Center(b, alpha)),
+                    a == b,
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d],
-                    Implies(
-                        And(self.Between(a, b, c), self.Between(b, c, d)),
-                        self.Between(a, b, d),
-                    ),
-                )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, alpha],
+                Implies(self.Center(a, alpha), self.InsideCircle(a, alpha)),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(c, L),
-                            Not(a == b),
-                            Not(a == c),
-                            Not(b == c),
-                        ),
-                        Or(
-                            self.Between(a, b, c),
-                            self.Between(b, a, c),
-                            self.Between(a, c, b),
-                        ),
-                    ),
-                )
-            )
-            # self.axioms.append(
-            #     ForAll(
-            #         [a, b, c, d],
-            #         Implies(
-            #             And(self.Between(a, b, c), self.Between(a, b, d)),
-            #             Not(self.Between(c, b, d)),
-            #         ),
-            #     )
-            # )
+        )
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, alpha],
+        #         Implies(self.InsideCircle(a, alpha), Not(self.OnCircle(a, alpha))),
+        #     )
+        # )
 
-            """
-            Same-side axioms
-            """
-            self.axioms.append(
-                ForAll([a, L], Implies(Not(self.OnLine(a, L)), self.SameSide(a, a, L)))
+        """
+        Between axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                Implies(
+                    self.Between(a, b, c),
+                    And(
+                        self.Between(c, b, a),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(self.Between(b, a, c)),
+                    ),
+                ),
             )
-            self.axioms.append(
-                ForAll([a, b, L], Implies(self.SameSide(a, b, L), self.SameSide(b, a, L)))
-            ) # Join with below
-            self.axioms.append(
-                ForAll([a, b, L], Implies(self.SameSide(a, b, L), Not(self.OnLine(a, L))))
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.Between(a, b, c), self.OnLine(a, L), self.OnLine(b, L)),
+                    self.OnLine(c, L),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.SameSide(a, b, L), self.SameSide(a, c, L)),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.Between(a, b, c), self.OnLine(a, L), self.OnLine(c, L)),
+                    self.OnLine(b, L),
+                ),
+            )
+        )
+
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d],
+                Implies(
+                    And(self.Between(a, b, c), self.Between(a, d, b)),
+                    self.Between(a, d, c),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d],
+                Implies(
+                    And(self.Between(a, b, c), self.Between(b, c, d)),
+                    self.Between(a, b, d),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(c, L),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(b == c),
+                    ),
+                    Or(
+                        self.Between(a, b, c),
+                        self.Between(b, a, c),
+                        self.Between(a, c, b),
+                    ),
+                ),
+            )
+        )
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, d],
+        #         Implies(
+        #             And(self.Between(a, b, c), self.Between(a, b, d)),
+        #             Not(self.Between(c, b, d)),
+        #         ),
+        #     )
+        # )
+
+        """
+        Same-side axioms
+        """
+        self.axioms.append(
+            ForAll([a, L], Implies(Not(self.OnLine(a, L)), self.SameSide(a, a, L)))
+        )
+        self.axioms.append(
+            ForAll([a, b, L], Implies(self.SameSide(a, b, L), self.SameSide(b, a, L)))
+        )  # Join with below
+        self.axioms.append(
+            ForAll([a, b, L], Implies(self.SameSide(a, b, L), Not(self.OnLine(a, L))))
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.SameSide(a, b, L), self.SameSide(a, c, L)),
+                    self.SameSide(b, c, L),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(self.OnLine(a, L)),
+                        Not(self.OnLine(b, L)),
+                        Not(self.OnLine(c, L)),
+                        Not(self.SameSide(a, b, L)),
+                    ),
+                    Or(self.SameSide(a, c, L), self.SameSide(b, c, L)),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(self.OnLine(a, L)),
+                        Not(self.OnLine(b, L)),
+                        Not(self.OnLine(c, L)),
+                    ),
+                    Or(
+                        self.SameSide(a, c, L),
                         self.SameSide(b, c, L),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            Not(self.OnLine(a, L)),
-                            Not(self.OnLine(b, L)),
-                            Not(self.OnLine(c, L)),
-                            Not(self.SameSide(a, b, L)),
-                        ),
-                        Or(self.SameSide(a, c, L), self.SameSide(b, c, L)),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            Not(self.OnLine(a, L)),
-                            Not(self.OnLine(b, L)),
-                            Not(self.OnLine(c, L)),
-                        ),
-                        Or(self.SameSide(a, c, L), self.SameSide(b, c, L), self.SameSide(a, b, L)),
-                    ),
-                )
-            ) # New
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            Not(self.OnLine(a, L)),
-                            Not(self.OnLine(b, L)),
-                            Not(self.OnLine(c, L)),
-                            Not(self.SameSide(a, c, L)),
-                            Not(self.SameSide(b, c, L))
-                        ),
                         self.SameSide(a, b, L),
                     ),
-                )
-            ) # New
+                ),
+            )
+        )  # New
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(self.OnLine(a, L)),
+                        Not(self.OnLine(b, L)),
+                        Not(self.OnLine(c, L)),
+                        Not(self.SameSide(a, c, L)),
+                        Not(self.SameSide(b, c, L)),
+                    ),
+                    self.SameSide(a, b, L),
+                ),
+            )
+        )  # New
 
-            """
-            Pasch axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.Between(a, b, c), self.SameSide(a, c, L)),
-                        self.SameSide(a, b, L),
-                    ),
-                )
+        """
+        Pasch axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.Between(a, b, c), self.SameSide(a, c, L)),
+                    self.SameSide(a, b, L),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            self.Between(a, b, c), self.OnLine(a, L), Not(self.OnLine(b, L))
-                        ),
-                        self.SameSide(b, c, L),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        self.Between(a, b, c), self.OnLine(a, L), Not(self.OnLine(b, L))
                     ),
-                )
+                    self.SameSide(b, c, L),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.Between(a, b, c), self.OnLine(b, L)),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.Between(a, b, c), self.OnLine(b, L)),
+                    Not(self.SameSide(a, c, L)),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L, M],
+                Implies(
+                    And(
+                        Not(L == M),
+                        # self.Intersectsll(L, M), # from smt
+                        self.OnLine(b, L),
+                        self.OnLine(b, M),
+                        self.OnLine(a, M),
+                        self.OnLine(c, M),
+                        # Not(c == a),              # from smt
+                        Not(a == b),
+                        Not(b == c),
                         Not(self.SameSide(a, c, L)),
                     ),
-                )
+                    self.Between(a, b, c),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L, M],
-                    Implies(
-                        And(
-                            Not(L == M),
-                            # self.Intersectsll(L, M), # from smt
-                            self.OnLine(b, L),
-                            self.OnLine(b, M),
-                            self.OnLine(a, M),
-                            self.OnLine(c, M),
-                            # Not(c == a),              # from smt
-                            Not(a == b),
-                            Not(b == c),
-                            Not(self.SameSide(a, c, L)),
-                        ),
-                        self.Between(a, b, c),
-                    ),
-                )
-            )
+        )
 
-            """
-            Triple-incidence axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L, M, N],
-                    Implies(
-                        And(
-                            # Not(L == M),  # Not specified in the paper # from smt
-                            # Not(L == N),  # Not specified in the paper # from smt
-                            # Not(M == N),  # Not specified in the paper # from smt
-                            # self.Intersectsll(L, M),      # from smt
-                            # self.Intersectsll(M, N),      # from smt
-                            # self.Intersectsll(L, N),      # from smt
-                            self.OnLine(a, L),
-                            self.OnLine(a, M),
-                            self.OnLine(a, N),
-                            self.OnLine(b, L),
-                            self.OnLine(c, M),
-                            self.OnLine(d, N),
-                            self.SameSide(c, d, L),
-                            self.SameSide(b, c, N),
-                        ),
-                        Not(self.SameSide(b, d, M)),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L, M, N],
-                    Implies(
-                        And(
-                            # Same as above
-                            # Not(L == M),  # Not specified in the paper
-                            # Not(L == N),  # Not specified in the paper
-                            # Not(M == N),  # Not specified in the paper
-                            # self.Intersectsll(L, M),
-                            # self.Intersectsll(M, N),
-                            # self.Intersectsll(L, N),
-                            self.OnLine(a, L),
-                            self.OnLine(a, M),
-                            self.OnLine(a, N),
-                            self.OnLine(b, L),
-                            self.OnLine(c, M),
-                            self.OnLine(d, N),
-                            self.SameSide(c, d, L),
-                            Not(self.SameSide(b, d, M)),
-                            Not(self.OnLine(d, M)),
-                            Not(b == a),
-                        ),
+        """
+        Triple-incidence axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L, M, N],
+                Implies(
+                    And(
+                        # Not(L == M),  # Not specified in the paper # from smt
+                        # Not(L == N),  # Not specified in the paper # from smt
+                        # Not(M == N),  # Not specified in the paper # from smt
+                        # self.Intersectsll(L, M),      # from smt
+                        # self.Intersectsll(M, N),      # from smt
+                        # self.Intersectsll(L, N),      # from smt
+                        self.OnLine(a, L),
+                        self.OnLine(a, M),
+                        self.OnLine(a, N),
+                        self.OnLine(b, L),
+                        self.OnLine(c, M),
+                        self.OnLine(d, N),
+                        self.SameSide(c, d, L),
                         self.SameSide(b, c, N),
                     ),
-                )
+                    Not(self.SameSide(b, d, M)),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, e, L, M, N],
-                    Implies(
-                        And(
-                            # Same as above
-                            # Not(L == M),  # Not specified in the paper
-                            # Not(L == N),  # Not specified in the paper
-                            # Not(M == N),  # Not specified in the paper
-                            # self.Intersectsll(L, M),
-                            # self.Intersectsll(M, N),
-                            # self.Intersectsll(L, N),
-                            self.OnLine(a, L),
-                            self.OnLine(a, M),
-                            self.OnLine(a, N),
-                            self.OnLine(b, L),
-                            self.OnLine(c, M),
-                            self.OnLine(d, N),
-                            self.SameSide(b, c, N),
-                            self.SameSide(c, d, L),
-                            self.SameSide(d, e, M),
-                            self.SameSide(c, e, N),
-                        ),
-                        self.SameSide(c, e, L),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L, M, N],
+                Implies(
+                    And(
+                        # Same as above
+                        # Not(L == M),  # Not specified in the paper
+                        # Not(L == N),  # Not specified in the paper
+                        # Not(M == N),  # Not specified in the paper
+                        # self.Intersectsll(L, M),
+                        # self.Intersectsll(M, N),
+                        # self.Intersectsll(L, N),
+                        self.OnLine(a, L),
+                        self.OnLine(a, M),
+                        self.OnLine(a, N),
+                        self.OnLine(b, L),
+                        self.OnLine(c, M),
+                        self.OnLine(d, N),
+                        self.SameSide(c, d, L),
+                        Not(self.SameSide(b, d, M)),
+                        Not(self.OnLine(d, M)),
+                        Not(b == a),
                     ),
-                )
+                    self.SameSide(b, c, N),
+                ),
             )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, L, M, N],
+                Implies(
+                    And(
+                        # Same as above
+                        # Not(L == M),  # Not specified in the paper
+                        # Not(L == N),  # Not specified in the paper
+                        # Not(M == N),  # Not specified in the paper
+                        # self.Intersectsll(L, M),
+                        # self.Intersectsll(M, N),
+                        # self.Intersectsll(L, N),
+                        self.OnLine(a, L),
+                        self.OnLine(a, M),
+                        self.OnLine(a, N),
+                        self.OnLine(b, L),
+                        self.OnLine(c, M),
+                        self.OnLine(d, N),
+                        self.SameSide(b, c, N),
+                        self.SameSide(c, d, L),
+                        self.SameSide(d, e, M),
+                        self.SameSide(c, e, N),
+                    ),
+                    self.SameSide(c, e, L),
+                ),
+            )
+        )
 
-            """
-            Circle axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L, alpha],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(c, L),
-                            self.InsideCircle(a, alpha),
-                            self.OnCircle(b, alpha),
-                            self.OnCircle(c, alpha),
-                            Not(b == c),
-                        ),
-                        self.Between(b, a, c),
+        """
+        Circle axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L, alpha],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(c, L),
+                        self.InsideCircle(a, alpha),
+                        self.OnCircle(b, alpha),
+                        self.OnCircle(c, alpha),
+                        Not(b == c),
                     ),
-                )
+                    self.Between(b, a, c),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, alpha],
-                    Implies(
-                        And(
-                            Or(self.OnCircle(a, alpha), self.InsideCircle(a, alpha)),
-                            Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
-                            self.Between(a, c, b),
-                        ),
-                        self.InsideCircle(c, alpha),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha],
+                Implies(
+                    And(
+                        Or(self.OnCircle(a, alpha), self.InsideCircle(a, alpha)),
+                        Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
+                        self.Between(a, c, b),
                     ),
-                )
+                    self.InsideCircle(c, alpha),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, alpha],
-                    Implies(
-                        And(
-                            Or(self.InsideCircle(a, alpha), self.OnCircle(a, alpha)),
-                            Not(self.InsideCircle(c, alpha)),
-                            self.Between(a, c, b),
-                        ),
-                        And(Not(self.InsideCircle(b, alpha)), Not(self.OnCircle(b, alpha))),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha],
+                Implies(
+                    And(
+                        Or(self.InsideCircle(a, alpha), self.OnCircle(a, alpha)),
+                        Not(self.InsideCircle(c, alpha)),
+                        self.Between(a, c, b),
                     ),
-                )
+                    And(Not(self.InsideCircle(b, alpha)), Not(self.OnCircle(b, alpha))),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L, alpha, beta],
-                    Implies(
-                        And(
-                            Not(alpha == beta),
-                            self.Intersectscc(alpha, beta),
-                            self.OnCircle(c, alpha),
-                            self.OnCircle(c, beta),
-                            self.OnCircle(d, alpha),
-                            self.OnCircle(d, beta),
-                            Not(c == d),
-                            self.Center(a, alpha),
-                            self.Center(b, beta),
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                        ),
-                        Not(self.SameSide(c, d, L)),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L, alpha, beta],
+                Implies(
+                    And(
+                        Not(alpha == beta),
+                        self.Intersectscc(alpha, beta),
+                        self.OnCircle(c, alpha),
+                        self.OnCircle(c, beta),
+                        self.OnCircle(d, alpha),
+                        self.OnCircle(d, beta),
+                        Not(c == d),
+                        self.Center(a, alpha),
+                        self.Center(b, beta),
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
                     ),
-                )
+                    Not(self.SameSide(c, d, L)),
+                ),
             )
+        )
 
         """
         Intersection axioms
         """
-            self.axioms.append(
-                ForAll(
-                    [a, b, L, M],
-                    Implies(
-                        And(
-                            Not(self.SameSide(a, b, L)),
-                            self.OnLine(a, M),
-                            self.OnLine(b, M),
-                        ),
-                        self.Intersectsll(L, M),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, L, alpha],
-                    Implies(
-                        And(
-                            Or(self.OnCircle(a, alpha), self.InsideCircle(a, alpha)),
-                            Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
-                            Not(self.SameSide(a, b, L)),
-                            Not(self.OnLine(a, L)),
-                            Not(self.OnLine(b, L))
-                        ),
-                        self.Intersectslc(L, alpha),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, L, alpha],
-                    Implies(
-                        And(
-                            self.InsideCircle(a, alpha),
-                            self.OnLine(a, L),
-                        ),
-                        self.Intersectslc(L, alpha),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, alpha, beta],
-                    Implies(
-                        And(
-                            self.OnCircle(a, alpha),
-                            Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
-                            self.InsideCircle(a, beta),
-                            Not(self.OnCircle(b, beta)),
-                            Not(self.InsideCircle(b, beta)),
-                        ),
-                        self.Intersectscc(alpha, beta),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, alpha, beta],
-                    Implies(
-                        And(
-                            self.OnCircle(a, alpha),
-                            self.InsideCircle(b, alpha),
-                            self.InsideCircle(a, beta),
-                            self.OnCircle(b, beta),
-                        ),
-                        self.Intersectscc(alpha, beta),
-                    ),
-                )
-            )
-
-            """
-            Section 3.5 Metric Inferences
-            Metric axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b],
+        self.axioms.append(
+            ForAll(
+                [a, b, L, M],
+                Implies(
                     And(
-                        Implies(a == b, self.Segment(a, b) == RealVal(0.0)),
-                        Implies(self.Segment(a, b) == RealVal(0.0), a == b),
+                        Not(self.SameSide(a, b, L)),
+                        self.OnLine(a, M),
+                        self.OnLine(b, M),
                     ),
-                )
+                    self.Intersectsll(L, M),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b],
-                    self.Segment(a, b) >= RealVal(0.0),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b],
-                    self.Segment(a, b) == self.Segment(b, a),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
-                    Implies(
-                        And(Not(a == b), Not(a == c)),
-                        self.Angle(a, b, c) == self.Angle(c, b, a),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
-                    Implies(
-                        And(
-                            Not(a == b),
-                            Not(b == c),
-                        ),
-                        And(
-                            self.Angle(a, b, c) >= RealVal(0.0),
-                            self.Angle(a, b, c) <= self.RightAngle + self.RightAngle,
-                        ),
-                    )
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b],
-                    self.Area(a, a, b) == RealVal(0.0),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
-                    self.Area(a, b, c) >= RealVal(0.0),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, L, alpha],
+                Implies(
                     And(
-                        self.Area(a, b, c) == self.Area(c, a, b),
-                        self.Area(a, b, c) == self.Area(b, a, c),
+                        Or(self.OnCircle(a, alpha), self.InsideCircle(a, alpha)),
+                        Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
+                        Not(self.SameSide(a, b, L)),
+                        Not(self.OnLine(a, L)),
+                        Not(self.OnLine(b, L)),
                     ),
-                )
+                    self.Intersectslc(L, alpha),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, e, f],
-                    Implies(
-                        And(
-                            self.Segment(a, b) == self.Segment(d, e),
-                            self.Segment(b, c) == self.Segment(e, f),
-                            self.Segment(c, a) == self.Segment(f, d),
-                            self.Angle(a, b, c) == self.Angle(d, e, f),
-                            self.Angle(b, c, a) == self.Angle(e, f, d),
-                            self.Angle(c, a, b) == self.Angle(f, d, e),
-                        ),
-                        self.Area(a, b, c) == self.Area(d, e, f),
+        )
+        self.axioms.append(
+            ForAll(
+                [a, L, alpha],
+                Implies(
+                    And(
+                        self.InsideCircle(a, alpha),
+                        self.OnLine(a, L),
                     ),
-                )
-            ) # commented out?
+                    self.Intersectslc(L, alpha),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, alpha, beta],
+                Implies(
+                    And(
+                        self.OnCircle(a, alpha),
+                        Or(self.OnCircle(b, alpha), self.InsideCircle(b, alpha)),
+                        self.InsideCircle(a, beta),
+                        Not(self.OnCircle(b, beta)),
+                        Not(self.InsideCircle(b, beta)),
+                    ),
+                    self.Intersectscc(alpha, beta),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, alpha, beta],
+                Implies(
+                    And(
+                        self.OnCircle(a, alpha),
+                        self.InsideCircle(b, alpha),
+                        self.InsideCircle(a, beta),
+                        self.OnCircle(b, beta),
+                    ),
+                    self.Intersectscc(alpha, beta),
+                ),
+            )
+        )
 
-            """
-            Section 3.6 Transfer inferences
-            Diagram segment transfer axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c],
-                    Implies(
-                        self.Between(a, b, c),
-                        self.Segment(a, c) == self.Segment(a, b) + self.Segment(b, c),
-                    ),
-                )
+        """
+        Section 3.5 Metric Inferences
+        Metric axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b],
+                And(
+                    Implies(a == b, self.Segment(a, b) == RealVal(0.0)),
+                    Implies(self.Segment(a, b) == RealVal(0.0), a == b),
+                ),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, alpha, beta],
-                    Implies(
-                        And(
-                            self.Center(a, alpha),
-                            self.Center(a, beta),
-                            self.OnCircle(b, alpha),
-                            self.OnCircle(c, beta),
-                            self.Segment(a, b) == self.Segment(a, c),
-                        ),
-                        alpha == beta,
-                    ),
-                )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b],
+                self.Segment(a, b) >= RealVal(0.0),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, alpha],
-                    Implies(
-                        And(self.Center(a, alpha), self.OnCircle(b, alpha),
-                        self.Segment(a, b) == self.Segment(a, c)),
-                                self.OnCircle(c, alpha),
-                        # And(
-                        #     Implies(
-                        #         self.OnCircle(c, alpha),
-                        #         self.Segment(a, b) == self.Segment(a, c),
-                        #     ),
-                        #     Implies(
-                        #         self.Segment(a, b) == self.Segment(a, c),
-                        #         self.OnCircle(c, alpha),
-                        #     ),
-                        # ),
-                    ),
-                )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b],
+                self.Segment(a, b) == self.Segment(b, a),
             )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, alpha],
-                    Implies(
-                        And(self.Center(a, alpha), self.OnCircle(b, alpha)),
-                        self.InsideCircle(c, alpha) ==
-                                (self.Segment(a, c) < self.Segment(a, b)),
-                    ),
-                )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                Implies(
+                    And(Not(a == b), Not(a == c)),
+                    self.Angle(a, b, c) == self.Angle(c, b, a),
+                ),
             )
-
-            """
-            Diagram angle transfer axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            Not(a == b),
-                            Not(a == c),
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                        ),
-                        And(self.OnLine(c, L), Not(self.Between(b, a, c))) == (
-                            self.Angle(b, a, c) == RealVal(0.0))
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b],
-                    Implies(
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                Implies(
+                    And(
                         Not(a == b),
-                        self.Angle(a, b, a) == RealVal(0.0)
-                    )
-                )
-            ) # commented out
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(
-                            Not(a == b),
-                            Not(b == c),
-                            self.OnLine(a, L),
-                            self.OnLine(b, L)
-                        ),
-                        Or(Not(self.OnLine(c, L)), self.Between(c, a, b)) ==
-                        (self.Angle(a, b, c) > RealVal(0.0))
-                    )
-                )
-            ) # commented out
-
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L, M],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(a, M),
-                            # self.Intersectsll(L, M), # commented out from smt
-                            self.OnLine(b, L),
-                            self.OnLine(c, M),
-                            Not(a == b),
-                            Not(a == c),
-                            Not(self.OnLine(d, L)),
-                            Not(self.OnLine(d, M)),
-                            Not(L == M),
-                        ),
-                        (self.Angle(b, a, c)
-                                == self.Angle(b, a, d) + self.Angle(d, a, c)) ==
-                                And(self.SameSide(b, d, M), self.SameSide(c, d, L))
+                        Not(b == c),
                     ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.Between(a, c, b),
-                            Not(self.OnLine(d, L)),
-                        ),
-                        (self.Angle(a, c, d) == self.Angle(d, c, b)) ==
-                                (self.Angle(a, c, d) == self.RightAngle)
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, e, L, M],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(d, L),
-                            self.OnLine(a, M),
-                            self.OnLine(c, M),
-                            self.OnLine(e, M),
-                            Not(b == a),
-                            Not(d == a),
-                            Not(c == a),
-                            Not(e == a),
-                            Not(self.Between(b, a, d)),
-                            Not(self.Between(c, a, e)),
-                        ),
-                        self.Angle(b, a, c) == self.Angle(d, a, e),
-                    ),
-                )
-            ) # commented out
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, e, L, M, N],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(b, M),
-                            self.OnLine(c, M),
-                            self.OnLine(c, N),
-                            self.OnLine(d, N),
-                            Not(b == c),
-                            self.SameSide(a, d, N),
-                            self.Angle(a, b, c) + self.Angle(b, c, d)
-                            < self.RightAngle + self.RightAngle,
-                        ),
-                        And(
-                            self.Intersectsll(L, N),
-                            Implies(
-                                And(self.OnLine(e, L), self.OnLine(e, N)),
-                                self.SameSide(a, e, M),
-                            ),
-                        ),
-                    ),
-                )
-            ) # commented out
-
-            """
-            Diagram area transfer axioms
-            """
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, L],
-                    Implies(
-                        And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
-                        self.OnLine(c, L) ==
-                                (self.Area(a, b, c) == RealVal(0.0)),
-                    ),
-                )
-            )
-            self.axioms.append(
-                ForAll(
-                    [a, b, c, d, L],
-                    Implies(
-                        And(
-                            self.OnLine(a, L),
-                            self.OnLine(b, L),
-                            self.OnLine(c, L),
-                            Not(a == b),
-                            Not(a == c),
-                            Not(b == c),
-                            Not(self.OnLine(d, L)),
-                        ),
-                        self.Between(a, c, b) ==
-                                (self.Area(a, c, d) + self.Area(d, c, b)
-                                == self.Area(a, d, b)),
+                    And(
+                        self.Angle(a, b, c) >= RealVal(0.0),
+                        self.Angle(a, b, c) <= self.RightAngle + self.RightAngle,
                     ),
                 ),
             )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b],
+                self.Area(a, a, b) == RealVal(0.0),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                self.Area(a, b, c) >= RealVal(0.0),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                And(
+                    self.Area(a, b, c) == self.Area(c, a, b),
+                    self.Area(a, b, c) == self.Area(b, a, c),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, f],
+                Implies(
+                    And(
+                        self.Segment(a, b) == self.Segment(d, e),
+                        self.Segment(b, c) == self.Segment(e, f),
+                        self.Segment(c, a) == self.Segment(f, d),
+                        self.Angle(a, b, c) == self.Angle(d, e, f),
+                        self.Angle(b, c, a) == self.Angle(e, f, d),
+                        self.Angle(c, a, b) == self.Angle(f, d, e),
+                    ),
+                    self.Area(a, b, c) == self.Area(d, e, f),
+                ),
+            )
+        )  # commented out?
+
+        """
+        Section 3.6 Transfer inferences
+        Diagram segment transfer axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                Implies(
+                    self.Between(a, b, c),
+                    self.Segment(a, c) == self.Segment(a, b) + self.Segment(b, c),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha, beta],
+                Implies(
+                    And(
+                        self.Center(a, alpha),
+                        self.Center(a, beta),
+                        self.OnCircle(b, alpha),
+                        self.OnCircle(c, beta),
+                        self.Segment(a, b) == self.Segment(a, c),
+                    ),
+                    alpha == beta,
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha],
+                Implies(
+                    And(
+                        self.Center(a, alpha),
+                        self.OnCircle(b, alpha),
+                        self.Segment(a, b) == self.Segment(a, c),
+                    ),
+                    self.OnCircle(c, alpha),
+                    # And(
+                    #     Implies(
+                    #         self.OnCircle(c, alpha),
+                    #         self.Segment(a, b) == self.Segment(a, c),
+                    #     ),
+                    #     Implies(
+                    #         self.Segment(a, b) == self.Segment(a, c),
+                    #         self.OnCircle(c, alpha),
+                    #     ),
+                    # ),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, alpha],
+                Implies(
+                    And(self.Center(a, alpha), self.OnCircle(b, alpha)),
+                    self.InsideCircle(c, alpha)
+                    == (self.Segment(a, c) < self.Segment(a, b)),
+                ),
+            )
+        )
+
+        """
+        Diagram angle transfer axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(
+                        Not(a == b),
+                        Not(a == c),
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                    ),
+                    And(self.OnLine(c, L), Not(self.Between(b, a, c)))
+                    == (self.Angle(b, a, c) == RealVal(0.0)),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll([a, b], Implies(Not(a == b), self.Angle(a, b, a) == RealVal(0.0)))
+        )  # commented out
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(Not(a == b), Not(b == c), self.OnLine(a, L), self.OnLine(b, L)),
+                    Or(Not(self.OnLine(c, L)), self.Between(c, a, b))
+                    == (self.Angle(a, b, c) > RealVal(0.0)),
+                ),
+            )
+        )  # commented out
+
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L, M],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(a, M),
+                        # self.Intersectsll(L, M), # commented out from smt
+                        self.OnLine(b, L),
+                        self.OnLine(c, M),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(self.OnLine(d, L)),
+                        Not(self.OnLine(d, M)),
+                        Not(L == M),
+                    ),
+                    (self.Angle(b, a, c) == self.Angle(b, a, d) + self.Angle(d, a, c))
+                    == And(self.SameSide(b, d, M), self.SameSide(c, d, L)),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.Between(a, c, b),
+                        Not(self.OnLine(d, L)),
+                    ),
+                    (self.Angle(a, c, d) == self.Angle(d, c, b))
+                    == (self.Angle(a, c, d) == self.RightAngle),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, L, M],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(d, L),
+                        self.OnLine(a, M),
+                        self.OnLine(c, M),
+                        self.OnLine(e, M),
+                        Not(b == a),
+                        Not(d == a),
+                        Not(c == a),
+                        Not(e == a),
+                        Not(self.Between(b, a, d)),
+                        Not(self.Between(c, a, e)),
+                    ),
+                    self.Angle(b, a, c) == self.Angle(d, a, e),
+                ),
+            )
+        )  # commented out
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, e, L, M, N],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(b, M),
+                        self.OnLine(c, M),
+                        self.OnLine(c, N),
+                        self.OnLine(d, N),
+                        Not(b == c),
+                        self.SameSide(a, d, N),
+                        self.Angle(a, b, c) + self.Angle(b, c, d)
+                        < self.RightAngle + self.RightAngle,
+                    ),
+                    And(
+                        self.Intersectsll(L, N),
+                        Implies(
+                            And(self.OnLine(e, L), self.OnLine(e, N)),
+                            self.SameSide(a, e, M),
+                        ),
+                    ),
+                ),
+            )
+        )  # commented out
+
+        """
+        Diagram area transfer axioms
+        """
+        self.axioms.append(
+            ForAll(
+                [a, b, c, L],
+                Implies(
+                    And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
+                    self.OnLine(c, L) == (self.Area(a, b, c) == RealVal(0.0)),
+                ),
+            )
+        )
+        self.axioms.append(
+            ForAll(
+                [a, b, c, d, L],
+                Implies(
+                    And(
+                        self.OnLine(a, L),
+                        self.OnLine(b, L),
+                        self.OnLine(c, L),
+                        Not(a == b),
+                        Not(a == c),
+                        Not(b == c),
+                        Not(self.OnLine(d, L)),
+                    ),
+                    self.Between(a, c, b)
+                    == (self.Area(a, c, d) + self.Area(d, c, b) == self.Area(a, d, b)),
+                ),
+            ),
+        )
 
         """
         Custom axioms
