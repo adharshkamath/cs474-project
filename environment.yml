@@ -88,7 +88,6 @@ dependencies:
       - ml-dtypes==0.2.0
       - msgpack==1.1.0
       - networkx==3.4.2
-      - newclid==2.0.1.dev350+g4f64fe7
       - nltk==3.9.1
       - numpy==1.23.5
       - oauthlib==3.2.2

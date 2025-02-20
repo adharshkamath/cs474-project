@@ -33,57 +33,57 @@
 ;
 
 ; Two points determine a line
-:assumption
-(forall (?a Point) (?b Point) (?L Line) (?M Line)
-  (implies (and (not (= ?a ?b)) (on ?a ?L) (on ?b ?L)
-      (on ?a ?M) (on ?b ?M))
-    (= ?L ?M)))
+  :assumption
+  (forall (?a Point) (?b Point) (?L Line) (?M Line)
+    (implies (and (not (= ?a ?b)) (on ?a ?L) (on ?b ?L)
+        (on ?a ?M) (on ?b ?M))
+      (= ?L ?M)))
 
-; Center is unique
-:assumption
-(forall (?a Point) (?b Point) (?C Circle)
-  (implies (and (center ?a ?C) (center ?b ?C))
-    (= ?a ?b)))
+  ; Center is unique
+  :assumption
+  (forall (?a Point) (?b Point) (?C Circle)
+    (implies (and (center ?a ?C) (center ?b ?C))
+      (= ?a ?b)))
 
-:assumption
-(forall (?a Point) (?C Circle)
-  (implies (center ?a ?C) (in ?a ?C)))
+  :assumption
+  (forall (?a Point) (?C Circle)
+    (implies (center ?a ?C) (in ?a ?C)))
 
-;
-; Between axioms
-;
+  ;
+  ; Between axioms
+  ;
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point)
-  (implies (bet ?a ?b ?c)
-    (and (bet ?c ?b ?a) (not (= ?a ?b)) (not (= ?a ?c))
-      (not (bet ?b ?a ?c)))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point)
+    (implies (bet ?a ?b ?c)
+      (and (bet ?c ?b ?a) (not (= ?a ?b)) (not (= ?a ?c))
+        (not (bet ?b ?a ?c)))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (bet ?a ?b ?c) (on ?a ?L) (on ?b ?L)) (on ?c ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (bet ?a ?b ?c) (on ?a ?L) (on ?b ?L)) (on ?c ?L)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-  (implies (and (bet ?a ?b ?c) (on ?a ?L) (on ?c ?L)) (on ?b ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (bet ?a ?b ?c) (on ?a ?L) (on ?c ?L)) (on ?b ?L)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point)
-  (implies (and (bet ?a ?b ?c) (bet ?a ?d ?b))
-    (bet ?a ?d ?c)))
-;   (and (bet ?a ?d ?c) (bet ?d ?b ?c))))    This variant redundant.
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point)
+    (implies (and (bet ?a ?b ?c) (bet ?a ?d ?b))
+      (bet ?a ?d ?c)))
+  ;   (and (bet ?a ?d ?c) (bet ?d ?b ?c))))    This variant redundant.
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point)
-  (implies (and (bet ?a ?b ?c) (bet ?b ?c ?d))
-    (bet ?a ?b ?d)))
-;   (and (bet ?a ?c ?d) (bet ?a ?b ?d))))    This variant redundant.
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point)
+    (implies (and (bet ?a ?b ?c) (bet ?b ?c ?d))
+      (bet ?a ?b ?d)))
+  ;   (and (bet ?a ?c ?d) (bet ?a ?b ?d))))    This variant redundant.
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (on ?a ?L) (on ?b ?L) (on ?c ?L)
-       (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?b ?c)))
-     (or (bet ?a ?b ?c) (bet ?b ?a ?c) (bet ?a ?c ?b))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (on ?a ?L) (on ?b ?L) (on ?c ?L)
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?b ?c)))
+      (or (bet ?a ?b ?c) (bet ?b ?a ?c) (bet ?a ?c ?b))))
 
 ; This one is a first-order consequence of the others
 ; :assumption
@@ -95,24 +95,24 @@
 ; Same side axioms
 ;
 
-:assumption
-(forall (?a Point) (?L Line)
-   (implies (not (on ?a ?L)) (sameside ?a ?a ?L)))
+  :assumption
+  (forall (?a Point) (?L Line)
+    (implies (not (on ?a ?L)) (sameside ?a ?a ?L)))
 
-:assumption
-(forall (?a Point) (?b Point) (?L Line)
-   (implies (sameside ?a ?b ?L)
-     (and (not (on ?a ?L)) (sameside ?b ?a ?L))))
+  :assumption
+  (forall (?a Point) (?b Point) (?L Line)
+    (implies (sameside ?a ?b ?L)
+      (and (not (on ?a ?L)) (sameside ?b ?a ?L))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (sameside ?a ?b ?L) (sameside ?a ?c ?L))
-     (sameside ?b ?c ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (sameside ?a ?b ?L) (sameside ?a ?c ?L))
+      (sameside ?b ?c ?L)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (not (on ?a ?L)) (not (on ?b ?L)) (not (on ?c ?L)))
-     (or (sameside ?a ?b ?L) (sameside ?a ?c ?L) (sameside ?b ?c ?L))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (not (on ?a ?L)) (not (on ?b ?L)) (not (on ?c ?L)))
+      (or (sameside ?a ?b ?L) (sameside ?a ?c ?L) (sameside ?b ?c ?L))))
 
 ; definition of diff-side
 ; (forall (?a Point) (?b Point) (?L Line)
@@ -124,58 +124,58 @@
 ; Pasch axioms
 ;
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (bet ?a ?b ?c) (sameside ?a ?c ?L))
-     (sameside ?a ?b ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (bet ?a ?b ?c) (sameside ?a ?c ?L))
+      (sameside ?a ?b ?L)))
 ;    (and (sameside ?a ?b ?L) (sameside ?b ?c ?L)))) This variant redundant
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (bet ?a ?b ?c) (on ?a ?L) (not (on ?b ?L)))
-     (sameside ?b ?c ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (bet ?a ?b ?c) (on ?a ?L) (not (on ?b ?L)))
+      (sameside ?b ?c ?L)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-   (implies (and (bet ?a ?b ?c) (on ?b ?L))
-     (not (sameside ?a ?c ?L))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (bet ?a ?b ?c) (on ?b ?L))
+      (not (sameside ?a ?c ?L))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line) (?M Line)
-   (implies (and (not (= ?a ?b)) (not (= ?b ?c)) (not (= ?L ?M)) (on ?a ?M)
-       (on ?b ?M) (on ?c ?M)
-     (not (sameside ?a ?c ?L)) (on ?b ?L))
-       (bet ?a ?b ?c)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line) (?M Line)
+    (implies (and (not (= ?a ?b)) (not (= ?b ?c)) (not (= ?L ?M)) (on ?a ?M)
+        (on ?b ?M) (on ?c ?M)
+      (not (sameside ?a ?c ?L)) (on ?b ?L))
+        (bet ?a ?b ?c)))
 
 ;
 ; Triple incidence axioms
 ;
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point)
-    (?L Line) (?M Line) (?N Line)
-  (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
-      (on ?b ?L) (on ?c ?M) (on ?d ?N) 
-      (sameside ?c ?d ?L) (sameside ?b ?c ?N))
-    (not (sameside ?b ?d ?M))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point)
+      (?L Line) (?M Line) (?N Line)
+    (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
+        (on ?b ?L) (on ?c ?M) (on ?d ?N) 
+        (sameside ?c ?d ?L) (sameside ?b ?c ?N))
+      (not (sameside ?b ?d ?M))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point)
-    (?L Line) (?M Line) (?N Line)
-   (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
-       (on ?b ?L) (on ?c ?M) (on ?d ?N)
-       (sameside ?c ?d ?L)
-       (not (sameside ?d ?b ?M)) (not (on ?d ?M)) (not (= ?b ?a)))
-     (sameside ?b ?c ?N)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point)
+      (?L Line) (?M Line) (?N Line)
+    (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
+        (on ?b ?L) (on ?c ?M) (on ?d ?N)
+        (sameside ?c ?d ?L)
+        (not (sameside ?d ?b ?M)) (not (on ?d ?M)) (not (= ?b ?a)))
+      (sameside ?b ?c ?N)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point) (?e Point)
-    (?L Line) (?M Line) (?N Line)
-  (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
-      (on ?b ?L) (on ?c ?M) (on ?d ?N) 
-      (sameside ?b ?c ?N) (sameside ?d ?c ?L)
-      (sameside ?d ?e ?M) (sameside ?c ?e ?N))
-    (sameside ?c ?e ?L)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point) (?e Point)
+      (?L Line) (?M Line) (?N Line)
+    (implies (and (on ?a ?L) (on ?a ?M) (on ?a ?N) 
+        (on ?b ?L) (on ?c ?M) (on ?d ?N) 
+        (sameside ?b ?c ?N) (sameside ?d ?c ?L)
+        (sameside ?d ?e ?M) (sameside ?c ?e ?N))
+      (sameside ?c ?e ?L)))
 
 ; this follows from the others
 ;:assumption
@@ -192,31 +192,31 @@
 ; Circle axioms
 ;
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle) (?L Line)
-  (implies (and (in ?a ?C) (onc ?b ?C) (onc ?c ?C) (on ?a ?L)
-      (on ?b ?L) (on ?c ?L) (not (= ?b ?c)))
-    (bet ?b ?a ?c)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle) (?L Line)
+    (implies (and (in ?a ?C) (onc ?b ?C) (onc ?c ?C) (on ?a ?L)
+        (on ?b ?L) (on ?c ?L) (not (= ?b ?c)))
+      (bet ?b ?a ?c)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle)
-  (implies (and (or (in ?a ?C) (onc ?a ?C))
-      (or (in ?b ?C) (onc ?b ?C))
-      (bet ?a ?c ?b))
-  (in ?c ?C)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle)
+    (implies (and (or (in ?a ?C) (onc ?a ?C))
+        (or (in ?b ?C) (onc ?b ?C))
+        (bet ?a ?c ?b))
+    (in ?c ?C)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle) (?L Line)
-   (implies (and (or (in ?a ?C) (onc ?a ?C)) (not (in ?c ?C)) 
-       (bet ?a ?c ?b))
-     (and (not (in ?b ?C)) (not (onc ?b ?C)))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle) (?L Line)
+    (implies (and (or (in ?a ?C) (onc ?a ?C)) (not (in ?c ?C)) 
+        (bet ?a ?c ?b))
+      (and (not (in ?b ?C)) (not (onc ?b ?C)))))
 
 :assumption
 (forall (?a Point) (?b Point) (?c Point) (?d Point)
      (?C Circle) (?D Circle) (?L Line)
    (implies (and (onc ?c ?C) (onc ?c ?D) (onc ?d ?C) (onc ?d ?D) 
        (not (= ?C ?D)) (not (= ?c ?d))
-       (on ?a ?L) (on ?b ?L) (center ?a ?C) (center ?a ?D))
+       (on ?a ?L) (on ?b ?L) (center ?a ?C) (center ?b ?D))
      (not (sameside ?c ?d ?L))))
 
 ;
