@@ -405,7 +405,7 @@
 :assumption (< (angle C A B) rightangle)
 
 :assumption (on D BC)
-:assumption (bet B D C)
+; :assumption (bet B D C)
 :assumption (= (angle D A B) (angle B C A))
 
 :assumption (on D AD)
@@ -413,7 +413,7 @@
 :assumption (intersects AD BC)
 
 :assumption (on E BC)
-:assumption (bet B E C)
+; :assumption (bet B E C)
 :assumption (= (angle E A C) (angle C B A))
 
 :assumption (on E AE)
@@ -446,13 +446,13 @@
 :assumption (= (seg B L) (seg L C))
 :assumption (bet B L C)
 
-; :extrafuns ((J Point)) ; for testing
-; :extrafuns ((AJ Line)) ; for testing
-; :assumption (on A AJ)
-; :assumption (on J AJ)
-; :assumption (on O AJ)
-; :assumption (onc J OABC)
-; :assumption (= (seg A J) (seg J O))
+:extrafuns ((J Point)) ; for testing
+:extrafuns ((AJ Line)) ; for testing
+:assumption (on A AJ)
+:assumption (on J AJ)
+:assumption (on O AJ)
+:assumption (onc J OABC)
+:assumption (= (seg A O) (seg J O))
 
 
 :formula (not (intersects BF CG))

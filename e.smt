@@ -211,44 +211,44 @@
         (bet ?a ?c ?b))
       (and (not (in ?b ?C)) (not (onc ?b ?C)))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point)
-     (?C Circle) (?D Circle) (?L Line)
-   (implies (and (onc ?c ?C) (onc ?c ?D) (onc ?d ?C) (onc ?d ?D) 
-       (not (= ?C ?D)) (not (= ?c ?d))
-       (on ?a ?L) (on ?b ?L) (center ?a ?C) (center ?b ?D))
-     (not (sameside ?c ?d ?L))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point)
+      (?C Circle) (?D Circle) (?L Line)
+    (implies (and (onc ?c ?C) (onc ?c ?D) (onc ?d ?C) (onc ?d ?D) 
+        (not (= ?C ?D)) (not (= ?c ?d))
+        (on ?a ?L) (on ?b ?L) (center ?a ?C) (center ?b ?D))
+      (not (sameside ?c ?d ?L))))
 
 ;
 ; Intersections
 ;
 
-:assumption
-(forall (?L Line) (?M Line) (?a Point) (?b Point)
-    (implies (and (on ?a ?M) (on ?b ?M) (not (sameside ?a ?b ?L)))
-      (intersects ?L ?M)))
+  :assumption
+  (forall (?L Line) (?M Line) (?a Point) (?b Point)
+      (implies (and (on ?a ?M) (on ?b ?M) (not (sameside ?a ?b ?L)))
+        (intersects ?L ?M)))
 
-:assumption
-(forall (?C Circle) (?L Line) (?a Point) (?b Point)
-    (implies (and (or (in ?a ?C) (onc ?a ?C)) (or (in ?b ?C) (onc ?b ?C))
-        (not (on ?a ?L)) (not (on ?b ?L)) (not (sameside ?a ?b ?L)))
-      (intersectslc ?L ?C)))
+  :assumption
+  (forall (?C Circle) (?L Line) (?a Point) (?b Point)
+      (implies (and (or (in ?a ?C) (onc ?a ?C)) (or (in ?b ?C) (onc ?b ?C))
+          (not (on ?a ?L)) (not (on ?b ?L)) (not (sameside ?a ?b ?L)))
+        (intersectslc ?L ?C)))
 
-:assumption
-(forall (?L Line) (?C Circle) (?a Point)
-    (implies (and (in ?a ?C) (on ?a ?L))
-      (intersectslc ?L ?C)))
+  :assumption
+  (forall (?L Line) (?C Circle) (?a Point)
+      (implies (and (in ?a ?C) (on ?a ?L))
+        (intersectslc ?L ?C)))
 
-:assumption
-(forall (?C Circle) (?D Circle) (?a Point) (?b Point)
-    (implies (and (onc ?a ?C) (or (in ?b ?C) (onc ?b ?C))
-        (in ?a ?D) (not (in ?b ?D)) (not (onc ?b ?D)))
-      (intersectscc ?C ?D)))
+  :assumption
+  (forall (?C Circle) (?D Circle) (?a Point) (?b Point)
+      (implies (and (onc ?a ?C) (or (in ?b ?C) (onc ?b ?C))
+          (in ?a ?D) (not (in ?b ?D)) (not (onc ?b ?D)))
+        (intersectscc ?C ?D)))
 
-:assumption
-(forall (?C Circle) (?D Circle) (?a Point) (?b Point)
-    (implies (and (onc ?a ?C) (in ?b ?D) (in ?a ?D) (onc ?b ?D))
-      (intersectscc ?C ?D)))
+  :assumption
+  (forall (?C Circle) (?D Circle) (?a Point) (?b Point)
+      (implies (and (onc ?a ?C) (in ?b ?D) (in ?a ?D) (onc ?b ?D))
+        (intersectscc ?C ?D)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -259,30 +259,30 @@
 
 ; segments
 
-:assumption
-(forall (?a Point) (?b Point) (implies (= (seg ?a ?b) 0.0) (= ?a ?b)))
+  :assumption
+  (forall (?a Point) (?b Point) (implies (= (seg ?a ?b) 0.0) (= ?a ?b)))
 
-:assumption
-(forall (?a Point) (= (seg ?a ?a) 0.0))
+  :assumption
+  (forall (?a Point) (= (seg ?a ?a) 0.0))
 
-:assumption
-(forall (?a Point) (?b Point) (>= (seg ?a ?b) 0.0))
+  :assumption
+  (forall (?a Point) (?b Point) (>= (seg ?a ?b) 0.0))
 
-:assumption
-(forall (?a Point) (?b Point) (= (seg ?a ?b) (seg ?b ?a)))
+  :assumption
+  (forall (?a Point) (?b Point) (= (seg ?a ?b) (seg ?b ?a)))
 
 ; angles
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point)
-  (implies (and (not (= ?a ?b)) (not (= ?b ?c)))
-    (= (angle ?a ?b ?c) (angle ?c ?b ?a))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point)
+    (implies (and (not (= ?a ?b)) (not (= ?b ?c)))
+      (= (angle ?a ?b ?c) (angle ?c ?b ?a))))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point)
-  (implies (and (not (= ?a ?b)) (not (= ?b ?c)))
-    (and (>= (angle ?a ?b ?c) 0.0) 
-         (<= (angle ?a ?b ?c) (+ rightangle rightangle)))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point)
+    (implies (and (not (= ?a ?b)) (not (= ?b ?c)))
+      (and (>= (angle ?a ?b ?c) 0.0) 
+          (<= (angle ?a ?b ?c) (+ rightangle rightangle)))))
 
 ; areas
 
@@ -318,38 +318,38 @@
 ; Diagram-segment transfer axioms
 ;
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point)
-  (implies (bet ?a ?b ?c) (= (+ (seg ?a ?b) (seg ?b ?c)) (seg ?a ?c))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point)
+    (implies (bet ?a ?b ?c) (= (+ (seg ?a ?b) (seg ?b ?c)) (seg ?a ?c))))
 
 ; center and radius determines the circle
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle) (?D Circle)
-  (implies (and (center ?a ?C) (center ?a ?D) (onc ?b ?C) (onc ?c ?D)
-      (= (seg ?a ?b) (seg ?a ?c)))
-    (= ?C ?D)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle) (?D Circle)
+    (implies (and (center ?a ?C) (center ?a ?D) (onc ?b ?C) (onc ?c ?D)
+        (= (seg ?a ?b) (seg ?a ?c)))
+      (= ?C ?D)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle)
-  (implies (and (center ?a ?C) (onc ?b ?C) (= (seg ?a ?c) (seg ?a ?b)))
-         (onc ?c ?C)))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle)
+    (implies (and (center ?a ?C) (onc ?b ?C) (= (seg ?a ?c) (seg ?a ?b)))
+          (onc ?c ?C)))
 
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?C Circle)
-  (implies (and (center ?a ?C) (onc ?b ?C))
-      (= (< (seg ?a ?c) (seg ?a ?b))
-         (in ?c ?C))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?C Circle)
+    (implies (and (center ?a ?C) (onc ?b ?C))
+        (= (< (seg ?a ?c) (seg ?a ?b))
+          (in ?c ?C))))
 
 ;
 ; Diagram-angle transfer axioms
 ;
 
 ; colinear iff angle is equal to 0
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?L Line)
-  (implies (and (not (= ?a ?b)) (not (= ?a ?c)) (on ?a ?L) (on ?b ?L))
-    (= (and (on ?c ?L) (not (bet ?c ?a ?b)))       
-       (= (angle ?b ?a ?c) 0.0) )))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?L Line)
+    (implies (and (not (= ?a ?b)) (not (= ?a ?c)) (on ?a ?L) (on ?b ?L))
+      (= (and (on ?c ?L) (not (bet ?c ?a ?b)))       
+        (= (angle ?b ?a ?c) 0.0) )))
 
 ; follows from previous if a and b are both on some line, L
 ; :assumption
@@ -365,13 +365,13 @@
 ;      (> (angle ?a ?b ?c) 0.0))))
 
 ; point inside angle iff angles sum
-:assumption
-(forall (?a Point) (?b Point) (?c Point) (?d Point) (?L Line) (?M Line)
-  (implies (and (on ?a ?L) (on ?b ?L) (on ?a ?M) (on ?c ?M)
-      (not (= ?a ?b)) (not (= ?a ?c)) (not (on ?d ?L)) (not (on ?d ?M)) 
-      (not (= ?L ?M)))
-  (= (= (angle ?b ?a ?c) (+ (angle ?b ?a ?d) (angle ?d ?a ?c)))
-     (and (sameside ?b ?d ?M) (sameside ?d ?c ?L)))))
+  :assumption
+  (forall (?a Point) (?b Point) (?c Point) (?d Point) (?L Line) (?M Line)
+    (implies (and (on ?a ?L) (on ?b ?L) (on ?a ?M) (on ?c ?M)
+        (not (= ?a ?b)) (not (= ?a ?c)) (not (on ?d ?L)) (not (on ?d ?M)) 
+        (not (= ?L ?M)))
+    (= (= (angle ?b ?a ?c) (+ (angle ?b ?a ?d) (angle ?d ?a ?c)))
+      (and (sameside ?b ?d ?M) (sameside ?d ?c ?L)))))
 
 ; def right angle (and all right angles are equal)
 :assumption
