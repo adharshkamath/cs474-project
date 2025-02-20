@@ -191,10 +191,8 @@ class SystemE:
             ForAll([a, L], Implies(Not(self.OnLine(a, L)), self.SameSide(a, a, L)))
         )
         self.axioms.append(
-            ForAll([a, b, L], Implies(self.SameSide(a, b, L), self.SameSide(b, a, L)))
-        )  # Join with below
-        self.axioms.append(
-            ForAll([a, b, L], Implies(self.SameSide(a, b, L), Not(self.OnLine(a, L))))
+            ForAll([a, b, L], Implies(self.SameSide(a, b, L), And( 
+                self.SameSide(b, a, L), Not(self.OnLine(a, L)))))
         )
         self.axioms.append(
             ForAll(
@@ -598,22 +596,22 @@ class SystemE:
                 ),
             )
         )
-        self.axioms.append(
-            ForAll(
-                [a, b, c, d, e, f],
-                Implies(
-                    And(
-                        self.Segment(a, b) == self.Segment(d, e),
-                        self.Segment(b, c) == self.Segment(e, f),
-                        self.Segment(c, a) == self.Segment(f, d),
-                        self.Angle(a, b, c) == self.Angle(d, e, f),
-                        self.Angle(b, c, a) == self.Angle(e, f, d),
-                        self.Angle(c, a, b) == self.Angle(f, d, e),
-                    ),
-                    self.Area(a, b, c) == self.Area(d, e, f),
-                ),
-            )
-        )  # commented out?
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, d, e, f],
+        #         Implies(
+        #             And(
+        #                 self.Segment(a, b) == self.Segment(d, e),
+        #                 self.Segment(b, c) == self.Segment(e, f),
+        #                 self.Segment(c, a) == self.Segment(f, d),
+        #                 self.Angle(a, b, c) == self.Angle(d, e, f),
+        #                 self.Angle(b, c, a) == self.Angle(e, f, d),
+        #                 self.Angle(c, a, b) == self.Angle(f, d, e),
+        #             ),
+        #             self.Area(a, b, c) == self.Area(d, e, f),
+        #         ),
+        #     )
+        # )  # commented out?
 
         """
         Section 3.6 Transfer inferences
@@ -695,19 +693,19 @@ class SystemE:
                 ),
             )
         )
-        self.axioms.append(
-            ForAll([a, b], Implies(Not(a == b), self.Angle(a, b, a) == RealVal(0.0)))
-        )  # commented out
-        self.axioms.append(
-            ForAll(
-                [a, b, c, L],
-                Implies(
-                    And(Not(a == b), Not(b == c), self.OnLine(a, L), self.OnLine(b, L)),
-                    Or(Not(self.OnLine(c, L)), self.Between(c, a, b))
-                    == (self.Angle(a, b, c) > RealVal(0.0)),
-                ),
-            )
-        )  # commented out
+        # self.axioms.append(
+        #     ForAll([a, b], Implies(Not(a == b), self.Angle(a, b, a) == RealVal(0.0)))
+        # )  # commented out
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, L],
+        #         Implies(
+        #             And(Not(a == b), Not(b == c), self.OnLine(a, L), self.OnLine(b, L)),
+        #             Or(Not(self.OnLine(c, L)), self.Between(c, a, b))
+        #             == (self.Angle(a, b, c) > RealVal(0.0)),
+        #         ),
+        #     )
+        # )  # commented out
 
         self.axioms.append(
             ForAll(
@@ -745,54 +743,54 @@ class SystemE:
                 ),
             )
         )
-        self.axioms.append(
-            ForAll(
-                [a, b, c, d, e, L, M],
-                Implies(
-                    And(
-                        self.OnLine(a, L),
-                        self.OnLine(b, L),
-                        self.OnLine(d, L),
-                        self.OnLine(a, M),
-                        self.OnLine(c, M),
-                        self.OnLine(e, M),
-                        Not(b == a),
-                        Not(d == a),
-                        Not(c == a),
-                        Not(e == a),
-                        Not(self.Between(b, a, d)),
-                        Not(self.Between(c, a, e)),
-                    ),
-                    self.Angle(b, a, c) == self.Angle(d, a, e),
-                ),
-            )
-        )  # commented out
-        self.axioms.append(
-            ForAll(
-                [a, b, c, d, e, L, M, N],
-                Implies(
-                    And(
-                        self.OnLine(a, L),
-                        self.OnLine(b, L),
-                        self.OnLine(b, M),
-                        self.OnLine(c, M),
-                        self.OnLine(c, N),
-                        self.OnLine(d, N),
-                        Not(b == c),
-                        self.SameSide(a, d, N),
-                        self.Angle(a, b, c) + self.Angle(b, c, d)
-                        < self.RightAngle + self.RightAngle,
-                    ),
-                    And(
-                        self.Intersectsll(L, N),
-                        Implies(
-                            And(self.OnLine(e, L), self.OnLine(e, N)),
-                            self.SameSide(a, e, M),
-                        ),
-                    ),
-                ),
-            )
-        )  # commented out
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, d, e, L, M],
+        #         Implies(
+        #             And(
+        #                 self.OnLine(a, L),
+        #                 self.OnLine(b, L),
+        #                 self.OnLine(d, L),
+        #                 self.OnLine(a, M),
+        #                 self.OnLine(c, M),
+        #                 self.OnLine(e, M),
+        #                 Not(b == a),
+        #                 Not(d == a),
+        #                 Not(c == a),
+        #                 Not(e == a),
+        #                 Not(self.Between(b, a, d)),
+        #                 Not(self.Between(c, a, e)),
+        #             ),
+        #             self.Angle(b, a, c) == self.Angle(d, a, e),
+        #         ),
+        #     )
+        # )  # commented out
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, b, c, d, e, L, M, N],
+        #         Implies(
+        #             And(
+        #                 self.OnLine(a, L),
+        #                 self.OnLine(b, L),
+        #                 self.OnLine(b, M),
+        #                 self.OnLine(c, M),
+        #                 self.OnLine(c, N),
+        #                 self.OnLine(d, N),
+        #                 Not(b == c),
+        #                 self.SameSide(a, d, N),
+        #                 self.Angle(a, b, c) + self.Angle(b, c, d)
+        #                 < self.RightAngle + self.RightAngle,
+        #             ),
+        #             And(
+        #                 self.Intersectsll(L, N),
+        #                 Implies(
+        #                     And(self.OnLine(e, L), self.OnLine(e, N)),
+        #                     self.SameSide(a, e, M),
+        #                 ),
+        #             ),
+        #         ),
+        #     )
+        # )  # commented out
 
         """
         Diagram area transfer axioms
@@ -828,56 +826,40 @@ class SystemE:
         """
         Custom axioms
         """
-        self.axioms.append(
-            ForAll(
-                [a, L, M],
-                Implies(
-                    self.Intersectsll(L, M),
-                    Exists([a], And(self.OnLine(a, L), self.OnLine(a, M))),
-                ),
-            )
-        )
-        self.axioms.append(
-            ForAll([a, b], Implies(Not(a == b), self.Segment(a, b) > RealVal(0.0)))
-        )
-        self.axioms.append(
-            ForAll(
-                [L, a, b],
-                Implies(
-                    And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
-                    self.Segment(a, b) > RealVal(0.0),
-                ),
-            )
-        )
-        self.axioms.append(ForAll([a, alpha], Exists([a], self.OnCircle(a, alpha))))
-        self.axioms.append(
-            ForAll(
-                [a, alpha, c],
-                Implies(
-                    self.Center(c, alpha),
-                    Exists(
-                        [a],
-                        And(
-                            self.OnCircle(a, alpha),
-                            Not(self.Segment(c, a) == RealVal(0.0)),
-                        ),
-                    ),
-                ),
-            )
-        )
         # self.axioms.append(
         #     ForAll(
-        #         [a, b, c, L],
+        #         [a, L, M],
         #         Implies(
-        #             And(
-        #                 Not(a == b),
-        #                 Not(b == c),
-        #                 Not(a == c),
-        #                 Not(
-        #                     And(self.OnLine(a, L), self.OnLine(b, L), self.OnLine(c, L))
+        #             self.Intersectsll(L, M),
+        #             Exists([a], And(self.OnLine(a, L), self.OnLine(a, M))),
+        #         ),
+        #     )
+        # )
+        # self.axioms.append(
+        #     ForAll([a, b], Implies(Not(a == b), self.Segment(a, b) > RealVal(0.0)))
+        # )
+        # self.axioms.append(
+        #     ForAll(
+        #         [L, a, b],
+        #         Implies(
+        #             And(self.OnLine(a, L), self.OnLine(b, L), Not(a == b)),
+        #             self.Segment(a, b) > RealVal(0.0),
+        #         ),
+        #     )
+        # )
+        # self.axioms.append(ForAll([a, alpha], Exists([a], self.OnCircle(a, alpha))))
+        # self.axioms.append(
+        #     ForAll(
+        #         [a, alpha, c],
+        #         Implies(
+        #             self.Center(c, alpha),
+        #             Exists(
+        #                 [a],
+        #                 And(
+        #                     self.OnCircle(a, alpha),
+        #                     Not(self.Segment(c, a) == RealVal(0.0)),
         #                 ),
         #             ),
-        #             self.Angle(a, b, c) > RealVal(0.0),
         #         ),
         #     )
         # )
