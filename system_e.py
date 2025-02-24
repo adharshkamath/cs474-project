@@ -623,7 +623,7 @@ class SystemE:
                 [a, b, c],
                 Implies(
                     self.Between(a, b, c),
-                    self.Segment(a, c) == self.Segment(a, b) + self.Segment(b, c),
+                    self.Segment(a, c) == (self.Segment(a, b) + self.Segment(b, c)),
                 ),
             )
         )
