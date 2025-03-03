@@ -27,21 +27,21 @@ solver.add(simplify(Distinct(OABC), blast_distinct=True))
 assumptions = []
 
 # acute triangle ABC construction
-assumptions.append(systemE.Intersectsll(AB, BC))
+'''assumptions.append(systemE.Intersectsll(AB, BC))
 assumptions.append(systemE.Intersectsll(BC, CA))
 assumptions.append(systemE.Intersectsll(CA, AB))
 assumptions.append(systemE.OnLine(A, AB))
 assumptions.append(systemE.OnLine(B, AB))
-assumptions.append(Not(systemE.OnLine(C, AB)))
+assumptions.append(Not(systemE.OnLine(C, AB)))'''
 assumptions.append(systemE.OnLine(B, BC))
 assumptions.append(systemE.OnLine(C, BC))
-assumptions.append(Not(systemE.OnLine(A, BC)))
+'''assumptions.append(Not(systemE.OnLine(A, BC)))
 assumptions.append(systemE.OnLine(C, CA))
 assumptions.append(systemE.OnLine(A, CA))
 assumptions.append(Not(systemE.OnLine(B, CA)))
 assumptions.append(systemE.Angle(A, B, C) < systemE.RightAngle)
 assumptions.append(systemE.Angle(B, C, A) < systemE.RightAngle)
-assumptions.append(systemE.Angle(C, A, B) < systemE.RightAngle)
+assumptions.append(systemE.Angle(C, A, B) < systemE.RightAngle)'''
 
 #P & Q construction
 assumptions.append(systemE.OnLine(P, BC)) #purposefully not retricting P to be on segment BC

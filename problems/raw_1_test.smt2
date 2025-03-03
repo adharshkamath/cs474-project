@@ -32,21 +32,8 @@
 (declare-fun CA () Line)
 (declare-fun BC () Line)
 (declare-fun AB () Line)
-(declare-fun |Intersectsll(AB, BC)| () Bool)
-(declare-fun |Intersectsll(BC, CA)| () Bool)
-(declare-fun |Intersectsll(CA, AB)| () Bool)
-(declare-fun |On(A, AB)| () Bool)
-(declare-fun |On(B, AB)| () Bool)
-(declare-fun |Not(On(C, AB))| () Bool)
 (declare-fun |On(B, BC)| () Bool)
 (declare-fun |On(C, BC)| () Bool)
-(declare-fun |Not(On(A, BC))| () Bool)
-(declare-fun |On(C, CA)| () Bool)
-(declare-fun |On(A, CA)| () Bool)
-(declare-fun |Not(On(B, CA))| () Bool)
-(declare-fun |Angle(A, B, C) < RightAngle| () Bool)
-(declare-fun |Angle(B, C, A) < RightAngle| () Bool)
-(declare-fun |Angle(C, A, B) < RightAngle| () Bool)
 (declare-fun |On(P, BC)| () Bool)
 (assert
  (< 0.0 RightAngle))
@@ -601,54 +588,12 @@
 (assert
  true)
 (assert
- (let (($x893 (Intersectsll AB BC)))
- (=> |Intersectsll(AB, BC)| $x893)))
+ (let (($x893 (On B BC)))
+ (=> |On(B, BC)| $x893)))
 (assert
- (let (($x755 (Intersectsll BC CA)))
- (=> |Intersectsll(BC, CA)| $x755)))
+ (let (($x755 (On C BC)))
+ (=> |On(C, BC)| $x755)))
 (assert
- (let (($x756 (Intersectsll CA AB)))
- (=> |Intersectsll(CA, AB)| $x756)))
-(assert
- (let (($x759 (On A AB)))
- (=> |On(A, AB)| $x759)))
-(assert
- (let (($x760 (On B AB)))
- (=> |On(B, AB)| $x760)))
-(assert
- (let (($x749 (not (On C AB))))
- (=> |Not(On(C, AB))| $x749)))
-(assert
- (let (($x754 (On B BC)))
- (=> |On(B, BC)| $x754)))
-(assert
- (let (($x757 (On C BC)))
- (=> |On(C, BC)| $x757)))
-(assert
- (let (($x890 (not (On A BC))))
- (=> |Not(On(A, BC))| $x890)))
-(assert
- (let (($x748 (On C CA)))
- (=> |On(C, CA)| $x748)))
-(assert
- (let (($x753 (On A CA)))
- (=> |On(A, CA)| $x753)))
-(assert
- (let (($x888 (not (On B CA))))
- (=> |Not(On(B, CA))| $x888)))
-(assert
- (let ((?x750 (Angle A B C)))
- (let (($x885 (< ?x750 RightAngle)))
- (=> |Angle(A, B, C) < RightAngle| $x885))))
-(assert
- (let ((?x886 (Angle B C A)))
- (let (($x726 (< ?x886 RightAngle)))
- (=> |Angle(B, C, A) < RightAngle| $x726))))
-(assert
- (let ((?x727 (Angle C A B)))
- (let (($x743 (< ?x727 RightAngle)))
- (=> |Angle(C, A, B) < RightAngle| $x743))))
-(assert
- (let (($x883 (On P BC)))
-(=> |On(P, BC)| $x883)))
+ (let (($x756 (On P BC)))
+(=> |On(P, BC)| $x756)))
 (check-sat)
