@@ -702,8 +702,8 @@ class SystemE:
                 [a, b, c, L],
                 Implies(
                     And(Not(a == b), Not(b == c), self.OnLine(a, L), self.OnLine(b, L)),
-                    Or(Not(self.OnLine(c, L)), self.Between(c, a, b))
-                    == (self.Angle(a, b, c) > RealVal(0.0)),
+                    # Or(Not(self.OnLine(c, L)), self.Between(c, a, b)) == (self.Angle(a, b, c) > RealVal(0.0)), 
+                    Or(Not(self.OnLine(c, L)), self.Between(a, b, c)) == (self.Angle(a, b, c) > RealVal(0.0)), 
                 ),
             )
         )  # commented out
@@ -878,8 +878,6 @@ class SystemE:
                 f.write(smt2)
             with open("e.model", "w") as f:
                 f.write(str(model))
-        else:
-            print("Axioms not correct!!")
 
 
 if __name__ == "__main__":

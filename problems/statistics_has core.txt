@@ -1,25 +1,35 @@
-(:added-eqs                   157
- :arith-eq-adapter            32
- :arith-bound-propagations-lp 8
- :arith-diseq                 18
- :arith-fixed-eqs             12
- :arith-lower                 14
- :arith-make-feasible         4
- :arith-max-columns           94
- :arith-max-rows              59
- :arith-upper                 55
+(:added-eqs                   477305
+ :arith-eq-adapter            141787
+ :arith-bound-propagations-lp 331407
+ :arith-conflicts             47
+ :arith-diseq                 358826
+ :arith-fixed-eqs             3108
+ :arith-lower                 174158
+ :arith-make-feasible         11115
+ :arith-max-columns           15635
+ :arith-max-rows              15203
+ :arith-offset-eqs            30136
+ :arith-upper                 186298
  :binary-propagations         39
- :conflicts                   1
- :del-clause                  745
- :max-generation              3
- :max-memory                  37.46
- :memory                      37.46
- :mk-bool-var                 818
- :mk-clause                   745
+ :conflicts                   87
+ :decisions                   39822
+ :del-clause                  639656
+ :final-checks                15
+ :lazy-quant-instantiations   92355
+ :max-generation              16
+ :max-memory                  352.70
+ :max-missed-qa-cost          14.00
+ :memory                      311.59
+ :min-missed-qa-cost          11.00
+ :minimized-lits              241
+ :missed-quant-instantiations 29110
+ :mk-bool-var                 757724
+ :mk-clause                   715495
  :mk-clause-binary            39
- :num-allocs                  957038
+ :num-allocs                  18543183507.00
  :num-checks                  1
- :propagations                239
- :quant-instantiations        316
- :rlimit-count                120619
- :time                        0.01)
+ :propagations                101173
+ :quant-instantiations        219689
+ :restarts                    1
+ :rlimit-count                21914290
+ :time                        10.27)
