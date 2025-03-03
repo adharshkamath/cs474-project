@@ -17,7 +17,7 @@
  :mk-bool-var                 818
  :mk-clause                   745
  :mk-clause-binary            39
- :num-allocs                  957120
+ :num-allocs                  957038
  :num-checks                  1
  :propagations                239
  :quant-instantiations        316

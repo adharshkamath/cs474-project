@@ -878,6 +878,8 @@ class SystemE:
                 f.write(smt2)
             with open("e.model", "w") as f:
                 f.write(str(model))
+        else:
+            print("Axioms not correct!!")
 
 
 if __name__ == "__main__":
