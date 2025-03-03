@@ -1,0 +1,5 @@
+(:max-memory   36.07
+ :memory       34.84
+ :num-allocs   436812
+ :num-checks   1
+ :rlimit-count 33291)

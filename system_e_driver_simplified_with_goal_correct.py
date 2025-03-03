@@ -71,7 +71,7 @@ assumptions.append(systemE.Intersectsll(AD1, BC1))
 assumptions.append(systemE.OnLine(E1, BC1))
 assumptions.append(systemE.Between(B1, E1, C1))
 assumptions.append(systemE.Angle(E1, A1, C1) == systemE.Angle(C1, B1, A1))
-
+###
 assumptions.append(systemE.OnLine(A1, AE1))
 assumptions.append(systemE.OnLine(E1, AE1))
 assumptions.append(systemE.Intersectsll(AE1, BC1))
