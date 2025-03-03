@@ -10,21 +10,15 @@ from datetime import datetime
 
 time = "test" #datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 set_param("parallel.enable", True)
-set_param("model.compact", False)
-set_param("model_compress", False)
 solver = Solver()
 solver.set(unsat_core=True)
 
 systemE = SystemE(solver)
 
-A, B, C, P, Q, M, N, D, O= Consts(
-    "A B C P Q M N D O", systemE.PointSort
-)
-solver.add(simplify(Distinct(A, B, C, P, Q, M, N, P, Q), blast_distinct=True))
+A, B, C, P, Q, M, N, D, O = Consts("A B C P Q M N D O", systemE.PointSort)
+solver.add(simplify(Distinct(A, B, C, P, Q, M, N, D, O), blast_distinct=True))
 
-AB, BC, CA, AM, AN, BM, CN = Consts(
-    "AB BC CA AM AN BM CN", systemE.LineSort
-)
+AB, BC, CA, AM, AN, BM, CN = Consts("AB BC CA AM AN BM CN", systemE.LineSort)
 solver.add(simplify(Distinct(AB, BC, CA, AM, AN, BM, CN), blast_distinct=True))
 
 OABC = Const("OABC", systemE.CircleSort)
@@ -34,7 +28,7 @@ assumptions = []
 
 # acute triangle ABC construction
 assumptions.append(systemE.Intersectsll(AB, BC))
-'''assumptions.append(systemE.Intersectsll(BC, CA))
+assumptions.append(systemE.Intersectsll(BC, CA))
 assumptions.append(systemE.Intersectsll(CA, AB))
 assumptions.append(systemE.OnLine(A, AB))
 assumptions.append(systemE.OnLine(B, AB))
@@ -89,13 +83,14 @@ assumptions.append(systemE.Between(C, D, N))
 #assumptions.append(systemE.Center(O, OABC))
 assumptions.append(systemE.OnCircle(A, OABC))
 assumptions.append(systemE.OnCircle(B, OABC))
-assumptions.append(systemE.OnCircle(C, OABC))'''
+assumptions.append(systemE.OnCircle(C, OABC))
 
-'''assumptions.append(
+assumptions.append(
     Not(
         systemE.OnCircle( D, OABC)
     )
-)'''
+)
+
 print(">> Assume " + str(assumptions))
 for a in assumptions:
     solver.assert_and_track(a, str(a))

@@ -1,5 +1,25 @@
-(:max-memory   36.06
- :memory       34.84
- :num-allocs   418294
- :num-checks   1
- :rlimit-count 33291)
+(:added-eqs                   242
+ :arith-eq-adapter            47
+ :arith-bound-propagations-lp 4
+ :arith-diseq                 21
+ :arith-fixed-eqs             12
+ :arith-lower                 16
+ :arith-make-feasible         4
+ :arith-max-columns           139
+ :arith-max-rows              87
+ :arith-upper                 63
+ :binary-propagations         42
+ :conflicts                   1
+ :del-clause                  1102
+ :max-generation              3
+ :max-memory                  39.16
+ :memory                      39.16
+ :mk-bool-var                 1187
+ :mk-clause                   1102
+ :mk-clause-binary            42
+ :num-allocs                  1365441
+ :num-checks                  1
+ :propagations                331
+ :quant-instantiations        477
+ :rlimit-count                212521
+ :time                        0.03)

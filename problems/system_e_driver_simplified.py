@@ -2,7 +2,7 @@ from z3 import *
 from system_e import *
 from datetime import datetime
 
-time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+time = "has core" #datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 set_param("parallel.enable", True)
 solver = Solver()
 solver.set(unsat_core=True)
@@ -26,10 +26,7 @@ solver.add(simplify(Distinct(AB1,BC1,CA1,AD1,AE1,BF1,CG1), blast_distinct=True))
 OABC = Const('OABC', systemE.CircleSort)
 solver.add(simplify(Distinct(OABC), blast_distinct=True))
 
-
 assumptions = []
-
-
 assumptions.append(systemE.Intersectsll(AB1, BC1))
 assumptions.append(systemE.Intersectsll(BC1, CA1))
 assumptions.append(systemE.Intersectsll(CA1, AB1))
