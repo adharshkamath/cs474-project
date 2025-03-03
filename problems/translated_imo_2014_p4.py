@@ -45,7 +45,7 @@ assumptions.append(systemE.Angle(C, A, B) < systemE.RightAngle)
 
 #P & Q construction
 assumptions.append(systemE.OnLine(P, BC)) #purposefully not retricting P to be on segment BC
-assumptions.append(systemE.Angle(P, A, B) == systemE.Angle(B, C, A))
+'''assumptions.append(systemE.Angle(P, A, B) == systemE.Angle(B, C, A))
 
 assumptions.append(systemE.OnLine(Q, BC))
 assumptions.append(systemE.Angle(Q, A, C) == systemE.Angle(C, B, A))
@@ -89,7 +89,7 @@ assumptions.append(
     Not(
         systemE.OnCircle( D, OABC)
     )
-)
+)'''
 
 print(">> Assume " + str(assumptions))
 for a in assumptions:

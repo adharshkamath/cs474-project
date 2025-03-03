@@ -48,33 +48,6 @@
 (declare-fun |Angle(B, C, A) < RightAngle| () Bool)
 (declare-fun |Angle(C, A, B) < RightAngle| () Bool)
 (declare-fun |On(P, BC)| () Bool)
-(declare-fun |Angle(P, A, B) == Angle(B, C, A)| () Bool)
-(declare-fun |On(Q, BC)| () Bool)
-(declare-fun |Angle(Q, A, C) == Angle(C, B, A)| () Bool)
-(declare-fun |On(A, AM)| () Bool)
-(declare-fun |On(M, AM)| () Bool)
-(declare-fun |On(P, AM)| () Bool)
-(declare-fun |Between(A, P, M)| () Bool)
-(declare-fun |Segment(A, P) == Segment(M, P)| () Bool)
-(declare-fun |On(A, AN)| () Bool)
-(declare-fun |On(N, AN)| () Bool)
-(declare-fun |On(Q, AN)| () Bool)
-(declare-fun |Between(A, Q, N)| () Bool)
-(declare-fun |Segment(A, Q) == Segment(N, Q)| () Bool)
-(declare-fun |On(B, BM)| () Bool)
-(declare-fun |On(M, BM)| () Bool)
-(declare-fun |On(C, CN)| () Bool)
-(declare-fun |On(N, CN)| () Bool)
-(declare-fun |Intersectsll(BM, CN)| () Bool)
-(declare-fun |On(D, BM)| () Bool)
-(declare-fun |On(D, CN)| () Bool)
-(declare-fun |Between(B, D, M)| () Bool)
-(declare-fun |Between(C, D, N)| () Bool)
-(declare-fun OABC () Circle)
-(declare-fun |Onc(A, OABC)| () Bool)
-(declare-fun |Onc(B, OABC)| () Bool)
-(declare-fun |Onc(C, OABC)| () Bool)
-(declare-fun |Not(Onc(D, OABC))| () Bool)
 (assert
  (< 0.0 RightAngle))
 (assert
@@ -677,84 +650,5 @@
  (=> |Angle(C, A, B) < RightAngle| $x743))))
 (assert
  (let (($x883 (On P BC)))
- (=> |On(P, BC)| $x883)))
-(assert
- (let ((?x886 (Angle B C A)))
- (let (($x746 (= (Angle P A B) ?x886)))
- (=> |Angle(P, A, B) == Angle(B, C, A)| $x746))))
-(assert
- (let (($x881 (On Q BC)))
- (=> |On(Q, BC)| $x881)))
-(assert
- (let (($x723 (= (Angle Q A C) (Angle C B A))))
- (=> |Angle(Q, A, C) == Angle(C, B, A)| $x723)))
-(assert
- (let (($x734 (On A AM)))
- (=> |On(A, AM)| $x734)))
-(assert
- (let (($x735 (On M AM)))
- (=> |On(M, AM)| $x735)))
-(assert
- (let (($x738 (On P AM)))
- (=> |On(P, AM)| $x738)))
-(assert
- (let (($x740 (Between A P M)))
- (=> |Between(A, P, M)| $x740)))
-(assert
- (let (($x879 (= (Segment A P) (Segment M P))))
- (=> |Segment(A, P) == Segment(M, P)| $x879)))
-(assert
- (let (($x880 (On A AN)))
- (=> |On(A, AN)| $x880)))
-(assert
- (let (($x730 (On N AN)))
- (=> |On(N, AN)| $x730)))
-(assert
- (let (($x733 (On Q AN)))
- (=> |On(Q, AN)| $x733)))
-(assert
- (let (($x736 (Between A Q N)))
- (=> |Between(A, Q, N)| $x736)))
-(assert
- (let (($x732 (= (Segment A Q) (Segment N Q))))
- (=> |Segment(A, Q) == Segment(N, Q)| $x732)))
-(assert
- (let (($x877 (On B BM)))
- (=> |On(B, BM)| $x877)))
-(assert
- (let (($x722 (On M BM)))
- (=> |On(M, BM)| $x722)))
-(assert
- (let (($x728 (On C CN)))
- (=> |On(C, CN)| $x728)))
-(assert
- (let (($x874 (On N CN)))
- (=> |On(N, CN)| $x874)))
-(assert
- (let (($x875 (Intersectsll BM CN)))
- (=> |Intersectsll(BM, CN)| $x875)))
-(assert
- (let (($x711 (On D BM)))
- (=> |On(D, BM)| $x711)))
-(assert
- (let (($x716 (On D CN)))
- (=> |On(D, CN)| $x716)))
-(assert
- (let (($x718 (Between B D M)))
- (=> |Between(B, D, M)| $x718)))
-(assert
- (let (($x719 (Between C D N)))
- (=> |Between(C, D, N)| $x719)))
-(assert
- (let (($x720 (Onc A OABC)))
- (=> |Onc(A, OABC)| $x720)))
-(assert
- (let (($x721 (Onc B OABC)))
- (=> |Onc(B, OABC)| $x721)))
-(assert
- (let (($x724 (Onc C OABC)))
- (=> |Onc(C, OABC)| $x724)))
-(assert
- (let (($x873 (not (Onc D OABC))))
-(=> |Not(Onc(D, OABC))| $x873)))
+(=> |On(P, BC)| $x883)))
 (check-sat)

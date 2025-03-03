@@ -1,1 +1,0 @@
-[On(J1, IA1), On(A1, IA1), Between(A1, I1, J1), On(I1, IA1)]
