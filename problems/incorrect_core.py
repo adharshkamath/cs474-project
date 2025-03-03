@@ -22,7 +22,7 @@ assumptions.append(SystemE.OnLine(P, BC))
 
 print(">> Assume " + str(assumptions))
 for a in assumptions:
-    solver.assert_and_track(a, str(a))
+    solver.append(a) #changed
 
 result = solver.check()
 print("<< z3: " + str(result))

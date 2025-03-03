@@ -1,1 +1,1 @@
-[On(B, BC), On(C, BC), On(P, BC)]
+[]
