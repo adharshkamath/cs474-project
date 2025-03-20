@@ -1,0 +1,21 @@
+(:added-eqs            10
+ :arith-eq-adapter     1
+ :arith-diseq          1
+ :arith-make-feasible  1
+ :arith-max-columns    5
+ :arith-upper          1
+ :binary-propagations  6
+ :conflicts            1
+ :del-clause           18
+ :max-generation       2
+ :max-memory           35.25
+ :memory               34.40
+ :mk-bool-var          109
+ :mk-clause            18
+ :mk-clause-binary     6
+ :num-allocs           592594
+ :num-checks           1
+ :propagations         6
+ :quant-instantiations 19
+ :rlimit-count         66237
+ :time                 0.00)

@@ -78,7 +78,7 @@ class SystemE:
                     L == M,
                 ),
             )
-        )
+        )# 两点确定一条直线
         self.axioms.append(
             ForAll(
                 [a, b, alpha],
@@ -87,19 +87,19 @@ class SystemE:
                     a == b,
                 ),
             )
-        )
+        )# 一个圆只有一个圆心
         self.axioms.append(
             ForAll(
                 [a, alpha],
                 Implies(self.Center(a, alpha), self.InsideCircle(a, alpha)),
             )
-        )
+        ) # 圆心在圆内
         self.axioms.append(
             ForAll(
                 [a, alpha],
                 Implies(self.InsideCircle(a, alpha), Not(self.OnCircle(a, alpha))),
             )
-        )
+        ) # 圆内不在圆上
 
         """
         Between axioms
@@ -827,6 +827,63 @@ class SystemE:
         """
         Custom axioms
         """
+        self.axioms.append(
+            ForAll(
+                [a, b, c],
+                
+                Exists(
+                    [alpha],
+                    And(
+                        self.OnCircle(a, alpha),
+                        self.OnCircle(b, alpha),
+                        self.OnCircle(c, alpha),
+                    ),
+                )
+            )
+        )
+
+        self.axioms.append(
+            ForAll(
+                [a,b,c,d,alpha],
+                And(
+                    Implies(
+                        And(
+                            self.OnCircle(a, alpha),
+                            self.OnCircle(b, alpha),
+                            self.OnCircle(c, alpha),
+                            self.OnCircle(d, alpha),
+                            Not(a == b),
+                            Not(a == c),
+                            Not(d == c),
+                            Not(d == b),
+                            Not(b == c),
+                            Not(a == d)
+                        ),
+                        self.Angle(b,a,c) == self.Angle(b,d,c)
+                    ),
+                    Implies(
+                        And(
+                            Not(a == b),
+                            Not(a == c),
+                            Not(d == c),
+                            Not(d == b),
+                            Not(b == c),
+                            Not(a == d),
+                            self.Angle(b,a,c) == self.Angle(b,d,c)
+                        ),
+                        And(
+                            self.OnCircle(a, alpha),
+                            self.OnCircle(b, alpha),
+                            self.OnCircle(c, alpha),
+                            self.OnCircle(d, alpha),
+                        )
+                    )
+                )
+            )
+        )# cyclic
+
+
+
         # self.axioms.append(
         #     ForAll(
         #         [a, L, M],

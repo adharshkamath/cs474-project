@@ -1,0 +1,13 @@
+[RightAngle = 1/2,
+ Intersectscc = [else -> False],
+ Between = [else -> False],
+ On = [else -> True],
+ Intersectsll = [else -> True],
+ Segment = [else -> 0],
+ Area = [else -> 0],
+ Center = [else -> False],
+ Onc = [else -> True],
+ SameSide = [else -> False],
+ Intersectslc = [else -> False],
+ Inside = [else -> False],
+ Angle = [else -> 4]]
