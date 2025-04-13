@@ -390,7 +390,6 @@
 :assumption (on C CA)
 :assumption (on A CA)
 :assumption (not (on B CA))
-
 :assumption (intersects AB BC)
 :assumption (intersects BC CA)
 :assumption (intersects CA AB)
@@ -409,6 +408,7 @@
 :assumption (onc N OABC)
 
 :formula (= (angle A C N) (angle N C B))
+:formula (not (= (angle A C N) (angle N C B)))
 
 ; :formula (not (= (seg A P) (seg C P)))
 
