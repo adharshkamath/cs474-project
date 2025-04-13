@@ -383,6 +383,9 @@
 :assumption (not(= a b))
 :assumption (not(= a c))
 :assumption (not(= b c))
+:assumption (not(= ca cb))
+:assumption (not(= ca ab))
+:assumption (not(= cb ab))
 :assumption (= (angle c a b) rightangle)
 
 :assumption (on d cb)

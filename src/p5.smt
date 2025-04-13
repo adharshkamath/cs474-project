@@ -356,8 +356,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; Test diagram
-; examples/complete2/000/complete_007_7_Book_LLL_L017-11.gex
-; c a = segment c a; b = on_tline b c c a; d = foot d c a b ? eqangle a c a d c b c d
+; examples/complete2/unsolved2/complete_011_7_Book_00EE_04_E051-9.gex
+; a b = segment a b; c = s_angle b a c 30; d = mirror d b c; e = foot e d a b ? cong d e a c
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -369,24 +369,33 @@
 :extrafuns ((a Point))
 :extrafuns ((b Point))
 :extrafuns ((d Point))
+:extrafuns ((e Point))
 
-:extrafuns ((ca Line))
-:assumption (on c ca)
-:assumption (on a ca)
-:extrafuns ((cb Line))
-:assumption (on c cb)
-:assumption (on b cb)
-:assumption (= (angle b c a) rightangle)
-
-:extrafuns ((cd Line))
-:assumption (on c cd)
-:assumption (on d cd)
 :extrafuns ((ab Line))
 :assumption (on a ab)
 :assumption (on b ab)
+:assumption (= (angle b a c) (/ rightangle 3))
 
-:assumption (on d ab)
+:extrafuns ((bd Line))
+:assumption (on b bd)
+:assumption (on d bd)
+:assumption (on c bd)
+:assumption (= (seg c d) (seg c b))
+:assumption (bet b c d)
 
-:formula (not(= (angle a c d) (angle b c d)))
+:extrafuns ((de Line))
+:assumption (on d de)
+:assumption (on e de)
+:assumption (on e ab)
+:assumption (not (= e a))
+:assumption (not (= e b))
+:assumption (not (= e c))
+:assumption (not (= e d))
+:assumption (not (= d a))
+:assumption (not (= d b))
+:assumption (not (= d c))
+
+:formula (= (seg d e) (seg a c))
+
 
 )
