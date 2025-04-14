@@ -356,8 +356,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; Test diagram
-; examples/complete2/000/complete_007_7_Book_LLL_L017-11.gex
-; c a = segment c a; b = on_tline b c c a; d = foot d c a b ? eqangle a c a d c b c d
+; IMO problem
+; a b c = triangle a b c; p = on_line p b c, on_aline p a b b c a; 
+; q = on_line q b c, on_aline q a c c b a; m = mirror m a p; 
+; n = mirror n a q; x = on_line x b m, on_line x c n; o = circle o a b c ? cong o x o a
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -365,28 +367,87 @@
 ; make some points and lines
 ;
 
-:extrafuns ((c Point))
-:extrafuns ((a Point))
-:extrafuns ((b Point))
-:extrafuns ((d Point))
+:extrafuns ((A Point))
+:extrafuns ((B Point))
+:extrafuns ((C Point))
+:extrafuns ((D Point))
+:extrafuns ((E Point))
+:extrafuns ((F Point))
+:extrafuns ((G Point))
+:extrafuns ((O Point))
+:extrafuns ((AB Line))
+:extrafuns ((BC Line))
+:extrafuns ((CA Line))
+:extrafuns ((AD Line))
+:extrafuns ((AE Line))
+:extrafuns ((AF Line))
+:extrafuns ((AG Line))
+:extrafuns ((BF Line))
+:extrafuns ((CG Line))
+:extrafuns ((OABC Circle))
 
-:extrafuns ((ca Line))
-:assumption (on c ca)
-:assumption (on a ca)
-:extrafuns ((cb Line))
-:assumption (on c cb)
-:assumption (on b cb)
-:assumption (= (angle b c a) rightangle)
+:assumption (on A AB)
+:assumption (on B AB)
+:assumption (not (on C AB))
+:assumption (on B BC)
+:assumption (on C BC)
+:assumption (not (on A BC))
+:assumption (on C CA)
+:assumption (on A CA)
+:assumption (not (on B CA))
 
-:extrafuns ((cd Line))
-:assumption (on c cd)
-:assumption (on d cd)
-:extrafuns ((ab Line))
-:assumption (on a ab)
-:assumption (on b ab)
+:assumption (intersects AB BC)
+:assumption (intersects BC CA)
+:assumption (intersects CA AB)
 
-:assumption (on d ab)
+:assumption (< (angle A B C) rightangle)
+:assumption (< (angle B C A) rightangle)
+:assumption (< (angle C A B) rightangle)
 
-:formula (not(= (angle a c d) (angle b c d)))
+:assumption (on D BC)
+:assumption (= (angle D A B) (angle B C A))
+
+:assumption (on D AD)
+:assumption (on A AD)
+:assumption (intersects AD BC)
+
+:assumption (on E BC)
+:assumption (= (angle E A C) (angle C B A))
+
+:assumption (on E AE)
+:assumption (on A AE)
+:assumption (intersects AE BC)
+
+:assumption (on F AD)
+:assumption (bet A D F)
+:assumption (= (seg A D) (seg D F))
+
+:assumption (on G AE)
+:assumption (bet A E G)
+:assumption (= (seg A E) (seg E G))
+
+:assumption (on B BF)
+:assumption (on F BF)
+:assumption (on C CG)
+:assumption (on G CG)
+
+:assumption (center O OABC)
+:assumption (onc A OABC)
+:assumption (onc B OABC)
+:assumption (onc C OABC)
+
+:extrafuns ((L Point))
+:extrafuns ((AL Line))
+:assumption (on A AL)
+:assumption (on L AL)
+:assumption (on L BC)
+:assumption (= (seg B L) (seg L C))
+:assumption (bet B L C)
+
+:extrafuns ((H Point))
+:assumption (on H BF)
+:assumption (on H CG)
+
+:formula (not (= (seg O H) (seg O A)))
 
 )

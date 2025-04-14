@@ -352,11 +352,10 @@
     (= (bet ?a ?c ?b)
        (= (+ (area ?a ?c ?d) (area ?d ?c ?b)) (area ?a ?d ?b)))))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; Test diagram
-; IMO problem
+; P0 problem
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -364,95 +363,42 @@
 ; make some points and lines
 ;
 
-:extrafuns ((A Point))
-:extrafuns ((B Point))
-:extrafuns ((C Point))
-:extrafuns ((D Point))
-:extrafuns ((E Point))
-:extrafuns ((F Point))
-:extrafuns ((G Point))
-:extrafuns ((O Point))
-:extrafuns ((AB Line))
-:extrafuns ((BC Line))
-:extrafuns ((CA Line))
-:extrafuns ((AD Line))
-:extrafuns ((AE Line))
-:extrafuns ((AF Line))
-:extrafuns ((AG Line))
-:extrafuns ((BF Line))
-:extrafuns ((CG Line))
-:extrafuns ((OABC Circle))
+:extrafuns ((p Point))
+:extrafuns ((q Point))
+:extrafuns ((r Point))
+:extrafuns ((s Point))
+:extrafuns ((t Point))
+:extrafuns ((u Point))
+:extrafuns ((v Point))
+:extrafuns ((K Line))
+:extrafuns ((L Line))
+:extrafuns ((M Line))
+:extrafuns ((N Line))
+:extrafuns ((O Line))
 
-:assumption (on A AB)
-:assumption (on B AB)
-:assumption (not (on C AB))
-:assumption (on B BC)
-:assumption (on C BC)
-:assumption (not (on A BC))
-:assumption (on C CA)
-:assumption (on A CA)
-:assumption (not (on B CA))
 
-:assumption (intersects AB BC)
-:assumption (intersects BC CA)
-:assumption (intersects CA AB)
+:assumption (on p L)
+:assumption (on q L)
+:assumption (on p N)
+:assumption (on s N)
+:assumption (on t N)
+:assumption (on p M)
+:assumption (on r M)
+:assumption (on q O)
+:assumption (on s O)
+:assumption (on r O)
+:assumption (on q K)
+:assumption (on t K)
+:assumption (not (on r L))
+:assumption (bet p s t)
+:assumption (bet q s r)
+:assumption (bet s u t)
+:assumption (not (= p q))
+:assumption (bet p q v)
 
-:assumption (< (angle A B C) rightangle)
-:assumption (< (angle B C A) rightangle)
-:assumption (< (angle C A B) rightangle)
 
-:assumption (on D BC)
-:assumption (= (angle D A B) (angle B C A))
+:formula (not (= (+ (angle p q s) (angle s q t)) (angle p q t)))
+:formula (not (< (angle p q s) (angle p q t)))
 
-:assumption (on D AD)
-:assumption (on A AD)
-:assumption (intersects AD BC)
-
-:assumption (on E BC)
-:assumption (= (angle E A C) (angle C B A))
-
-:assumption (on E AE)
-:assumption (on A AE)
-:assumption (intersects AE BC)
-
-:assumption (on F AD)
-:assumption (bet A D F)
-:assumption (= (seg A D) (seg D F))
-
-:assumption (on G AE)
-:assumption (bet A E G)
-:assumption (= (seg A E) (seg E G))
-
-:assumption (on B BF)
-:assumption (on F BF)
-:assumption (on C CG)
-:assumption (on G CG)
-
-:assumption (center O OABC)
-:assumption (onc A OABC)
-:assumption (onc B OABC)
-:assumption (onc C OABC)
-
-:extrafuns ((L Point))
-:extrafuns ((AL Line))
-:assumption (on A AL)
-:assumption (on L AL)
-:assumption (on L BC)
-:assumption (= (seg B L) (seg L C))
-:assumption (bet B L C)
-
-:extrafuns ((H Point))
-:assumption (on H BF)
-:assumption (on H CG)
-
-:extrafuns ((J Point))
-:extrafuns ((AJ Line))
-:assumption (on A AJ)
-:assumption (on J AJ)
-:assumption (on O AJ)
-:assumption (onc J OABC)
-:assumption (= (seg A O) (seg J O))
-
-:formula (not (= (seg O H) (seg O A)))
 
 )
