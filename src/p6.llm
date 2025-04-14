@@ -1,0 +1,74 @@
+;; Define new useful lines to complete the configuration
+:extrafuns ((af Line))
+:assumption (on a af)
+:assumption (on f af)
+:assumption (not (= a f))
+
+:extrafuns ((cf Line))
+:assumption (on c cf)
+:assumption (on f cf)
+:assumption (not (= c f))
+
+;; Define circles to help with establishing angle relationships
+:extrafuns ((Circle1 Circle))
+:assumption (center a Circle1)
+:assumption (onc d Circle1)
+
+:extrafuns ((Circle2 Circle))
+:assumption (center c Circle2)
+:assumption (onc f Circle2)
+
+;; Additional useful line
+:extrafuns ((ac Line))
+:assumption (on a ac)
+:assumption (on c ac)
+:assumption (not (= a c))
+
+;; Use the "segment equality" axioms to establish length relationships
+;; If we assume angle(a,b,d) = angle(c,b,f), we should be able to derive a contradiction
+:assumption (implies (= (angle a b d) (angle c b f))
+                     (= (seg b d) (seg b f)))
+
+;; Use the angle sum axiom to derive relationships between angles
+:assumption (not (on d cb))
+:assumption (not (on f ca))
+
+;; Angle relationships for triangles abd and cbf
+:assumption (= (+ (angle a b d) (angle b a d) (angle b d a)) (+ rightangle rightangle))
+:assumption (= (+ (angle c b f) (angle b c f) (angle b f c)) (+ rightangle rightangle))
+
+;; Use the right angle definition axiom
+:assumption (forall (?a Point) (?b Point) (?c Point) (?d Point) (?L Line)
+  (implies (and (on ?a ?L) (on ?b ?L) (bet ?a ?c ?b) (not (on ?d ?L)))
+    (= (= (angle ?a ?c ?d) (angle ?d ?c ?b))
+       (= (angle ?a ?c ?d) rightangle))))
+
+;; Use the angle transfer axiom about points inside angles
+:assumption (forall (?a Point) (?b Point) (?c Point) (?d Point) (?L Line) (?M Line)
+  (implies (and (on ?a ?L) (on ?b ?L) (on ?a ?M) (on ?c ?M)
+      (not (= ?a ?b)) (not (= ?a ?c)) (not (on ?d ?L)) (not (on ?d ?M)) 
+      (not (= ?L ?M)))
+  (= (= (angle ?b ?a ?c) (+ (angle ?b ?a ?d) (angle ?d ?a ?c)))
+     (and (sameside ?b ?d ?M) (sameside ?d ?c ?L)))))
+
+;; Use this axiom to establish betweenness relationships
+:assumption (forall (?a Point) (?b Point) (?c Point) (?L Line)
+   (implies (and (on ?a ?L) (on ?b ?L) (on ?c ?L)
+       (not (= ?a ?b)) (not (= ?a ?c)) (not (= ?b ?c)))
+     (or (bet ?a ?b ?c) (bet ?b ?a ?c) (bet ?a ?c ?b))))
+
+;; Uniqueness of lines axiom applied to our specific points
+:assumption
+(forall (?L Line) (?M Line)
+  (implies (and (not (= ab ?L)) (on a ?L) (on b ?L)
+      (on a ?M) (on b ?M))
+    (= ?L ?M)))
+
+;; Try to derive relationships between d and f
+; :assumption (= (angle a b d) (angle c b f))
+
+;; The goal is to derive a contradiction from this assumption
+; :formula (and (= (angle a b d) (angle c b f)) false)
+
+;; Alternative approach: directly prove they are not equal
+; :formula (not (= (angle a b d) (angle c b f)))

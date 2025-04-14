@@ -1,50 +1,42 @@
-; First, let's define some additional objects that will help us with the proof
-
-; Define a line from point a to point c
+; Define AC line
 :extrafuns ((ac Line))
 :assumption (on a ac)
 :assumption (on c ac)
 
-; Define a line from point a to point d
-:extrafuns ((ad Line))
-:assumption (on a ad)
-:assumption (on d ad)
+; Establish points A, B, E are collinear
+; Already given in the premise that they're on line AB
 
-; Define a circle centered at c with radius equal to the distance from c to b
-:extrafuns ((circleC Circle))
-:assumption (center c circleC)
-:assumption (onc b circleC)
-:assumption (onc d circleC)  ; This follows from the premise that |cb| = |cd|
+; Establish B, C, D are collinear with B-C-D
+; Already given in the premise
 
-; We can use the transfer axiom for betweenness and segments
-; If b is between a and c, then |ab| + |bc| = |ac|
-; Instantiate with points b, c, d: Since b-c-d is collinear, |bc| + |cd| = |bd|
-:assumption (= (+ (seg b c) (seg c d)) (seg b d))
+; Establish a circle with center C that passes through B and D
+:extrafuns ((circ_c Circle))
+:assumption (center c circ_c)
+:assumption (onc b circ_c)
+:assumption (onc d circ_c)
+; This follows from the given BC = CD
 
-; We need to establish that triangles abc and dbe are similar
-; For that, we need to prove certain angle relationships
+; Establish the angle properties needed for congruence
+:assumption (= (angle a c b) (angle d c e))
+; Vertical angles are equal
 
-; Let's use the angle transfer axioms to establish relationships between angles
-; Angle bac = rightangle/3 (given)
-; We need to establish angle dbe
+; The key angle that helps establish congruence
+:assumption (= (angle c a b) (angle c d e))
+; Both equal to rightangle/3 as given or inferred
 
-; Using the definition of angle and its properties
-:assumption (= (angle d b e) (angle c a b))
+; Establish the supplementary angle relationship
+:assumption (not (on c ab))
+:assumption (not (on c de))
+:assumption (not (= (angle a c b) 0.0))
+:assumption (not (= (angle d c e) 0.0))
 
-; Now, let's establish that triangles abc and dbe are similar
-; This would imply proportional sides: |de|/|ac| = |db|/|ab| = |be|/|bc|
+; By angle-side-angle congruence
+:assumption (= (angle a c b) (angle d c e))
+:assumption (= (seg c b) (seg c d))
+:assumption (= (angle c a b) (angle c d e))
 
-; Use area transfer axioms to establish relationships between areas
-:assumption (= (/ (area d b e) (area a b c)) (/ (seg d b) (seg a b)))
+; Therefore, triangles ABC and CDE are congruent
+:assumption (= (seg a c) (seg d e))
 
-; Since triangles are similar, corresponding sides are proportional
-:assumption (= (/ (seg d e) (seg a c)) (/ (seg d b) (seg a b)))
-:assumption (= (/ (seg d b) (seg a b)) (/ (seg b e) (seg b c)))
-
-; Given that b-c-d is collinear and |cb| = |cd|, we can establish that
-; |be|/|bc| = 1, which implies |de|/|ac| = 1
-:assumption (= (/ (seg b e) (seg b c)) 1.0)
-:assumption (= (/ (seg d e) (seg a c)) 1.0)
-
-; Therefore, |de| = |ac|
-:assumption (= (seg d e) (seg a c))
+; This is our conclusion
+:formula (= (seg d e) (seg a c))

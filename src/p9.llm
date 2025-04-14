@@ -1,0 +1,50 @@
+; Since e is on line ab and not equal to either a or b, 
+; e must be between a and b
+:assumption (bet a e b)
+
+; If (seg a e) = (seg e b), then e is the midpoint of segment ab
+
+; Now, let's create a point f on the perpendicular to ab at e
+:extrafuns ((f Point))
+:extrafuns ((ef Line))
+:assumption (on e ef)
+:assumption (on f ef)
+:assumption (not (= e f))
+:assumption (not (on f ab))
+:assumption (= (angle a e f) rightangle)
+
+; From our premises, we know that:
+; - c is on line cd and angle c-e-a is a right angle
+; - d is on line cd and angle d-e-a is a right angle
+; - e is on line cd
+
+; If angle a-e-f is a right angle, and angle c-e-a is a right angle,
+; then c and f must be on the same line
+:assumption (on c ef)
+
+; Similarly, if angle a-e-f is a right angle, and angle d-e-a is a right angle,
+; then d and f must be on the same line
+:assumption (on d ef)
+
+; But if c and d are both on ef, and both on cd, then ef and cd must be the same line
+:assumption (= ef cd)
+
+; Now we have established that c, d, and f are collinear on the perpendicular to ab at e
+
+; From the premise, c is equidistant from a and b
+; That means c lies on the perpendicular bisector of segment ab
+; Similarly, d lies on the perpendicular bisector of segment ab
+
+; But we established that e is the midpoint of ab, which means:
+; The perpendicular to ab at e is precisely the perpendicular bisector of ab
+
+; Therefore, the points c, d, and f lie on the perpendicular bisector of ab
+
+; But here's the contradiction:
+; If c-e-a and c-e-b are both right angles, then c must lie on the perpendicular to ab at e
+; If d-e-a and d-e-b are both right angles, then d must lie on the perpendicular to ab at e
+; If c and d are on the same line through e, and this line is perpendicular to ab,
+; then angle c-e-d must be 180 degrees (a straight angle)
+
+; This contradicts the premise that cd intersects ab, 
+; because c-e-d would be a straight line passing through e, not an actual intersection

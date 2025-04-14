@@ -383,10 +383,6 @@
 :extrafuns ((CG Line))
 :extrafuns ((OABC Circle))
 
-;
-; describe the diagram
-;
-
 :assumption (on A AB)
 :assumption (on B AB)
 :assumption (not (on C AB))
@@ -406,7 +402,6 @@
 :assumption (< (angle C A B) rightangle)
 
 :assumption (on D BC)
-; :assumption (bet B D C)
 :assumption (= (angle D A B) (angle B C A))
 
 :assumption (on D AD)
@@ -414,7 +409,6 @@
 :assumption (intersects AD BC)
 
 :assumption (on E BC)
-; :assumption (bet B E C)
 :assumption (= (angle E A C) (angle C B A))
 
 :assumption (on E AE)
@@ -439,8 +433,8 @@
 :assumption (onc B OABC)
 :assumption (onc C OABC)
 
-:extrafuns ((L Point)) ; for testing
-:extrafuns ((AL Line)) ; for testing
+:extrafuns ((L Point))
+:extrafuns ((AL Line))
 :assumption (on A AL)
 :assumption (on L AL)
 :assumption (on L BC)
@@ -451,8 +445,8 @@
 :assumption (on H BF)
 :assumption (on H CG)
 
-:extrafuns ((J Point)) ; for testing
-:extrafuns ((AJ Line)) ; for testing
+:extrafuns ((J Point))
+:extrafuns ((AJ Line))
 :assumption (on A AJ)
 :assumption (on J AJ)
 :assumption (on O AJ)
@@ -460,61 +454,5 @@
 :assumption (= (seg A O) (seg J O))
 
 :formula (not (= (seg O H) (seg O A)))
-
-
-
-; :formula (not (intersects BF CG))
-; :formula (not (intersectslc BF OABC))
-; :formula (not (intersectslc CG OABC))
-
-; satisfiable
-
-; :formula (true)
-; :formula (not (sameside s t O))
-; :formula (sameside u t M)
-
-; unsatisfiable
-
-; :formula (sameside p t O)
-; :formula (sameside s t O)
-; :formula (not (sameside s t M))
-; :formula (not (sameside u t M))
-; :formula (bet s p t)
-; :formula (= M N)
-; :formula (bet q s u)
-; :formula (on q N)
-; :formula (= q t)
-; :formula (not (< (seg s u) (seg s t)))
-; :formula (not (< (seg u s) (seg s t)))
-; :formula (not (< (+ (seg s u) (seg u t)) (seg p t)))
-; :formula (not (< (+ (seg u s) (seg u t)) (seg p t)))
-; :formula (on u L)
-; :formula (on t L)
-; :formula (on p K)
-; :formula (not (sameside r s L))
-; :formula (not (sameside s u L))
-
-; ; takes a few of seconds
-; :formula (not (sameside r u L))
-
-; :formula (sameside s v K)
-; :formula (not (= (+ (angle r p s) (angle s p q)) (angle r p q)))
-; :formula (not (sameside p s K))
-; :formula (not (sameside s t L))
-; :formula (= L K)
-; :formula (= q s)
-; :formula (= q t)
-; :formula (= q p)
-
-; ; this one takes a long time
-; :formula (not (= (+ (angle p q s) (angle s q t)) (angle p q t)))
-
-; ; this one takes a long time
-; :formula (not (< (angle p q s) (angle p q t)))
-
-; ; immediate
-; :formula (not (implies
-;   (= (+ (angle p q s) (angle s q t)) (angle p q t))
-;     (< (angle p q s) (angle p q t))))
 
 )
