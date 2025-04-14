@@ -356,8 +356,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; Test diagram
-; examples/complete2/000/complete_007_7_Book_LLL_L194-2.gex
-; a b = segment a b; c = on_bline c a b; d = on_bline d a b; e = on_line e c d, on_line e a b ? cong a e e b
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -365,30 +363,157 @@
 ; make some points and lines
 ;
 
-:extrafuns ((c Point))
-:extrafuns ((a Point))
-:extrafuns ((b Point))
-:extrafuns ((d Point))
-:extrafuns ((e Point))
+:extrafuns ((A Point))
+:extrafuns ((B Point))
+:extrafuns ((C Point))
+:extrafuns ((D Point))
+:extrafuns ((E Point))
+:extrafuns ((F Point))
+:extrafuns ((G Point))
+:extrafuns ((O Point))
+:extrafuns ((AB Line))
+:extrafuns ((BC Line))
+:extrafuns ((CA Line))
+:extrafuns ((AD Line))
+:extrafuns ((AE Line))
+:extrafuns ((AF Line))
+:extrafuns ((AG Line))
+:extrafuns ((BF Line))
+:extrafuns ((CG Line))
+:extrafuns ((OABC Circle))
 
-:extrafuns ((ab Line))
-:assumption (on a ab)
-:assumption (on b ab)
-:assumption (not (= a b))
+;
+; describe the diagram
+;
 
-:extrafuns ((cd Line))
-:assumption (on c cd)
-:assumption (on d cd)
-:assumption (intersects ab cd)
-:assumption (on e cd)
-:assumption (on e ab)
-:assumption (= (angle c e a) rightangle)
-:assumption (= (angle c e b) rightangle)
-:assumption (= (seg a c) (seg b c))
-:assumption (= (angle d e a) rightangle)
-:assumption (= (angle d e b) rightangle)
-:assumption (= (seg a d) (seg b d))
+:assumption (on A AB)
+:assumption (on B AB)
+:assumption (not (on C AB))
+:assumption (on B BC)
+:assumption (on C BC)
+:assumption (not (on A BC))
+:assumption (on C CA)
+:assumption (on A CA)
+:assumption (not (on B CA))
 
-:formula (not(= (seg a e) (seg e b)))
+:assumption (intersects AB BC)
+:assumption (intersects BC CA)
+:assumption (intersects CA AB)
+
+:assumption (< (angle A B C) rightangle)
+:assumption (< (angle B C A) rightangle)
+:assumption (< (angle C A B) rightangle)
+
+:assumption (on D BC)
+; :assumption (bet B D C)
+:assumption (= (angle D A B) (angle B C A))
+
+:assumption (on D AD)
+:assumption (on A AD)
+:assumption (intersects AD BC)
+
+:assumption (on E BC)
+; :assumption (bet B E C)
+:assumption (= (angle E A C) (angle C B A))
+
+:assumption (on E AE)
+:assumption (on A AE)
+:assumption (intersects AE BC)
+
+:assumption (on F AD)
+:assumption (bet A D F)
+:assumption (= (seg A D) (seg D F))
+
+:assumption (on G AE)
+:assumption (bet A E G)
+:assumption (= (seg A E) (seg E G))
+
+:assumption (on B BF)
+:assumption (on F BF)
+:assumption (on C CG)
+:assumption (on G CG)
+
+:assumption (center O OABC)
+:assumption (onc A OABC)
+:assumption (onc B OABC)
+:assumption (onc C OABC)
+
+:extrafuns ((L Point)) ; for testing
+:extrafuns ((AL Line)) ; for testing
+:assumption (on A AL)
+:assumption (on L AL)
+:assumption (on L BC)
+:assumption (= (seg B L) (seg L C))
+:assumption (bet B L C)
+
+:extrafuns ((H Point))
+:assumption (on H BF)
+:assumption (on H CG)
+
+:extrafuns ((J Point)) ; for testing
+:extrafuns ((AJ Line)) ; for testing
+:assumption (on A AJ)
+:assumption (on J AJ)
+:assumption (on O AJ)
+:assumption (onc J OABC)
+:assumption (= (seg A O) (seg J O))
+
+:formula (not (= (seg O H) (seg O A)))
+
+
+
+; :formula (not (intersects BF CG))
+; :formula (not (intersectslc BF OABC))
+; :formula (not (intersectslc CG OABC))
+
+; satisfiable
+
+; :formula (true)
+; :formula (not (sameside s t O))
+; :formula (sameside u t M)
+
+; unsatisfiable
+
+; :formula (sameside p t O)
+; :formula (sameside s t O)
+; :formula (not (sameside s t M))
+; :formula (not (sameside u t M))
+; :formula (bet s p t)
+; :formula (= M N)
+; :formula (bet q s u)
+; :formula (on q N)
+; :formula (= q t)
+; :formula (not (< (seg s u) (seg s t)))
+; :formula (not (< (seg u s) (seg s t)))
+; :formula (not (< (+ (seg s u) (seg u t)) (seg p t)))
+; :formula (not (< (+ (seg u s) (seg u t)) (seg p t)))
+; :formula (on u L)
+; :formula (on t L)
+; :formula (on p K)
+; :formula (not (sameside r s L))
+; :formula (not (sameside s u L))
+
+; ; takes a few of seconds
+; :formula (not (sameside r u L))
+
+; :formula (sameside s v K)
+; :formula (not (= (+ (angle r p s) (angle s p q)) (angle r p q)))
+; :formula (not (sameside p s K))
+; :formula (not (sameside s t L))
+; :formula (= L K)
+; :formula (= q s)
+; :formula (= q t)
+; :formula (= q p)
+
+; ; this one takes a long time
+; :formula (not (= (+ (angle p q s) (angle s q t)) (angle p q t)))
+
+; ; this one takes a long time
+; :formula (not (< (angle p q s) (angle p q t)))
+
+; ; immediate
+; :formula (not (implies
+;   (= (+ (angle p q s) (angle s q t)) (angle p q t))
+;     (< (angle p q s) (angle p q t))))
 
 )
