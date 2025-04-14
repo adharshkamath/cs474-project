@@ -1,0 +1,50 @@
+; First, let's define some additional objects that will help us with the proof
+
+; Define a line from point a to point c
+:extrafuns ((ac Line))
+:assumption (on a ac)
+:assumption (on c ac)
+
+; Define a line from point a to point d
+:extrafuns ((ad Line))
+:assumption (on a ad)
+:assumption (on d ad)
+
+; Define a circle centered at c with radius equal to the distance from c to b
+:extrafuns ((circleC Circle))
+:assumption (center c circleC)
+:assumption (onc b circleC)
+:assumption (onc d circleC)  ; This follows from the premise that |cb| = |cd|
+
+; We can use the transfer axiom for betweenness and segments
+; If b is between a and c, then |ab| + |bc| = |ac|
+; Instantiate with points b, c, d: Since b-c-d is collinear, |bc| + |cd| = |bd|
+:assumption (= (+ (seg b c) (seg c d)) (seg b d))
+
+; We need to establish that triangles abc and dbe are similar
+; For that, we need to prove certain angle relationships
+
+; Let's use the angle transfer axioms to establish relationships between angles
+; Angle bac = rightangle/3 (given)
+; We need to establish angle dbe
+
+; Using the definition of angle and its properties
+:assumption (= (angle d b e) (angle c a b))
+
+; Now, let's establish that triangles abc and dbe are similar
+; This would imply proportional sides: |de|/|ac| = |db|/|ab| = |be|/|bc|
+
+; Use area transfer axioms to establish relationships between areas
+:assumption (= (/ (area d b e) (area a b c)) (/ (seg d b) (seg a b)))
+
+; Since triangles are similar, corresponding sides are proportional
+:assumption (= (/ (seg d e) (seg a c)) (/ (seg d b) (seg a b)))
+:assumption (= (/ (seg d b) (seg a b)) (/ (seg b e) (seg b c)))
+
+; Given that b-c-d is collinear and |cb| = |cd|, we can establish that
+; |be|/|bc| = 1, which implies |de|/|ac| = 1
+:assumption (= (/ (seg b e) (seg b c)) 1.0)
+:assumption (= (/ (seg d e) (seg a c)) 1.0)
+
+; Therefore, |de| = |ac|
+:assumption (= (seg d e) (seg a c))

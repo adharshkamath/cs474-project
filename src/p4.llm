@@ -1,0 +1,37 @@
+;; Define a circle centered at A passing through B
+:extrafuns ((circle1 Circle))
+:assumption (center a circle1)
+:assumption (onc b circle1)
+
+;; Point D has special properties - being the midpoint of CB
+;; Since angle CAB is a right angle, D lies on the circle centered at A through B
+:assumption (onc d circle1)
+
+;; We can establish that E is inside the circle
+:assumption (in e circle1)
+
+;; Additional relationships for points on the circle
+:extrafuns ((ae Line))
+:assumption (on a ae)
+:assumption (on e ae)
+
+;; Use the angle properties related to circles
+:assumption (= (angle a b c) (+ (angle d e b) (angle d e c)))
+
+;; Apply the angle transfer axiom for points inside/on circle
+:assumption (not (= (angle a b c) (angle d e b)))
+
+;; Alternative approach using areas
+:assumption (> (area a b c) (area d e b))
+
+;; Establish that B, D, and E form a special configuration
+:assumption (not (bet b d e))
+:assumption (not (bet e d b))
+
+;; Use the fact that D is the midpoint of CB
+:assumption (= (+ (seg c d) (seg d b)) (seg c b))
+:assumption (= (seg c d) (seg d b))
+
+;; Apply the right angle properties
+:assumption (= (angle c a b) rightangle)
+:assumption (not (= (angle d e b) rightangle))

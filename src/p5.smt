@@ -387,6 +387,8 @@
 :assumption (on d de)
 :assumption (on e de)
 :assumption (on e ab)
+:assumption (= (angle d e a) rightangle)
+:assumption (= (angle d e b) rightangle)
 :assumption (not (= e a))
 :assumption (not (= e b))
 :assumption (not (= e c))

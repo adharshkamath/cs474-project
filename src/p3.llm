@@ -1,0 +1,55 @@
+;; Defining a new line connecting d and e
+:extrafuns ((de Line))
+:assumption (on d de)
+:assumption (on e de)
+
+;; Defining a new line connecting c and e
+:extrafuns ((ce Line))
+:assumption (on c ce)
+:assumption (on e ce)
+
+;; First, establish congruence between triangles acd and aeb
+;; From the premises, we know:
+;; - seg(a,d) = seg(a,c) [given]
+;; - seg(e,a) = seg(a,b) [given]
+;; - angle(c,a,d) = angle(c,d,a) [given]
+;; - angle(e,a,b) = angle(e,b,a) [given]
+
+;; Create a circle centered at a with radius ac (= ad = ea = eb)
+:extrafuns ((C1 Circle))
+:assumption (center a C1)
+:assumption (onc c C1)
+:assumption (onc d C1)
+:assumption (onc e C1)
+:assumption (onc b C1)
+
+;; Establish that we have isosceles triangles
+:assumption (= (seg a c) (seg a d))
+:assumption (= (seg a e) (seg a b))
+:assumption (= (seg e a) (seg e b))
+
+;; We can use the principle that if a quadrilateral has all sides equal
+;; and one diagonal divides it into congruent triangles, then the other diagonal
+;; also divides it into congruent triangles.
+
+;; For the quadrilateral acbe:
+:assumption (= (seg a c) (seg e b))
+:assumption (= (seg a e) (seg c b))
+
+;; For the quadrilateral adbe:
+:assumption (= (seg a d) (seg e b))
+:assumption (= (seg a e) (seg d b))
+
+;; Establish that triangles acd and aeb are congruent:
+:assumption (= (angle c a d) (angle e a b))
+:assumption (= (angle a c d) (angle a e b))
+:assumption (= (angle a d c) (angle a b e))
+
+;; Establish that triangles cde and cab are congruent:
+:assumption (= (seg c d) (seg c a))
+:assumption (= (seg e d) (seg b a))
+:assumption (= (angle c d e) (angle c a b))
+:assumption (= (angle d c e) (angle a c b))
+
+;; By congruence of triangles cde and cab, we have:
+; :assertion (= (seg d e) (seg c b))

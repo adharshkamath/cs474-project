@@ -391,6 +391,9 @@
 :assumption (on b be)
 :assumption (on e be)
 :assumption (not (= b e))
+:assumption (= (angle b e c) rightangle)
+:assumption (= (angle b e d) rightangle)
+
 :assumption (on e cd)
 :assumption (not (= c e))
 :assumption (not (= d e))
@@ -399,6 +402,9 @@
 :assumption (on a af)
 :assumption (on f af)
 :assumption (not (= a f))
+:assumption (= (angle a f c) rightangle)
+:assumption (= (angle a f d) rightangle)
+
 :assumption (on f cd)
 :assumption (not (= f c))
 :assumption (not (= f d))

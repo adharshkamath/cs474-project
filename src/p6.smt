@@ -394,12 +394,18 @@
 :assumption (on d ca)
 :assumption (not (= b d))
 :assumption (not (= c d))
+:assumption (= (angle b d a) rightangle)
+:assumption (= (angle b d c) rightangle)
+
 :extrafuns ((ae Line))
 :assumption (on a ae)
 :assumption (on e ae)
 :assumption (on e cb)
 :assumption (not (= a e))
 :assumption (not (= c e))
+:assumption (= (angle a e b) rightangle)
+:assumption (= (angle a e c) rightangle)
+
 :extrafuns ((de Line))
 :assumption (on d de)
 :assumption (on e de)
@@ -412,6 +418,8 @@
 :assumption (not (= b f))
 :assumption (not (= d f))
 :assumption (not (= e f))
+:assumption (= (angle b f d) rightangle)
+:assumption (= (angle b f e) rightangle)
 
 
 :formula (not(= (angle a b d) (angle c b f)))
